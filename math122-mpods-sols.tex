@@ -1,0 +1,5566 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb, sectsty, graphicx, array}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\subsectionfont{\normalfont\large}
+\subsubsectionfont{\normalfont\large}
+
+\usepackage{tocloft}
+\setcounter{tocdepth}{1}
+
+\title{MATH 122: MPOD Solutions}
+\author{written by someone who has too much free time}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+
+\section{Integration by Substitution}
+%1.1
+\subsection{
+	\begin{align*}
+		\int{3x^2 (x^3 - 7)^2 dx}
+	\end{align*}
+}
+Let $u = x^3 + 7, du = 3x^2 dx,$ and $dx = \frac{du}{3x^2}$.
+\begin{align*}
+	= \int{3x^2 u^2 \frac{du}{3x^2}} = \int{u^2 du} = \frac{u^3}{3} = \frac{(x^3 - 7)^3}{3} + C
+\end{align*}
+Answer: $\frac{1}{3}(x^3 - 7)^3 + C$
+
+%1.2
+\subsection{
+	\begin{align*}
+		\int{(x+1)\sqrt{x}dx}
+	\end{align*}
+}
+Distribute $\sqrt{x}$ into $(x + 1)$. 
+\begin{align*}
+	= \int{x^{3/2} + x^{1/2} dx} = \frac{2}{5}x^{5/2} + \frac{2}{3}x^{3/2} + C
+\end{align*}
+Answer: $\frac{2}{5}x^{5/2} + \frac{2}{3}x^{3/2} + C$
+
+%1.3
+\subsection{
+	\begin{align*}
+		\int{\frac{3x dx}{\sqrt[3]{3 - 7x^2}}}
+	\end{align*}
+}
+Let $u = 3 - 7x^2, du = -14x dx,$ and $dx = \frac{du}{-14x}$.
+\begin{align*}
+	= \int{\frac{3xdu}{\sqrt[3]{u}(-14x)}} = \frac{-3}{14} \int{u^{-1/3}du} = \frac{-3}{14} \frac{3}{2} u^{2/3} = \frac{-9}{28} (3 - 7x^2)^{2/3} + C
+\end{align*}
+Answer: $\frac{-9}{28} (3 - 7x^2)^{2/3} + C$
+
+%1.4
+\subsection{
+	\begin{align*}
+		\int{\frac{x}{\sqrt{9 + x^2}} dx}
+	\end{align*}
+}
+Let $u = 9 + x^2, du = 2x dx,$ and $dx = \frac{du}{2x}$. 
+\begin{align*}
+	= \int{\frac{x}{\sqrt{u}} \frac{du}{2x}} = \frac{1}{2} \int{u^{-1/2} du} = \frac{1}{2} 2 \sqrt{u} = \sqrt{9+ x^2} + C
+\end{align*}
+Answer: $\sqrt{9+ x^2} + C$
+
+%1.5
+\subsection{
+	\begin{align*}
+		\int{\sqrt{x^4 + 2x^2 + 1} dx}
+	\end{align*}
+}
+Factor the polynomial: $x^4 + 2x^2 + 1 = (x^2 + 1)^2$.
+\begin{align*}
+	= \int{\sqrt{(x^2 + 1)^2} dx} = \int{x^2 + 1 dx} = \frac{1}{3}x^3 + x + C
+\end{align*}
+Answer: $\frac{1}{3}x^3 + x + C$
+
+%1.6
+\subsection{
+	\begin{align*}
+		\int{x(x + 3)^5 dx}
+	\end{align*}
+}
+Let $u = x + 3, du = dx,$ and $x = u - 3$. 
+\begin{align*}
+	= \int{(u - 3) u^5 du} = \int{u^6 - 3u^5 du} = \frac{1}{7} u^7 - \frac{3}{6} u^6 = \frac{1}{7} (x + 3)^7 - \frac{1}{2} (x + 3)^6 + C
+\end{align*}
+Answer: $\frac{1}{7} (x + 3)^7 - \frac{1}{2} (x + 3)^6 + C$
+
+%1.7
+\subsection{
+	\begin{align*}
+		\int{\frac{e^x}{\sqrt{1 + e^x}} dx}
+	\end{align*}
+}
+Let $u = 1 + e^x, du = e^x dx,$ and $dx = \frac{du}{e^x}$. 
+\begin{align*}
+	= \int{\frac{e^x}{\sqrt{u}} \frac{du}{e^x}} = \int{u^{-1/2} du} = 2 \sqrt{u} = 2 \sqrt{1 + e^x} + C
+\end{align*}
+Answer: $2 \sqrt{1 + e^x} + C$
+
+%1.8
+\subsection{
+	\begin{align*}
+		\int{\frac{1}{x\sqrt{\ln{x}}} dx}
+	\end{align*}
+}
+Let $u = \ln{x}, du = \frac{1}{x} dx,$ and $dx = x du$. 
+\begin{align*}
+	= \int{\frac{x du}{x \sqrt{u}}} = \int{u^{-1/2} du} = 2 \sqrt{u} = 2\sqrt{\ln{x}} + C
+\end{align*}
+Answer: $2\sqrt{\ln{x}} + C$
+
+\section{Integration by Parts}
+%2.1
+\subsection{
+	\begin{align*}
+		\int{xe^x dx}
+	\end{align*}
+}
+Let $u = x$ and $dv = e^x dx$. Then, $du = dx$ and $v = e^x$.
+\begin{align*}
+	= x e^x - \int{e^x dx} = x e^x - e^x + C
+\end{align*}
+Answer: $x e^x - e^x + C$
+
+%2.2
+\subsection{
+	\begin{align*}
+		\int{x^2 \ln{x} dx}
+	\end{align*}
+}
+Let $u = \ln{x}$ and $dv = x^2 dx$. Then, $du = \frac{1}{x} dx$ and $v = \frac{x^3}{3}$.
+\begin{align*}
+	= \ln{x} \frac{x^3}{3} - \int{\frac{x^3}{3} \frac{1}{x} dx} = \ln{x} \frac{x^3}{3} - \frac{1}{3} \int{x^2 dx} = \ln{x} \frac{x^3}{3} - \frac{x^3}{9} + C
+\end{align*}
+Answer: $\frac{1}{3} x^3 \ln{x} - \frac{1}{9} x^3 + C$
+
+%2.3
+\subsection{
+	\begin{align*}
+		\int{\arcsin{x} dx}
+	\end{align*}
+}
+Let $u = \arcsin{x}$ and $dv = dx$. Then, $du = \frac{1}{\sqrt{1 - x^2}}dx$ and $v = x$.
+\begin{align*}
+	= x \arcsin{x} - \int{x \frac{1}{\sqrt{1 - x^2}} dx}
+\end{align*}
+Let $k = 1 - x^2, dk = -2xdx,$ and $dx = -\frac{dk}{2x}$. 
+\begin{align*}
+	= x \arcsin{x} + \int{\frac{x}{\sqrt{k}} \frac{dk}{2x}} = x \arcsin{x} + \frac{1}{2} \int{k^{-1/2} dk}
+\end{align*}
+\begin{align*}
+	= x \arcsin{x} + \frac{1}{2} 2\sqrt{k} = x \arcsin{x} + \sqrt{1 - x^2} + C
+\end{align*}
+Answer: $x \arcsin{x} + \sqrt{1 - x^2} + C$
+
+%2.4
+\subsection{
+	\begin{align*}
+		\int{x^2 \sin{x} dx}
+	\end{align*}
+}
+Let $u = x^2$ and $dv = \sin{x} dx$. Then, $du = 2xdx$ and $v = -\cos{x}$
+\begin{align*}
+	= -x^2 \cos{x} + \int{\cos{x} 2x dx} = -x^2 \cos{x} + 2\int{x \cos{x} dx}
+\end{align*}
+Let $j = x$ and $dk = \cos{x} dx$. Then, $dj = dx$ and $k = \sin{x}$.
+\begin{align*}
+	= -x^2 \cos{x} + 2 \left(x \sin{x} - \int{\sin{x} dx} \right) = -x^2 \cos{x} + 2x \sin{x} + 2\cos{x} + C
+\end{align*}
+Answer: $-x^2 \cos{x} + 2x \sin{x} + 2 \cos{x} + C$
+
+%2.5
+\subsection{
+	\begin{align*}
+		\int{x \sqrt{x - 1} dx}
+	\end{align*}
+}
+Let $u = x$ and $dv = \sqrt{x - 1}dx$. Then, $du = dx$ and $v = \frac{2}{3}(x - 1)^{3/2}$. 
+\begin{align*}
+	= \frac{2}{3}x (x - 1)^{3/2} - \int{\frac{2}{3}(x - 1)^{3/2} dx} = \frac{2}{3}x (x - 1)^{3/2} - \frac{2}{3} \frac{2}{5} (x - 1)^{5/2} + C
+\end{align*}
+Answer: $\frac{2}{3}x (x - 1)^{3/2} - \frac{4}{15} (x - 1)^{5/2} + C$
+
+%2.6
+\subsection{
+	\begin{align*}
+		\int{e^{\sqrt{x}} dx}
+	\end{align*}
+}
+Let $k = \sqrt{x}, dk = \frac{1}{2\sqrt{x}}dx,$ and $dx = 2\sqrt{x} dk$.
+\begin{align*}
+	= 2\int{k e^k dk}
+\end{align*}
+Let $u = k$ and $dv = e^k dk$. Then, $du = dk$ and $v = e^k$. 
+\begin{align*}
+	= 2(ke^k - \int{e^k dk}) = 2(ke^k - e^k) = 2(\sqrt{x} e^{\sqrt{x}} - e^{\sqrt{x}}) + C
+\end{align*}
+Answer: $2(\sqrt{x} e^{\sqrt{x}} - e^{\sqrt{x}}) + C$
+
+%2.7
+\subsection{
+	\begin{align*}
+		\int{\ln{(1 + x^2)} dx}
+	\end{align*}
+}
+Let $u = \ln{(1 + x^2)}$ and $dv = dx$. Then, $du = \frac{1}{1 + x^2} (2x)dx$ and $v = x$.
+\begin{align*}
+	= x\ln{(1 + x^2)} - 2\int{\frac{x^2}{1 + x^2} dx} = x\ln{(1 + x^2)} - 2 \int{\frac{x^2 + 1 - 1}{1 + x^2} dx}
+\end{align*}
+\begin{align*}
+	= x\ln{(1 + x^2)} - 2 \int{\frac{x^2 + 1}{1 + x^2} - \frac{1}{1 + x^2} dx} = x\ln{(1 + x^2)} - 2(x - \arctan{x}) + C
+\end{align*}
+Answer: $x \ln{(1 + x^2)} + 2(\arctan{x} - x) +C$
+
+%2.8
+\subsection{
+	\begin{align*}
+		\int{\ln{x} dx}
+	\end{align*}
+}
+Let $u = \ln{x}$ and $dv = dx$. Then, $du = \frac{1}{x}dx$ and $v = x$. 
+\begin{align*}
+	= x \ln{x} - \int{x \frac{1}{x}dx} = x\ln{x} - \int{dx} = x\ln{x} - x + C
+\end{align*}
+Answer: $x \ln{x} - x + C$
+
+%2.9
+\subsection{
+	\begin{align*}
+		\int{x^2 e^{x^3} dx}
+	\end{align*}
+}
+Let $u = x^3, du = 3x^2 dx,$ and $dx = \frac{du}{3x^2}$. 
+\begin{align*}
+	\int{x^2 e^u \frac{du}{3x^2}} = \frac{1}{3} \int{e^u du} = \frac{1}{3} e^u = \frac{1}{3} e^{x^3} + C
+\end{align*}
+Answer: $\frac{1}{3} e^{x^3} + C$
+
+\section{Trig Integrals}
+%3.1
+\subsection{
+	\begin{align*}
+		\int{\sin^5{x} \cos^2{x} dx}
+	\end{align*}
+}
+Let $u = \cos{x}, du = -\sin{x} dx,$ and $dx = -\frac{du}{\sin{x}}$. 
+\begin{align*}
+	= -\int{\sin^5{x} u^2 \frac{du}{\sin{x}}} = -\int{\sin^4{x} u^2 du} = -\int{(\sin^2{x})^2 u^2 du}
+\end{align*}
+Using the identity $\sin^2{x} + \cos^2{x} = 1 \implies \sin^2{x} = 1 - \cos^2{x}$
+\begin{align*}
+	= -\int{(1 - \cos^2{x})^2 u^2 du} = -\int{(1 - u^2)^2 u^2 du} = -\int{(1 - 2u^2 + u^4) u^2 du}
+\end{align*}
+\begin{align*}
+	= -\int{u^2 - 2u^4 + u^6 du} = -\left(\frac{u^3}{3} - \frac{2u^5}{5} + \frac{u^7}{7}\right)
+\end{align*}
+\begin{align*}
+	= - \left( \frac{1}{3}\cos^3{x} - \frac{2}{5}\cos^5{x} + \frac{1}{7} \cos^7{x} \right) + C
+\end{align*}
+Answer: $- \left( \frac{1}{3}\cos^3{x} - \frac{2}{5}\cos^5{x} + \frac{1}{7} \cos^7{x} \right) + C$
+
+%3.2
+\subsection{
+	\begin{align*}
+		\int{\cos^5{x} \sin^2{x} dx}
+	\end{align*}
+}
+Let $u = \sin{x}, du = \cos{x}dx,$ and $dx = \frac{du}{\cos{x}}$.
+\begin{align*}
+	= \int{\cos^5{x}u^2 \frac{du}{\cos{x}}} = \int{\cos^4{x} u^2 du} = \int{\left( \cos^2{x} \right)^2 u^2 du}
+\end{align*}
+Using the identity $\sin^2{x} + \cos^2{x} = 1 \implies \cos^2{x} = 1 - \sin^2{x}$
+\begin{align*}
+	= \int{ \left(1 - \sin^2{x} \right)^2 u^2 du} = \int{(1 - u^2)^2 u^2 du} = \int{(1 - 2u^2 + u^4) u^2 du}
+\end{align*}
+\begin{align*}
+	= \int{u^2 - 2u^4 + u^6 du} = \frac{u^3}{3} - \frac{2u^5}{5} + \frac{u^7}{7}
+\end{align*}
+\begin{align*}
+	= \frac{1}{3} \sin^3{x} - \frac{2}{5} \sin^5{x} + \frac{1}{7} \sin^7{x} + C
+\end{align*}
+Answer: $\frac{1}{3} \sin^3{x} - \frac{2}{5} \sin^5{x} + \frac{1}{7} \sin^7{x} + C$
+
+%3.3
+\subsection{
+	\begin{align*}
+		\int{\sin^3{x} \cos^4{x} dx}
+	\end{align*}
+}
+Let $u = \cos{x}, du = -\sin{x} dx,$ and $dx = \frac{du}{\sin{x}}$.
+\begin{align*}
+	= \int{\sin^3{x} u^4 \frac{du}{\sin{x}}} = -\int{\sin^2{x} u^4 du}
+\end{align*}
+Using the identity $\sin^2{x} + \cos^2{x} = 1 \implies \sin^2{x} = 1 - \cos^2{x}$
+\begin{align*}
+	= -\int{(1 - \cos^2{x}) u^4 du} = -\int{(1 - u^2)u^4 du} = -\int{u^4 - u^6 du}
+\end{align*}
+\begin{align*}
+	= -\left( \frac{u^5}{5} - \frac{u^7}{7} \right) = \frac{\cos^7{x}}{7} - \frac{\cos^5{x}}{5} + C
+\end{align*}
+Answer: $\frac{1}{7}\cos^7{x} - \frac{1}{5} \cos^5{x} + C$
+
+%3.4
+\subsection{
+	\begin{align*}
+		\int{\frac{\cos^3{x}}{\sqrt{\sin{x}}} dx}
+	\end{align*}
+}
+Let $u = \sin{x}, du = \cos{x}dx,$ and $dx = \frac{du}{\cos{x}}$. 
+\begin{align*}
+	= \int{\frac{\cos^3{x}}{\sqrt{u}}\frac{du}{\cos{x}}} = \int{\frac{\cos^2{x}}{\sqrt{u}}du}
+\end{align*}
+Using the identity $\sin^2{x} + \cos^2{x} = 1 \implies \cos^2{x} = 1 - \sin^2{x}$
+\begin{align*}
+	= \int{\frac{1 - \sin^2{x}}{\sqrt{u}}du} = \int{\frac{1 - u^2}{\sqrt{u}} du} = \int{u^{-1/2} - u^{3/2} du}
+\end{align*}
+\begin{align*}
+	= 2\sqrt{u} - \frac{2}{5}u^{5/2} = 2 \sqrt{\sin{x}} - \frac{2}{5} \sin^{5/2}{x} + C
+\end{align*}
+Answer: $2 \sqrt{\sin{x}} - \frac{2}{5} \sqrt{\sin^5{x}} + C$
+
+%3.5
+\subsection{
+	\begin{align*}
+		\int{\cos^4{x} dx}
+	\end{align*}
+}
+Use trig identities to expand the integrand.
+\begin{align*}
+	= \int{\left( \cos^2{x} \right)^2 dx} = \int{\left( \frac{1 + \cos{2x}}{2} \right)^2 dx} = \frac{1}{4}\int{\left( 1 + 2\cos{2x} + \cos^2{2x} \right) dx} 
+\end{align*}
+\begin{align*}
+	= \frac{1}{4} \left( \int{dx} + 2\int{\cos{2x}dx} + \int{\cos^2{2x}dx} \right)
+\end{align*}
+For the second function, let $u = 2x, du = 2dx,$ and $dx = \frac{du}{2}$. For the third function, use trig identities. 
+\begin{align*}
+	= \frac{1}{4} \left( x + 2 \int{\cos{u} \frac{du}{2}} + \int{\frac{1 + \cos{4x}}{2}dx} \right) = \frac{1}{4} \left( x + \sin{2x} + \int{\frac{1 + \cos{4x}}{2}dx} \right)
+\end{align*}
+Let $u = 4x, du = 4dx$, and $dx = \frac{du}{4}$.
+\begin{align*}
+	= \frac{1}{4} \left( x + \sin{2x} + \frac{1}{2} \left( x + \frac{1}{4}\int{\cos{u}du} \right) \right) = \frac{3}{8}x + \frac{1}{4}\sin{2x} + \frac{1}{32}\sin{4x} + C
+\end{align*}
+Answer: $\frac{3}{8}x + \frac{1}{4}\sin{2x} + \frac{1}{32}\sin{4x} + C$
+
+%3.6
+\subsection{
+	\begin{align*}
+		\int{\sin^2{2x} \cos^2{2x} dx}
+	\end{align*}
+}
+Let $k = 2x, dk = 2dx,$ and $dx = \frac{dk}{2}$. 
+\begin{align*}
+	= \int{\sin^2{k} \cos^2{k} \frac{dk}{2}} = \frac{1}{2} \int{\sin^2{k} \cos^2{k} dk}
+\end{align*}
+We can use the two identities listed below:
+\begin{align*}
+	\sin^2{x} = \frac{1 - \cos{2x}}{2} \quad \cos^2{x} = \frac{1 + \cos{2x}}{2}
+\end{align*}
+Substituting them in, we obtain
+\begin{align*}
+	= \frac{1}{2} \int{\frac{1 - \cos{2k}}{2} \frac{1 + \cos{2k}}{2} dk} = \frac{1}{2} \frac{1}{4} \int{(1 - \cos{2k})(1 + \cos{2k})dk}
+\end{align*}
+\begin{align*}
+	= \frac{1}{8} \int{1 - \cos^2{2k} dk} = \frac{1}{8} \left( k - \int{\frac{1 + \cos{4k}}{2}} dk \right)
+\end{align*}
+\begin{align*}
+	= \frac{1}{8} \left(k - \frac{1}{2}\left(k + \frac{1}{4}\sin{4k}\right) \right) = \frac{1}{8} \left(2x - \frac{1}{2}\left(2x + \frac{1}{4}\sin{8x}\right)  \right) + C
+\end{align*}
+\begin{align*}
+	= \frac{1}{8} \left( 2x - x + \frac{1}{8}\sin{8x} \right) + C= \frac{1}{8} \left( x - \frac{1}{8} \sin{8x} \right)+ C
+\end{align*}
+Answer: $\frac{1}{8} \left( x - \frac{1}{8} \sin{8x} \right)+ C$
+
+%3.7
+\subsection{
+	\begin{align*}
+		\int{\cos^3{3x} dx}
+	\end{align*}
+}
+Let $u = 3x, du = 3dx$, and $dx = \frac{du}{3}$. 
+\begin{align*}
+	= \int{\cos^3{u} \frac{du}{3}} = \frac{1}{3} \int{\cos^3{u}du}
+\end{align*}
+Let $v = \sin{u}, dv = \cos{u} du,$ and $du = \frac{dv}{\cos{u}}$. 
+\begin{align*}
+	= \frac{1}{3} \int{\cos^3{u} \frac{dv}{\cos{u}}} = \frac{1}{3} \int{\cos^2{u} dv}
+\end{align*}
+Using the identity $\sin^2{u} + \cos^2{u} = 1 \implies \cos^2{u} = 1 - \sin^2{u}$
+\begin{align*}
+	= \frac{1}{3} \int{1 - \sin^2{u} dv} = \frac{1}{3} \int{1 - v^2 dv} = \frac{1}{3} \left( {v - \frac{v^3}{3}} \right)
+\end{align*}
+\begin{align*}
+	= \frac{1}{3} \left( \sin{u} - \frac{\sin^3{u}}{3} \right) = \frac{1}{3} \left( \sin{3x} - \frac{\sin^3{3x}}{3} \right) + C
+\end{align*}
+Answer: $\frac{1}{3} \sin{3x} - \frac{1}{9} \sin^3{3x} + C$
+
+%3.8
+\subsection{
+	\begin{align*}
+		\int{\tan^3{3x} \sec^4{3x} dx}
+	\end{align*}
+}
+Let $k = 3x, dk = 3dx,$ and $dx = \frac{dk}{3}$. 
+\begin{align*}
+	= \int{\tan^3{k} \sec^4{k} \frac{dk}{3}} = \frac{1}{3} \int{\tan^3{k} \sec^4{k} dk}
+\end{align*}
+Let $u = \tan{k}, du = \sec^2{k} dk$, and $dk = \frac{du}{\sec^2{k}}$.
+\begin{align*}
+	= \frac{1}{3} \int{u^3 \sec^4{k} \frac{du}{\sec^2{k}}} = \frac{1}{3} \int{u^3 \sec^2{k} du}
+\end{align*}
+Using the identity: $\tan^2{u} + 1 = \sec^2{u}$
+\begin{align*}
+	= \frac{1}{3} \int{u^3 (\tan^2{u} + 1)du} = \frac{1}{3} \int{u^3 (u^2 + 1) du} = \frac{1}{3} \int{u^5 + u^3 du}
+\end{align*}
+\begin{align*}
+	= \frac{1}{3} \left( \frac{u^6}{6} + \frac{u^4}{4} \right) = \frac{1}{3} \left( \frac{\tan^6{k}}{6} + \frac{\tan^4{k}}{4} \right) = \frac{1}{3} \left( \frac{\tan^6{3x}}{6} + \frac{\tan^4{3x}}{4} \right) + C
+\end{align*}
+Answer: $\frac{1}{3} \left( \frac{1}{6} \tan^6{3x} + \frac{1}{4}\tan^4{3x} \right) + C$
+
+%3.9
+\subsection{
+	\begin{align*}
+		\int{\frac{\sec{x}}{\tan^2{x}} dx}
+	\end{align*}
+}
+Transform the integral into terms of sine and cosine.
+\begin{align*}
+	= \int{\frac{\frac{1}{\cos{x}}}{\frac{\sin^2{x}}{\cos^2{x}}}dx} = \int{\frac{\cos{x}}{\sin^2{x}}dx}
+\end{align*}
+Let $u = \sin{x}, du = \cos{x} dx$, and $dx = \frac{du}{\cos{x}}$.
+\begin{align*}
+	= \int{\frac{\cos{x}}{u^2} \frac{du}{\cos{x}}} = \int{u^{-2} du} = \frac{u^{-1}}{-1} = -\frac{1}{u} = -\frac{1}{\sin{x}} = -\csc{x} + C
+\end{align*}
+Answer: $-\csc{x} + C$
+
+%3.10
+\subsection{
+	\begin{align*}
+		\int{\frac{\tan^3{x}}{\sqrt{\sec{x}}} dx}
+	\end{align*}
+}
+Let $u = \sec{x}, du = \sec{x}\tan{x} dx,$ and $dx = \frac{du}{\sec{x} \tan{x}}$.
+\begin{align*}
+	= \int{\frac{\tan^3{x}}{\sqrt{u}} \frac{du}{\sec{x} \tan{x}}} = \int{\frac{\tan^2{x}}{u^{3/2}} du}
+\end{align*}
+Using the identity: $\tan^2{u} + 1 = \sec^2{u} \implies \tan^2{x} = \sec^2{x} - 1$
+\begin{align*}
+	= \int{\frac{\sec^2{x} - 1}{u^{3/2}}du} = \int{\frac{u^2 - 1}{u^{3/2}}du} = \int{u^{1/2} - u^{-3/2}}
+\end{align*}
+\begin{align*}
+	= \frac{2}{3} u^{3/2} + 2 u^{1/2} = \frac{2}{3} \sec^{3/2}{x} + 2\sec^{1/2}{x} + C
+\end{align*}
+Answer: $\frac{2}{3} (\sec{x})^{3/2} + 2(\sec{x})^{-1/2} + C$
+
+%3.11
+\subsection{
+	\begin{align*}
+		\int{\tan{2x} dx}
+	\end{align*}
+}
+Let $u = sec{2x}, du = 2\sec{2x} \tan{2x} dx,$ and $dx = \frac{du}{2\sec{x} \tan{x}}$.
+\begin{align*}
+	= \int{\tan{2x} \frac{du}{2 \sec{2x} \tan{2x}}} = \frac{1}{2} \int{\frac{du}{u}} = \frac{1}{2} \ln{|u|} = \frac{1}{2} \ln{|\sec{2x}|} + C
+\end{align*}
+Answer: $\frac{1}{2} \ln{ | \sec{2x} | + C}$
+
+%3.12
+\subsection{
+	\begin{align*}
+		\int{\tan^2{3x} dx}
+	\end{align*}
+}
+Using the identity: $\tan^2{3x} + 1 = \sec^2{3x} \implies \tan^2{3x} = \sec^2{3x} - 1$
+\begin{align*}
+	= \int{\sec^2{3x} - 1 dx} = \int{\sec^2{3x}dx} - \int{dx}
+\end{align*}
+Let $u = \tan{3x}, du = 3\sec^2{3x}dx,$ and $dx = \frac{du}{3\sec^2{3x}}$
+\begin{align*}
+	= \int{\sec^2{3x} \frac{du}{3\sec^2{3x}}} - x = \frac{1}{3}\int{du} - x = \frac{1}{3}\tan{3x} - x + C
+\end{align*}
+Answer: $\frac{1}{3} \tan{3x} - x + C$
+
+%3.13
+\subsection{
+	\begin{align*}
+		\int{\tan^4{x} dx}
+	\end{align*}
+}
+Using the identity: $\tan^2{x} + 1 = \sec^2{x} \implies \tan^2{x} = \sec^2{x} - 1$
+\begin{align*}
+	= \int{\tan^2{x} \left( \sec^2{x} - 1 \right)dx} = \int{\tan^2{x} \sec^2{x} - \tan^2{x} dx}
+\end{align*}
+\begin{align*}
+	= \int{\tan^2{x} \sec^2{x} dx} - \int{\tan^2{x} dx}
+\end{align*}
+For the first integral, let $u = \tan{x}, du = \sec^2{x}dx$, and $dx = \frac{du}{\sec^2{x}}$. For the second integral, rearrange using trig identities. 
+\begin{align*}
+	= \int{u^2 \sec^2{x} \frac{du}{\sec^2{x}}} - \int{\sec^2{x} - 1 dx} = \int{u^2 du} - \int{\sec^2{x}dx} + \int{dx}
+\end{align*}
+For the second integral, let $v = \tan{x}, dv = \sec^2{x}dx$, and $dx = \frac{dv}{\sec^2{x}}$.
+\begin{align*}
+	= \frac{u^3}{3} - \int{\sec^2{x} \frac{dv}{\sec^2{x}}} + x = \frac{\tan^3{x}}{3} - \int{dv} + x = \frac{\tan^3{x}}{3} - \tan{x} + x + C
+\end{align*}
+Answer: $\frac{1}{3} \tan^3{x} - \tan{x} + x + C$
+
+\section{Trig Substitution}
+%4.1
+\subsection{
+	\begin{align*}
+		\int{\frac{dx}{x^2 \sqrt{9 - x^2}}}
+	\end{align*}
+}
+Let $x = 3\sin{\theta}$ and $dx = 3\cos{\theta}$.
+\begin{align*}
+	= \int{\frac{3\cos{\theta}d\theta}{9\sin^2{\theta}\sqrt{9 - 9\sin^2{\theta}}}} = \frac{1}{3} \int{\frac{\cos{\theta} d\theta}{\sin^2{\theta}\sqrt{9(1 - \sin^2{\theta})}}} = \frac{1}{3} \int{\frac{\cos{\theta} d\theta}{\sin^2{\theta} \sqrt{9\cos^2{\theta}}}}
+\end{align*}
+\begin{align*}
+	= \frac{1}{3} \int{\frac{\cos{\theta}d\theta}{\sin^2{\theta}\cos{\theta}}} = \frac{1}{9} \int{\csc^2{\theta}d\theta} = -\frac{1}{9} \cot{\theta}
+\end{align*}
+Provided that $x = 3\sin{\theta} \implies \sin{\theta} = \frac{x}{3}$, we can use Pythagorean's Theorem to find the adjacent side of the triangle from $\theta$. 
+%Insert triangle figure
+\begin{align*}
+	= -\frac{1}{9} \frac{\sqrt{9 - x^2}}{x} + C
+\end{align*}
+Answer: $-\frac{1}{9} \left( \frac{\sqrt{9 - x^2}}{x} \right) + C$
+
+%4.2
+\subsection{
+	\begin{align*}
+		\int{\frac{dx}{\sqrt{x^2 + 4}}}
+	\end{align*}
+}
+Let $x = 2\tan{\theta}$ and $dx = 2\sec^2{\theta}d\theta$. 
+\begin{align*}
+	= \int{\frac{2\sec^2{\theta}d\theta}{\sqrt{4\tan^2{\theta} + 4}}} = \int{\frac{2\sec^2{\theta}d\theta}{\sqrt{4(\tan^2{\theta} + 1)}}} = \int{\frac{2\sec^2{\theta}d\theta}{\sqrt{4\sec^2{\theta}}}} = \int{\frac{2\sec^2{\theta}d\theta}{2\sec{\theta}}} 
+\end{align*}
+\begin{align*}
+	= \int{\sec{\theta} d\theta} = \ln{|\sec{\theta} + \tan{\theta}|}
+\end{align*}
+Provided that $x = 2\tan{\theta} \implies \tan{\theta} = \frac{x}{2}$, we can use Pythagorean's Theorem to find hypotenuse side of the triangle from $\theta$. 
+% Insert triangle
+\begin{align*}
+	\ln{|\frac{\sqrt{x^2 + 4}}{2} + \frac{x}{2}|} + C
+\end{align*}
+Answer: $\ln{| \frac{\sqrt{x^2 + 4}}{2} + \frac{x}{2}|}  + C$
+
+%4.3
+\subsection{
+	\begin{align*}
+		\int{\frac{dx}{(x^2 + 1)^{3/2}}}
+	\end{align*}
+}
+Rearrange the integral into a suitable form.
+\begin{align*}
+	= \int{\frac{dx}{(\sqrt{x^2 + 1})^3}}
+\end{align*}
+Let $x = \tan{\theta}$ and $dx = \sec^2{\theta}d\theta$.
+\begin{align*}
+	= \int{\frac{\sec^2{\theta}d\theta}{(\sqrt{\tan^2{\theta} + 1})^3}} = \int{\frac{\sec^2{\theta}d\theta}{(\sqrt{\sec^2{\theta}})^3}} = \int{\frac{\sec^2{\theta}d\theta}{(\sec{\theta})^3}} = \int{\frac{d\theta}{\sec{\theta}}}
+\end{align*}
+\begin{align*}
+	= \int{\cos{\theta}d\theta} = \sin{\theta}
+\end{align*}
+Provided that $x = \tan{\theta}$, we can use Pythagorean's Theorem to find the hypotenuse side of the triangle from $\theta$. 
+% insert triangle
+\begin{align*}
+	= \frac{x}{\sqrt{x^2 + 1}} + C
+\end{align*}
+Answer: $\frac{x}{\sqrt{x^2 + 1}} + C$
+
+%4.4
+\subsection{
+	\begin{align*}
+		\int{\frac{\sqrt{x^2 - 3}}{x} dx}
+	\end{align*}
+}
+Let $x = \sqrt{3}\sec{\theta}$ and $dx = \sqrt{3}\sec{\theta}\tan{\theta}d\theta$. 
+\begin{align*}
+	= \int{\frac{\sqrt{3\sec^2{\theta} - 3}}{\sqrt{3}\sec{\theta}}\sqrt{3}\sec{\theta}\tan{\theta}d\theta} = \int{\sqrt{3(\sec^2{\theta} - 1)}\tan{\theta}d\theta}
+\end{align*}
+\begin{align*}
+	= \int{\sqrt{3 \tan^2{\theta}}\tan{\theta}d\theta} = \sqrt{3} \int{\tan^2{\theta}d\theta} = \sqrt{3} \int{(\sec^2{\theta} - 1)d\theta}
+\end{align*}
+\begin{align*}
+	= \sqrt{3} \left( \int{\sec^2{\theta}d\theta} - \int{d\theta} \right) = \sqrt{3} \left( \tan{\theta} - \theta \right)
+\end{align*}
+Provided that $x = \sqrt{3} \sec{\theta} \implies \sec{\theta} = \frac{x}{\sqrt{3}}$, we can use Pythagorean's Theorem to find the opposite side of the triangle from $\theta$. 
+\begin{align*}
+	= \sqrt{3} \left( \frac{\sqrt{x^2 - 3}}{\sqrt{3}} - \arcsec{\frac{x}{\sqrt{3}}} \right) + C= \sqrt{x^2 - 3} - \sqrt{3} \arcsec{\left( \frac{x}{\sqrt{3}} \right)} + C
+\end{align*}
+Answer: $\sqrt{x^2 - 3} - \sqrt{3} \arcsec{\left( \frac{x}{\sqrt{3}} \right)} + C$
+
+%4.5
+\subsection{
+	\begin{align*}
+		\int{\sqrt{1 - x^2} dx}
+	\end{align*}
+}
+Let $x = \sin{\theta}$ and $dx = \cos{\theta}d\theta$. 
+\begin{align*}
+	=  \int{\sqrt{1 - \sin^2{\theta}}\cos{\theta}d\theta} = \int{\sqrt{\cos^2{\theta}}\cos{\theta}d\theta} = \int{\cos^2{\theta}d\theta}
+\end{align*}
+\begin{align*}
+	= \int{\frac{1 + \cos{2\theta}}{2} d\theta} = \frac{1}{2} \left( \int{d\theta} + \int{\cos{2\theta}d\theta} \right) 
+\end{align*}
+Let $u = 2\theta, du = 2d\theta$, and $d\theta = \frac{du}{2}$.
+\begin{align*}
+	= \frac{1}{2} \left( \theta + \int{\cos{u} \frac{du}{2}} \right) = \frac{1}{2} \left( \theta + \frac{1}{2}\sin{u} \right) = \frac{1}{2} \left( \theta + \frac{1}{2}\sin{2\theta} \right)
+\end{align*}
+Use the trig identity: $\sin{2\theta} = 2\sin{\theta}\cos{\theta}$.
+\begin{align*}
+	= \frac{1}{2} \left( \arcsin{x} + \frac{1}{2}2\sin{\theta}\cos{\theta} \right)
+\end{align*}
+Provided that $x = \sin{\theta}$, we can use Pythagorean's Theorem to find the adjacent side of the triangle from $\theta$.
+\begin{align*}
+	= \frac{1}{2} \left( \arcsin{x} + x \sqrt{1 - x^2} \right) + C
+\end{align*}
+Answer: $\frac{1}{2} \arcsin{x} + \frac{1}{2}x \sqrt{1 - x^2} + C$
+
+\section{Hyperbolic Functions}
+%5.1
+\subsection{
+	\begin{align*}
+		\int{\sinh{3x} dx}
+	\end{align*}
+}
+Let $u = 3x, du = 3dx,$ and $dx = \frac{du}{3}$.
+\begin{align*}
+	= \int{\sinh{u} \frac{du}{3}} = \frac{1}{3} \cosh{u} = \frac{1}{3} \cosh{3x} + C
+\end{align*}
+Answer: $\frac{1}{3} \cosh{(3x)} + C$
+
+%5.2
+\subsection{
+	\begin{align*}
+		\int{\tanh^3 3x \sech^3 3x dx}
+	\end{align*}
+}
+Let $k = 3x, dk = 3dx,$ and $dx = \frac{du}{3}$. 
+\begin{align*}
+	= \frac{1}{3} \int{\tanh^3{k}\sech^2{k}dk}
+\end{align*}
+Let $u = \tanh{k}, du = \sech^2{k}dk$, and $dk= \frac{du}{\sech^2{k}}$.
+\begin{align*}
+	= \frac{1}{3} \int{u^3 \sech^2{k} \frac{du}{\sech^2{k}}} = \frac{1}{3} \int{u^3 du} = \frac{1}{3} \frac{u^4}{4} = \frac{1}{12} \tanh^4{k} = \frac{1}{12} (\tanh{3x})^4 + C
+\end{align*}
+Answer: $\frac{1}{12} (\tanh{3x})^4 + C$
+
+%5.3
+\subsection{
+	\begin{align*}
+		\int{\tanh x dx}
+	\end{align*}
+}
+Let $u = \sech{x}, du = -\sech{x}\tanh{x}$, and $dx = \frac{-du}{\sech{x}\tanh{x}}$. 
+\begin{align*}
+	= \int{\tanh{x} \frac{-du}{u\tanh{x}}} = - \int{\frac{du}{u}} = -\ln{u} = -\ln{|\sech{x}|} + C
+\end{align*}
+Answer: $\ln{|\cosh{x}|} + C$
+
+%5.4
+\subsection{
+	\begin{align*}
+		\int{(\tanh 2x) (\sech 2x) dx}
+	\end{align*}
+}
+Let $k = 2x, dk = 2dx,$ and $dx = \frac{dk}{2}$. 
+\begin{align*}
+	= \int{\tanh{k}\sech{k}\frac{dk}{2}} = \frac{1}{2} \int{\tanh{k}\sech{k}dk}
+\end{align*}
+Let $u = \sech{k}, du = -\sech{k}\tanh{k}dk$, and $dk = \frac{-du}{\sech{k}\tanh{k}}$.
+\begin{align*}
+	= \frac{1}{2} \int{\tanh{k}u \frac{-du}{u \tanh{k}}} = -\frac{1}{2} \int{du} = -\frac{1}{2}u = -\frac{1}{2}\sech{k} = -\frac{1}{2}\sech{2x} + C
+\end{align*}
+Answer: $- \frac{1}{2} \sech{2x} + C$
+
+%5.5
+\subsection{
+	\begin{align*}
+		\int{(\cosh^5 x) (\sinh x) dx}
+	\end{align*}
+}
+Let $u = \cosh{x}, du = \sinh{x}dx$, and $dx = \frac{du}{\sinh{x}}$. 
+\begin{align*}
+	= \int{u^5 \sinh{x} \frac{du}{\sinh{x}}} = \int{u^5 du} = \frac{u^6}{6} = \frac{\cosh^6{x}}{6} + C
+\end{align*}
+Answer: $\frac{1}{6} \cosh^6{x} + C$
+
+%5.6
+\subsection{
+	\begin{align*}
+		\int{\sqrt{x^2 - 1} dx}
+	\end{align*}
+}
+Let $x = \cosh{\theta}$ and $dx = \sinh{\theta}d\theta$. 
+\begin{align*}
+	= \int{\sqrt{\cosh^2{\theta} - 1}\sinh{\theta}d\theta} = \int{\sqrt{\sinh^2{\theta}}\sinh{\theta}d\theta} = \int{\sinh^2{\theta}d\theta}
+\end{align*}
+\begin{align*}
+	= \frac{\cosh{2\theta} - 1}{2} = \frac{1}{2} \left( \int{\cosh{2\theta}d\theta} - \int{d\theta} \right) = \frac{1}{2} \left( \frac{1}{2}\sinh{2\theta} - \theta \right)
+\end{align*}
+Using the trig identity: $\sinh{2\theta} = 2\sinh{\theta}\cosh{\theta}$. 
+\begin{align*}
+	= \frac{1}{2} \left( \frac{1}{2}2\sinh{\theta}\cosh{\theta} - \theta \right) = \frac{1}{2} \left( \sinh{\theta}\cosh{\theta} - \theta \right)
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \left( x\sqrt{x^2 - 1} - \arccosh{x} \right) + C
+\end{align*}
+Answer: $\frac{1}{2}x \sqrt{x^2 - 1} - \frac{1}{2} \arccosh{x} + C$
+
+%5.7
+\subsection{
+	\begin{align*}
+		\int{\frac{\tanh^{-1} x}{x^2 - 1} dx}
+	\end{align*}
+}
+Let $u = \arctanh{x}, du = \frac{1}{1 - x^2}dx$, and $dx = (1 - x^2)du$. 
+\begin{align*}
+	\int{\frac{u}{x^2 - 1}(1 - x^2)du} = -\int{udu} = -\frac{u^2}{2} = -\frac{\arctanh^2{x}}{2} + C
+\end{align*}
+Answer: $-\frac{1}{2} (\arctanh{x})^2 + C$
+
+%5.8
+\subsection{
+	\begin{align*}
+		\int{\sinh^{-1} x dx}
+	\end{align*}
+}
+Let $u = \arcsinh{x}$ and $dv = dx$. Then, $du = \frac{1}{\sqrt{x^2 + 1}}dx$ and $v = x$.
+\begin{align*}
+	= x\arcsinh{x} - \int{x \frac{1}{\sqrt{x^2 + 1}}dx}
+\end{align*}
+Let $k = x^2 + 1, dk = 2xdx$, and $dx = \frac{dk}{2x}$. 
+\begin{align*}
+	= x\arcsinh{x} - \int{x \frac{1}{\sqrt{k}} \frac{dk}{2x}} = x\arcsinh{x} - \frac{1}{2}\int{k^{-1/2}dk}
+\end{align*}
+\begin{align*}
+	= x\arcsinh{x} - \frac{1}{2} 2\sqrt{k} = x\arcsinh{x} - \sqrt{x^2 + 1} + C
+\end{align*}
+Answer: $x \arcsinh{x} - \sqrt{1 + x^2} + C$
+
+\section{Partial Fractions}
+%6.1
+\subsection{
+	\begin{align*}
+		\int{\frac{dx}{x^2 - 1}}
+	\end{align*}
+}
+\begin{align*}
+	\int{\frac{dx}{(x + 1)(x - 1)}} = \int{\frac{A}{x + 1} + \frac{B}{x - 1}dx} = \int{\frac{A(x - 1) + B(x + 1)}{(x + 1)(x - 1)}dx} 
+\end{align*}
+\begin{align*}
+	= \int{\frac{Ax + Bx - A + B}{(x + 1)(x - 1)}dx} = \int{\frac{x(A + B) - A + B}{(x + 1)(x - 1)}dx}
+\end{align*}
+We have the following system of equations:
+\begin{align*}
+	0 = A + B \quad 1 = -A + B
+\end{align*}
+We find the following values for $A$ and $B$:
+\begin{align*}
+	A = -\frac{1}{2} \quad B = \frac{1}{2}
+\end{align*}
+\begin{align*}
+	= \int{\frac{-\frac{1}{2}}{x + 1} + \frac{\frac{1}{2}}{x - 1}dx} = -\frac{1}{2} \ln{|x + 1|} + \frac{1}{2} \ln{|x - 1|} + C
+\end{align*}
+Answer: $\frac{1}{2} \ln{|x - 1|} - \frac{1}{2} \ln{|x + 1|} + C$
+
+%6.2
+\subsection{
+	\begin{align*}
+		\int{\frac{dx}{4x^2 - 9}}
+	\end{align*}
+}
+\begin{align*}
+	= \int{\frac{dx}{(2x - 3)(2x + 3)}} = \int{\frac{A}{2x - 3} + \frac{B}{2x + 3}dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{A(2x + 3) + B(2x - 3)}{(2x - 3)(2x + 3)}dx} = \int{\frac{x(2A + 2B) + 3A - 3B}{(2x - 3)(2x + 3)}dx}
+\end{align*}
+We have the following system of equations:
+\begin{align*}
+	0 = 2A + 2B \quad 1 = 3A - 3B
+\end{align*}
+We find the following values for $A$ and $B$: 
+\begin{align*}
+	A = \frac{1}{6} \quad B = -\frac{1}{6}
+\end{align*}
+\begin{align*}
+	= \int{\frac{\frac{1}{6}}{2x - 3} + \frac{-\frac{1}{6}}{2x + 3}} = \frac{1}{6}\ln{|2x - 3|} \frac{1}{2} - \frac{1}{6} \ln{|2x + 3|} \frac{1}{2} + C
+\end{align*}
+Answer: $\frac{1}{12} \ln{|2x - 3|} - \frac{1}{12} \ln{|2x + 3|} + C$
+
+%6.3
+\subsection{
+	\begin{align*}
+		\int{\frac{x + 2}{x^2 - 4x} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \int{\frac{x + 2}{x(x - 4)}dx} = \int{\frac{A}{x} + \frac{B}{x - 4} dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{A(x - 4) + Bx}{x(x - 4)}dx} = \int{\frac{x(A + B) - 4A}{x(x - 4)}dx}
+\end{align*}
+We have the following system of equations:
+\begin{align*}
+	1 = A + B \quad 2 = -4A
+\end{align*}
+We find the following values for $A$ and $B$:
+\begin{align*}
+	A = -\frac{1}{2} \quad B = \frac{3}{2}
+\end{align*}
+\begin{align*}
+	= \int{\frac{-\frac{1}{2}}{x} + \frac{\frac{3}{2}}{x - 4}dx} = -\frac{1}{2}\ln{|x|} + \frac{3}{2}\ln{|x - 4|} + C
+\end{align*}
+Answer: $\frac{3}{2} \ln{|x - 4|} - \frac{1}{2} \ln{|x|} + C$
+
+%6.4
+\subsection{
+	\begin{align*}
+		\int{\frac{2x - 3}{(x - 1)^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \int{\frac{2x - 3}{(x - 1)^2}dx} = \int{\frac{A}{x - 1} + \frac{B}{(x - 1)^2}dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{A(x - 1) + B}{(x - 1)^2}dx} = \int{\frac{Ax + B - A}{(x - 1)^2}dx}
+\end{align*}
+We have the following system of equations:
+\begin{align*}
+	2 = A \quad -3 = B - A
+\end{align*}
+We find the following values for $A$ and $B$:
+\begin{align*}
+	A = 2 \quad B = -1
+\end{align*}
+\begin{align*}
+	= \int{\frac{2}{x - 1} + \frac{-1}{(x - 1)^2}dx} = 2\ln{|x - 1|} + \frac{1}{x - 1} + C
+\end{align*}
+Answer: $\frac{1}{x - 1} + 2 \ln{|x - 1|} + C$
+
+%6.5
+\subsection{
+	\begin{align*}
+		\int{\frac{x - 1}{x^2 (x + 1)} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \int{\frac{x - 1}{x^2 (x + 1)}dx} = \int{\frac{A}{x} + \frac{B}{x^2} + \frac{C}{x + 1}dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{Ax(x + 1) + B(x + 1) + Cx^2}{x^2(x + 1)}dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{Ax^2 + Ax + Bx + B + Cx^2}{x^2 (x + 1)}dx} = \int{\frac{x^2(A + C) + x(A + B) + B}{x^2(x + 1)}dx}
+\end{align*}
+We have the following system of equations:
+\begin{align*}
+	0 = A + C \quad 1 = A + B \quad -1 = B
+\end{align*}
+We find the following values for $A$, $B$, and $C$: 
+\begin{align*}
+	A = 2 \quad B = -1 \quad C = -2
+\end{align*}
+\begin{align*}
+	= \int{\frac{2}{x} + \frac{-1}{x^2} + \frac{-2}{x + 1}dx} = 2\ln{|x|} + \frac{1}{x} -2 \ln{|x + 1|} + C
+\end{align*}
+Answer: $\frac{1}{x} + 2 \ln{x} - 2 \ln{|x + 1|} + C$
+
+%6.6
+\subsection{
+	\begin{align*}
+		\int{\frac{x^2 - 1}{x^3 + x} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \int{\frac{x^2 - 1}{x(x^2 + 1)}dx} = \int{\frac{A}{x} + \frac{Bx + C}{x^2 + 1}dx} = \int{\frac{A(x^2 + 1) + (Bx + C)x}{x(x^2 + 1)}dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{Ax^2 + A + Bx^2 + Cx}{x(x^2 + 1)}dx} = \int{\frac{x^2(A + B) + Cx + A}{x(x^2 + 1)}dx}
+\end{align*}
+We have the following system of equations:
+\begin{align*}
+	1 = A + B \quad 0 = C \quad -1 = A
+\end{align*}
+We find the following values for $A$, $B$, and $C$:
+\begin{align*}
+	A = -1 \quad B = 2 \quad C = 0
+\end{align*}
+\begin{align*}
+	= \int{\frac{-1}{x} + \frac{2x}{x^2 + 1}dx} = -\ln{|x|} + \ln{|x^2 + 1|} + C
+\end{align*}
+Answer: $\ln{|x^2 + 1|} - \ln{|x|} + C$
+
+%6.7
+\subsection{
+	\begin{align*}
+		\int{\frac{4x^2 - 9x - 1}{(x + 1)(x - 1)(x - 2)} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \int{\frac{A}{x + 1} + \frac{B}{x - 1} + \frac{C}{x - 2}dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{A(x - 1)(x - 2) + B(x + 1)(x - 2) + C(x + 1)(x - 1)}{(x + 1)(x - 1)(x - 2)}dx}
+\end{align*}
+We can find the values for $A$, $B$, and $C$ by plugging in solutions that isolate parts the polynomial one at a time:
+\begin{align*}
+	x = 1: 4(1)^2 - 9(1) - 1 = -6 = B(2)(-1)
+\end{align*}
+\begin{align*}
+	x = 2: 4(2)^2 - 9(2) - 1 = -3 = C(3)(1)
+\end{align*}
+\begin{align*}
+	x = -1: 4(-1)^2 - 9(-1) - 1 = 12 = A(-2)(-3)
+\end{align*}
+We find the following values for $A$, $B$, and $C$:
+\begin{align*}
+	A = 2 \quad B = 3 \quad C = -1
+\end{align*}
+\begin{align*}
+	= \int{\frac{2}{x + 1} + \frac{3}{x - 1} + \frac{-1}{x - 2}dx}
+\end{align*}
+\begin{align*}
+	= 2\ln{|x + 1|} = 3\ln{|x - 1|} - \ln{|x - 2|} + C
+\end{align*}
+Answer: $3 \ln{|x - 1|} + 2 \ln{|x + 1|} - \ln{|x - 2|} + C$
+
+%6.8
+\subsection{
+	\begin{align*}
+		\int{\frac{2x^3 + 4x^2 + 5x + 5}{(x + 1)(x + 2)(x^2 + 1)} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \int{\frac{A}{x + 1} + \frac{B}{x + 2} + \frac{Cx + D}{x^2 + 1}dx}
+\end{align*}
+\begin{align*}
+	= \int{\frac{A(x+2)(x^2 + 1) + B(x + 1)(x^2 + 1) + (Cx + D)(x + 1)(x + 2)}{(x + 1)(x + 2)(x^2 + 1)}dx}
+\end{align*}
+\begin{align*}
+	=\int{\frac{x^3(A + B + C) + x^2(2A + B + 3C + D) + x(A + B + 2C + 3D) + 2A + B + 2D}{(x + 1)(x + 2)(x^2 + 1)}}
+\end{align*}
+We obtain the following system of equations:
+\begin{align*}
+	2 = A + B + C \quad 4 = 2A + B + 3C + D \\ 5 = A + B +2C+ 3D \quad 5 = 2A + B + 2D
+\end{align*}
+We obtain the following values for $A$, $B$, $C$, and $D$:
+\begin{align*}
+	A = 1 \quad B = 1 \quad C = 0 \quad D = 1
+\end{align*}
+\begin{align*}
+	= \int{\frac{1}{x + 1} + \frac{1}{x + 2} + \frac{1}{x^2 + 1}dx}
+\end{align*}
+\begin{align*}
+	= \ln{|x + 1|} + \ln{|x + 2|} + \arctan{x} + C
+\end{align*}
+Answer: $\ln{|x + 1|} + \ln{|x + 2|} + \arctan{x} + C$
+
+\section{Improper Integrals}
+%7.1
+\subsection{
+	\begin{align*}
+		\int_1^\infty{\frac{1}{x^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ -\frac{1}{x} \right]_1^t = \left(-\frac{1}{\infty} \right) - \left(-\frac{1}{1} \right) = 0 + 1 = 1
+\end{align*}
+Answer: $1$
+
+%7.2
+\subsection{
+	\begin{align*}
+		\int_1^\infty{\frac{1}{\sqrt{x}} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ 2\sqrt{x} \right]_1^t = 2\sqrt{\infty} - 2\sqrt{1} = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.3
+\subsection{
+	\begin{align*}
+		\int_{-\infty}^\infty{\frac{1}{1 + x^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{{a \to -\infty \atop b \to \infty}} \left[ \arctan{x} \right]_a^b = \arctan{(\infty)} - \arctan{(-\infty)} = \frac{\pi}{2} - \frac{-\pi}{2} = \pi
+\end{align*}
+Answer: $\pi$
+
+%7.4
+\subsection{
+	\begin{align*}
+		\int_0^\infty{\frac{e^x}{1 + e^x} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ \ln{(1 + e^x)} \right]_0^t = \ln{(1 + e^{\infty})} - \ln{(1 + e^0)} = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.5
+\subsection{
+	\begin{align*}
+		\int_1^\infty{e^{-x} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ -e^{-x} \right]_1^t = \left( -e^{-\infty} \right) - \left( -e^{-1} \right) = 0 - (-e^{-1}) = e^{-1}
+\end{align*}
+Answer: $\frac{1}{e}$
+
+%7.6
+\subsection{
+	\begin{align*}
+		\int_0^\infty{xe^{-x^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ -\frac{1}{2}e^{-x^2} \right]_1^t = -\frac{1}{2} \left( e^{-\infty} - e^{-0} \right) = -\frac{1}{2} \left(0 - 1\right) = \frac{1}{2}
+\end{align*}
+Answer: $\frac{1}{2}$
+
+%7.7
+\subsection{
+	\begin{align*}
+		\int_0^\infty{\frac{1}{4 + x^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ \frac{1}{2}\arctan{\frac{x}{2}} \right]_0^t = \frac{1}{2} \left( \arctan{\infty} - \arctan{0} \right) = \frac{1}{2} \left( \frac{\pi}{2} - 0 \right) = \frac{\pi}{4}
+\end{align*}
+Answer: $\frac{\pi}{4}$
+
+%7.8
+\subsection{
+	\begin{align*}
+		\int_0^\infty{\frac{1}{\sqrt{x + 1}} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ 2\sqrt{x + 1} \right]_0^t = 2 \left( \sqrt{\infty} - \sqrt{1} \right) = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.9
+\subsection{
+	\begin{align*}
+		\int_0^\infty{\frac{(\ln{x})^2}{x} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ \frac{\left( \ln{x} \right)^3}{3} \right]_0^t = \frac{1}{3} \left[ \left( \ln{\infty} \right)^3 - \left( \ln{0} \right)^3 \right] = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.10
+\subsection{
+	\begin{align*}
+		\int_2^\infty{\frac{1}{(x - 1)^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \lim_{t \to \infty} \left[ \frac{-1}{x - 1} \right]_2^t = \frac{-1}{\infty} - \frac{-1}{2 - 1} = 0 - (-1) = 1
+\end{align*}
+Answer: $1$
+
+%7.11
+\subsection{
+	\begin{align*}
+		\int_0^1{\frac{1}{x^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \left. \frac{-1}{x} \right|_{0}^{1} = \frac{-1}{1} - \frac{-1}{0} = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.12
+\subsection{
+	\begin{align*}
+		\int_0^1{\frac{1}{\sqrt{x}} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \left. 2\sqrt{x} \right|_{0}^{1} = 2 \left( \sqrt{1} - \sqrt{0} \right) = 2 - 0 = 2
+\end{align*}
+Answer: $2$
+
+%7.13
+\subsection{
+	\begin{align*}
+		\int_0^2{\frac{1}{\sqrt{4 - x^2}} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \left. \arcsin{\left( \frac{x}{2} \right)} \right|_{0}^{2} = \arcsin{1} - \arcsin{0} = \frac{\pi}{2} - 0 = \frac{\pi}{2}
+\end{align*}
+Answer: $\frac{\pi}{2}$
+
+%7.14
+\subsection{
+	\begin{align*}
+		\int_0^2{\frac{1}{4 - x^2} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \left. \frac{\ln{|x + 2|} - \ln{|x - 2|}}{4}\right|_{0}^{2} = \frac{1}{4} \left( \left( \ln{4} - \ln{0} \right) - \left( \ln{2} - \ln{(-2)} \right) \right) = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.15
+\subsection{
+	\begin{align*}
+		\int_0^{\pi/2}{\tan{x} dx}
+	\end{align*}
+}
+\begin{align*}
+	= \left. \ln{|\cos{x}} \right|_{0}^{\pi/2} = -\left( \ln{\cos{\pi/2}} - \ln{\cos{0}} \right) = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.16
+\subsection{
+	\begin{align*}
+		\int_0^2{\frac{1}{\sqrt[3]{x - 1}} dx}
+	\end{align*}
+}
+The integral is not continuous through $x = 1$, so we split the integral into two parts where it is continuous:
+\begin{align*}
+	= \int_0^1{\frac{1}{\sqrt[3]{x - 1}} dx} + \int_1^2{\frac{1}{\sqrt[3]{x - 1}} dx}
+\end{align*}
+\begin{align*}
+	\left. = \frac{3}{2} (x - 1)^{3/2} \right|_0^1 + \left. \frac{3}{2} (x - 1)^{3/2} \right|_1^2
+\end{align*}
+\begin{align*}
+	\frac{3}{2}\left( 0 - 1 \right) + \frac{3}{2}\left(1 - 0 \right) = \frac{-3}{2} + \frac{3}{2} = 0
+\end{align*}
+Answer: 0
+
+%7.17
+\subsection{
+	\begin{align*}
+		\int_1^2{\frac{1}{x^2 \sqrt{4 - x^2}} dx}
+	\end{align*}
+}
+\begin{align*}
+	\left. = \frac{-1}{4} \frac{\sqrt{4 - x^2}}{x} \right|_1^2 = \frac{-1}{4} \left( \frac{\sqrt{4-4}}{2} - \frac{\sqrt{4 - 1}}{1} \right) = \frac{-1}{4} \left( 0 - \frac{\sqrt{3}}{4} \right) = \frac{\sqrt{3}}{4}
+\end{align*}
+Answer: $\frac{\sqrt{3}}{4}$
+
+%7.18
+\subsection{
+	\begin{align*}
+		\int_0^2{\frac{x^2}{\sqrt{4 - x^2}} dx}
+	\end{align*}
+}
+Let $u = \arcsin{\frac{x}{2}}, x = 2\sin{u},$ and $dx = 2\cos{u}du$.
+\begin{align*}
+	= \int{\frac{4\sin^2{u}}{\sqrt{4 - 4\sin^2{u}}}2\cos{u}du} = 8\int{\frac{\sin^2{u}\cos{u}}{2\sqrt{1 - \sin^2{u}}}du} = 4\int{\frac{\sin^2{u}\cos{u}}{\cos{u}}du}
+\end{align*}
+\begin{align*}
+	= 4\int{\sin^2{u}du} = 4\int{\frac{1 - \cos{2u}}{2}du} = 2\int{1 - \cos{2u}du} = 2u - \sin{2u}
+\end{align*}
+\begin{align*}
+	= 2\arcsin{\frac{x}{2}} -\sin{(2\arcsin{\frac{x}{2}})}= \left[ 2\arcsin{(\frac{x}{2})} - x\sqrt{1 - \frac{x^2}{4}} \right]_0^2 = \pi
+\end{align*}
+Answer: $\pi$
+
+%7.19
+\subsection{
+	\begin{align*}
+		\int_2^4{\frac{dx}{(x-3)^2}}
+	\end{align*}
+}
+The integral is not continuous through $x = 3$, so we split the integral into two parts where it is continuous:
+\begin{align*}
+	= \int_2^3{\frac{dx}{(x-3)^2}} + \int_3^4{\frac{dx}{(x-3)^2}}
+\end{align*}
+\begin{align*}
+	\left. = \frac{-1}{x - 3} \right|_2^3 + \left. \frac{-1}{x - 3} \right|_3^4 = \text{D.N.E.}
+\end{align*}
+Answer: D.N.E.
+
+%7.20
+\subsection{
+	\begin{align*}
+		\int_1^5{\frac{x}{\sqrt{5 - x}} dx}
+	\end{align*}
+}
+Let $u = 5 - x, du = -dx$, and $x = u - 5$. 
+\begin{align*}
+	= \int{\frac{u - 5}{\sqrt{u}}du} = \int{u^{1/2} - 5u^{-1/2}du} = \frac{2}{3}u^{3/2} - 10\sqrt{u}
+\end{align*}
+\begin{align*}
+	= \frac{2}{3}(5 - x)^{3/2} - 10 \sqrt{5 - x}= \left. \frac{-2\sqrt{5 - x}(x + 10)}{3} \right|_1^5 = \frac{44}{3}
+\end{align*}
+Answer: $\frac{44}{3}$
+
+\section{Trapezoidal and Simpson's Method}
+Approximate the following definite integrals using Trapezoidal and Simpson’s Method with $n = 4$ and $n = 10$.
+%8.1
+\subsection{
+	\begin{align*}
+		\int_0^2{\sqrt{1 + x^3} dx}
+	\end{align*}
+}
+For the Trapezoidal method with $n = 4$:
+\begin{align*}
+	\Delta x= \frac{b - a}{n} = \frac{2 - 0}{4} = \frac{1}{2}
+\end{align*}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	$x$ & 	$f(x)$ 		& $M.F.$ 	& $P$ 	\\ \hline
+	0   		& 1    		& 1      	& 1 		\\ \hline
+	0.5   		& 1.0606   	& 2      	& 2.1212 	\\ \hline
+	1   		& 1.4142    	& 2      	& 2.8284 	\\ \hline
+	1.5   		& 2.0916    	& 2      	& 4.1832 	\\ \hline
+	2  		& 3    		& 1      	& 3 		\\ \hline
+	\end{tabular}
+\end{center}
+\begin{align*}
+	\text{sum} = \Sigma{P} = 1 + 2.1212 + 2.8284 + 4.1832 + 3 = 13.1328
+\end{align*}
+\begin{align*}
+	\text{approximation} = \text{sum} \frac{\Delta x}{2} = 13.1328 \frac{0.5}{2} = 3.2832
+\end{align*}
+For the Trapezoidal method with $n = 10$:
+\begin{align*}
+	\Delta x= \frac{b - a}{n} = \frac{2 - 0}{10} = \frac{1}{5}
+\end{align*}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	$x$ & 	$f(x)$ 		& $M.F.$ 	& $P$ 	\\ \hline
+	0   		& 1    		& 1      	& 1 		\\ \hline
+	0.2   		& 1.0039	   	& 2      	& 2.0078	\\ \hline
+	0.4   		& 1.0351	    	& 2      	& 2.0702	\\ \hline
+	0.6   		& 1.1027	    	& 2      	& 2.2054	\\ \hline
+	0.8  		& 1.2296  		& 2      	& 2.4592	\\ \hline
+	1   		& 1.4142  		& 2      	& 2.8284	\\ \hline
+	1.2   		& 1.6516	   	& 2      	& 3.3032	\\ \hline
+	1.4   		& 1.9349	    	& 2      	& 3.8698	\\ \hline
+	1.6   		& 2.2574	    	& 2      	& 4.5148	\\ \hline
+	1.8  		& 2.6138  		& 2      	& 5.2276 	\\ \hline
+	2		& 3			& 1		& 3		\\ \hline
+	\end{tabular}
+\end{center}
+\begin{align*}
+	\text{sum} = \Sigma{P} = 32.4864
+\end{align*}
+\begin{align*}
+	\text{approximation} = \text{sum} \frac{\Delta x}{2} = 32.4864 \frac{0.2}{2} = 3.2486
+\end{align*}
+For the Simpson's method with $n = 4$:
+\begin{align*}
+	\Delta x= \frac{b - a}{n} = \frac{2 - 0}{4} = \frac{1}{2}
+\end{align*}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	$x$ & 	$f(x)$ 		& $M.F.$ 	& $P$ 	\\ \hline
+	0   		& 1    		& 1      	& 1 		\\ \hline
+	0.5   		& 1.0606   	& 4     	& 4.2424 	\\ \hline
+	1   		& 1.4142    	& 2      	& 2.8284 	\\ \hline
+	1.5   		& 2.0916    	& 4      	& 8.3664 	\\ \hline
+	2  		& 3    		& 1      	& 3 		\\ \hline
+	\end{tabular}
+\end{center}
+\begin{align*}
+	\text{sum} = \Sigma{P} = 19.4372
+\end{align*}
+\begin{align*}
+	\text{approximation} = \text{sum} \frac{\Delta x}{3} = 19.4372 \frac{0.5}{3} = 3.2395
+\end{align*}
+For the Simpson's method with $n = 10$:
+\begin{align*}
+	\Delta x= \frac{b - a}{n} = \frac{2 - 0}{10} = \frac{1}{5}
+\end{align*}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	$x$ & 	$f(x)$ 		& $M.F.$ 	& $P$ 	\\ \hline
+	0   		& 1    		& 1      	& 1 		\\ \hline
+	0.2   		& 1.0039	   	& 4      	& 4.0156	\\ \hline
+	0.4   		& 1.0351	    	& 2      	& 2.0702	\\ \hline
+	0.6   		& 1.1027	    	& 4      	& 4.4108	\\ \hline
+	0.8  		& 1.2296  		& 2      	& 2.4592	\\ \hline
+	1   		& 1.4142  		& 4      	& 5.6568	\\ \hline
+	1.2   		& 1.6516	   	& 2      	& 3.3032	\\ \hline
+	1.4   		& 1.9349	    	& 4      	& 7.7396	\\ \hline
+	1.6   		& 2.2574	    	& 2      	& 4.5148	\\ \hline
+	1.8  		& 2.6138  		& 4      	& 10.4552 \\ \hline
+	2		& 3			& 1		& 3		\\ \hline
+	\end{tabular}
+\end{center}
+\begin{align*}
+	\text{sum} = \Sigma{P} = 48.6254
+\end{align*}
+\begin{align*}
+	\text{approximation} = \text{sum} \frac{\Delta x}{3} = 48.6254 \frac{0.2}{3} = 3.2416
+\end{align*}
+Answer: $T_4 = 3.2832, T_{10} = 3.24798, S_4 = 3.23961, S_{10} = 3.24127$
+
+%8.2
+\subsection{
+	\begin{align*}
+		\int_0^1{\sqrt{x} \sqrt{1 - x} dx}
+	\end{align*}
+}
+Answer: $T_4 = 0.3415, T_{10} = 0.37963, S_4 = 0.37200, S_{10} = 0.38752$
+%8.3
+\subsection{
+	\begin{align*}
+		\int_0^1{\sin{(x^2)} dx}
+	\end{align*}
+}
+Answer: $T_4 = 0.315975, T_{10} = 0.311117, S_4 = 0.309943, S_{10} = 0.31026$
+
+\section{Probability Density Functions}
+\subsection{Determine the value of $C$ so that $p(x)$ is a probability density function on the given interval.}
+%9.1.1
+\subsubsection{
+	\begin{align*}
+		p(x) = C(15 - 3x) \text{ for } 1 \leq x \leq 4
+	\end{align*}
+}
+Conditions for $p(x)$ to be a probability density function are:
+\begin{align*}
+	1) \quad p(x) \text{ must be decreasing and }
+	2) \int_s{p(x)dx} = 1
+\end{align*}
+The first condition is satisfied, and is shown in Figure 1. 
+% Insert graph of function
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/9.1.1.png}
+	\caption{Graph of function for 9.1.1}
+\end{figure}
+Now check the second condition:
+\begin{align*}
+	= \int_1^4{C(15 - 3x)dx} = C \int_1^4{15 - 3x dx} = C \bigg( 15x - 3\frac{x^2}{2} \bigg) \bigg|_1^4
+\end{align*}
+\begin{align*}
+	= C \bigg[ \bigg( 60 - 8 \bigg) - \bigg( 15 - \frac{3}{2} \bigg) \bigg] = C \frac{45}{2} = 1 \implies C = \frac{2}{45}
+\end{align*}
+Answer: $\frac{2}{45}$
+
+%9.1.2
+\subsubsection{
+	\begin{align*}
+		p(x) = Ce^{-6x} \text{ for } x \geq 0
+	\end{align*}
+}
+The first condition is satisfied, and is shown in Figure 2. 
+% Insert graph of function
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/9.1.2.png}
+	\caption{Graph of function for 9.1.2}
+\end{figure}
+Now check the second condition:
+\begin{align*}
+	= \int_0^{\infty}{Ce^{-6x}dx} = C \int_0^{\infty}{e^{-6x}dx} = \frac{C}{-6} e^{-6x} \bigg|_0^{\infty}
+\end{align*}
+\begin{align*}
+	= \frac{C}{-6} (0 - 1) = \frac{C}{6} = 1\implies C = 6
+\end{align*}
+Answer: $6$
+
+%9.1.3
+\subsubsection{
+	\begin{align*}
+		p(x) = Cx^4(1 - x) \text{ for } 0 \leq x \leq 1
+	\end{align*}
+}
+The first condition is satisfied, and is shown in Figure 3. 
+% Insert graph of function
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/9.1.3.png}
+	\caption{Graph of function for 9.1.3}
+\end{figure}
+Now check the second condition:
+\begin{align*}
+	= \int_0^1{Cx^4(1 - x)dx} = C \int_0^1{x^4 - x^5 dx} = C \bigg( \frac{x^5}{5} - \frac{x^6}{6} \bigg) \bigg|_0^1
+\end{align*}
+\begin{align*}
+	= C \bigg( \frac{1}{5} - \frac{1}{6} \bigg) = \frac{C}{30} = 1 \implies C = 30
+\end{align*}
+Answer: $30$
+
+\subsection{Let $p(x)=3x^2$ for $0 \leq x \leq 1$.}
+%9.2.1
+\subsubsection{Find $P(1/2 < X < 1)$}
+\begin{align*}
+	= \int_{1/2}^1{3x^2 dx} = x^3 \bigg|_{1/2}^1 = 1 - \frac{1}{8} = \frac{7}{8}
+\end{align*}
+Answer: $\frac{7}{8}$
+
+%9.2.2
+\subsubsection{Find $P(X = 1/2)$}
+\begin{align*}
+	= \int_{1/2}^{1/2}{3x^2 dx} = x^3 \bigg|_{1/2}^{1/2} = 0
+\end{align*}
+Answer: $0$
+
+\subsection{Let $p(x)=\frac{x^3}{5000}(10 - x)$ for $0 \leq x \leq 10$.}
+%9.3.1
+\subsubsection{
+	\begin{align*}
+		\text{Find } P(1 \leq X \leq 4)
+	\end{align*}
+}
+\begin{align*}
+	= \int_1^4{\frac{x^3}{5000} (10 - x)dx} = \frac{1}{5000} \int_1^4{10x^3 - x^4 dx} = \frac{1}{5000} \bigg( \frac{10x^4}{4} - \frac{x^5}{5} \bigg) \bigg|_1^4
+\end{align*}
+\begin{align*}
+	= \frac{1}{5000} \bigg[ \bigg( \frac{10(4)^4}{4} - \frac{4^5}{5} \bigg) - \bigg( \frac{10}{4} - \frac{1}{5} \bigg) \bigg] = 0.08658
+\end{align*}
+Answer: $0.08658$
+
+%9.3.2
+\subsubsection{
+	\begin{align*}
+		\text{Find } P(X \geq 6)
+	\end{align*}
+}
+\begin{align*}
+	= \int_0^{10}{\frac{x^3}{5000} (10 - x)dx} = \frac{1}{5000} \bigg( \frac{10x^4}{4} - \frac{x^5}{5} \bigg) \bigg|_6^{10} = 0.66304
+\end{align*}
+Answer: $0.66304$
+
+%9.4
+\subsection{Find the value of $C$ so that $p(x)=\frac{C}{x^2 + 4}$ for the interval $-\infty \leq x \leq \infty$ is a probability density function.}
+The first condition is satisfied, and is shown in Figure 4. 
+% Insert graph of function
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/9.4.png}
+	\caption{Graph of function for 9.4}
+\end{figure}
+Now check the second condition:
+\begin{align*}
+	= C \int_{-\infty}^{\infty}{\frac{1}{x^2 + 4}}
+\end{align*}
+Let $u = \frac{x}{2}, du = \frac{1}{2} dx$, and $dx = 2du$.
+\begin{align*}
+	= C \int{\frac{1}{4u^2 + 4}2du} = \frac{C}{2} \int{\frac{1}{u^2 + 1}du} = \frac{C}{2} \arctan{u}
+\end{align*}
+\begin{align*}
+	= \frac{C}{2} \arctan{\frac{x}{2}} \bigg|_{-\infty}^{\infty} = \frac{C}{2} \bigg( \frac{\pi}{2} + \frac{\pi}{2} \bigg) = C \frac{\pi}{2} = 1 \implies C = \frac{2}{\pi}
+\end{align*}
+Answer: $\frac{2}{\pi}$
+
+%9.5
+\subsection{Find the value of $c$ so that $p(x)=\frac{x^3}{4}$ for the interval $0 \leq x \leq c$ is a probability density function.}
+The first condition is satisfied, and is shown in Figure 5. 
+% Insert graph of function
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/9.5.png}
+	\caption{Graph of function for 9.5}
+\end{figure}
+Now check the second condition:
+\begin{align*}
+	= \int_0^c{\frac{x^3}{4}dx} = \frac{1}{4} \int_0^c{x^3 dx} = \frac{1}{16} x^4 \bigg|_0^c = \frac{1}{16}x^4 = 1 
+\end{align*}
+\begin{align*}
+	\implies c^4 = 16 \implies c = \pm 2 \implies c = 2
+\end{align*}
+Answer: $2$
+
+%9.6
+\subsection{A random variable $X$ has a probability density function $p(x) = \frac{3}{5}(4 - x^2)$ for $1 \leq x \leq 2$, find the expected value $\mu$.}
+\begin{align*}
+	\mu = \int_1^2 {x \frac{3}{5}(4 - x^2) dx} = \frac{3}{5} \int_1^2 {4x - x^3 dx} = \frac{3}{5} \bigg( \frac{4x^2}{2} - \frac{x^4}{4} \bigg) \bigg|_1^2
+\end{align*}
+\begin{align*}
+	= \frac{3}{5} \bigg[ \bigg( 8 - 4 \bigg) - \bigg( 2 - \frac{1}{4} \bigg) \bigg] = \frac{27}{20}
+\end{align*}
+Answer: $1.35$
+
+\subsection{A random variable $X$ has a probability density function $p(x) = 1 - \frac{1}{8}x$ for $4 \leq x \leq 8$.}
+%9.7.1
+\subsubsection{Find the expected value $\mu$.}
+\begin{align*}
+	\mu = \int_4^8{x\bigg( 1 - \frac{1}{8}x \bigg)dx} = \int_4^8{x - \frac{1}{8}x^2 dx} = \frac{x^2}{2} - \frac{x^3}{24} \bigg|_4^8
+\end{align*}
+\begin{align*}
+	= \bigg( \frac{64}{2} - \frac{512}{24} \bigg) - \bigg( \frac{16}{2} - \frac{64}{24} \bigg) = \frac{16}{3}
+\end{align*}
+Answer: $\frac{16}{3}$
+
+%9.7.2
+\subsubsection{Determine the value of $k$ so that $P(X > k) = 0.9$.}
+\begin{align*}
+	= \int_k^8 {1 - \frac{1}{8}x dx} = x - \frac{1}{8} \frac{x^2}{2} \bigg|_k^8 = \bigg( 8 - \frac{64}{16} \bigg) - \bigg( k - \frac{k^2}{16} \bigg)
+\end{align*}
+\begin{align*}
+	= 4 - k + \frac{k^2}{16} = 0.9 \implies k^2 - 16k + 64 = 14.4 \implies k^2 - 16k + 49.6 = 0 
+\end{align*}
+\begin{align*}
+	\implies k = 11.7947, 4.2053 \implies k = 4.2053
+\end{align*}
+Answer: $4.2053$
+
+\section{Arc Length and Surface Area}
+Find the length of the curve:
+%10.1
+\subsection{
+	\begin{align*}
+		f(x) = \frac{2}{3} (x - 7)^{3/2} \text{ on } [7, 14]
+	\end{align*}
+}
+The formula to find arc length of a function over a defined boundary is:
+\begin{align*}
+	\text{AL} = \int_a^b{\sqrt{1 + \bigg( \frac{dy}{dx} \bigg)^2}}
+\end{align*}
+We take a step-by-step approach to find the quantity in the square root term:
+\begin{align*}
+	f'(x) = \frac{2}{3} \frac{3}{2} (x - 7)^{1/2}
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = x - 7
+\end{align*}
+\begin{align*}
+	1 + \bigg( f'(x) \bigg)^2 = x - 6
+\end{align*}
+\begin{align*}
+	\text{AL} = \int_7^14{\sqrt{x - 6} dx}
+\end{align*}
+Let $u = x - 6$ and $du = dx$.
+\begin{align*}
+	= \int{\sqrt{u}du} = \frac{2}{3} (x - 6)^{3/2} \bigg|_7^{14} = \frac{2}{3} \bigg( 8^{3/2} - 1 \bigg)
+\end{align*}
+Answer: $\frac{2}{3} (16 \sqrt{2} - 1)$
+
+%10.2
+\subsection{
+	\begin{align*}
+		f(x) = \frac{2}{3} (x - 6)^{3/2} \text{ on } [6, 12]
+	\end{align*}
+}
+\begin{align*}
+	f'(x) = \frac{2}{3} \frac{3}{2} (x - 5)^{1/2}
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = x - 6
+\end{align*}
+\begin{align*}
+	1 + \bigg( f'(x) \bigg)^2 = x - 5
+\end{align*}
+\begin{align*}
+	\text{AL} = \int_6^{12}{\sqrt{x - 5}dx}
+\end{align*}
+Let $u = x - 5$ and $du = dx$.
+\begin{align*}
+	= \int{\sqrt{u}du} = \frac{2}{3} (x - 5)^{3/2} \bigg|_6^{12} = \frac{2}{3} \bigg( 7^{3/2} - 1 \bigg)
+\end{align*}
+Answer: $\frac{2}{3} (7\sqrt{7} - 1)$
+
+%10.3
+\subsection{
+	\begin{align*}
+		y = \frac{x^3}{6} + \frac{1}{2x} \text{ on } [1/2, 2]
+	\end{align*}
+}
+\begin{align*}
+	f'(x) = \frac{3x^2}{6} + \frac{1}{2}\frac{-1}{x^2} = \frac{3x^2}{6} - \frac{1}{2x^2}
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = \bigg( \frac{3x^2}{6} - \frac{1}{2x^2} \bigg)^2
+\end{align*}
+\begin{align*}
+	= \frac{9x^4}{36} + \frac{1}{4x^4} - 2\bigg( \frac{3x^2}{6} \bigg) \bigg( \frac{1}{2x^2} \bigg) =  \frac{9x^4}{36} + \frac{1}{4x^4} - \frac{1}{2}
+\end{align*}
+\begin{align*}
+	\text{AL} = \int_{1/2}^2 \sqrt{\bigg( \frac{3x^2}{6} + \frac{1}{2x^2} \bigg)^2 dx} = \int_{1/2}^2 {\frac{3x^2}{6} + \frac{1}{2x^2} dx}
+\end{align*}
+\begin{align*}
+	= \frac{3}{6} \frac{x^3}{3} + \frac{1}{2} \frac{-1}{x} \bigg|_{1/2}^2 = \frac{x^3}{6} - \frac{1}{2x} \bigg|_{1/2}^2 = \bigg( \frac{8}{6} - \frac{1}{4} \bigg) - \bigg( \frac{\frac{1}{8}}{6} - \frac{1}{1} \bigg) = \frac{33}{16}
+\end{align*}
+Answer: $\frac{33}{16}$
+
+%10.4
+\subsection{
+	\begin{align*}
+		y = \frac{2}{3} x^{3/2} + 1 \text{ on } [0, 1]
+	\end{align*}
+}
+\begin{align*}
+	f'(x) = \frac{2}{3} \frac{3}{2} x^{1/2}
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = x
+\end{align*}
+\begin{align*}
+	1 + \bigg( f'(x) \bigg)^2 = 1 + x
+\end{align*}
+\begin{align*}
+	\text{AL} = \int_0^1{\sqrt{x + 1}dx}
+\end{align*}
+Let $u = x + 1$ and $du = dx$.
+\begin{align*}
+	= \int{\sqrt{u}du} = \frac{2}{3} (x + 1)^{3/2} \bigg|_0^1 = \frac{2}{3} \bigg( 2^{3/2} - 1 \bigg)
+\end{align*}
+Answer: $\frac{2}{3} (2\sqrt{2} - 1)$
+
+%10.5
+\subsection{
+	\begin{align*}
+		y = \frac{x^4}{8} + \frac{1}{4x^2} \text{ on } [1, 2]
+	\end{align*}
+}
+\begin{align*}
+	f'(x) = \frac{4x^3}{8} + \frac{1}{4} \frac{-2}{x^3} = \frac{x^3}{2} - \frac{1}{2x^3}
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = \bigg( \frac{x^3}{2} - \frac{1}{2x^3} \bigg)^2
+\end{align*}
+\begin{align*}
+	= \frac{x^6}{4} + \frac{1}{4x^6} - 2 \bigg( \frac{x^3}{2} \bigg) \bigg( \frac{1}{2x^3} \bigg) = \frac{x^6}{4} + \frac{1}{4x^6} - \frac{1}{2}
+\end{align*}
+\begin{align*}
+	1 + \bigg( f'(x) \bigg)^2 = \frac{x^6}{4} + \frac{1}{4x^6} + \frac{1}{2} = \bigg( \frac{x^3}{2} + \frac{1}{2x^3} \bigg)^2
+\end{align*}
+\begin{align*}
+	\text{AL} = \int_1^2{\sqrt{\bigg( \frac{x^3}{2} + \frac{1}{2x^3} \bigg)^2}dx} = \int_1^2{\frac{x^3}{2} + \frac{1}{2x^3} dx}
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \frac{x^4}{4} \bigg|_1^2 + \frac{1}{2} \frac{1}{-2x^2} \bigg|_1^2 = \frac{x^4}{8} - \frac{1}{4x^2} \bigg|_1^2 = \bigg( \frac{16}{8} - \frac{1}{16} \bigg) - \bigg( \frac{1}{8} - \frac{1}{4} \bigg) = \frac{33}{16}
+\end{align*}
+Answer: $\frac{33}{16}$
+
+%10.6
+\subsection{Find the surface area if $y = \sqrt{9 - x^2}$ for $-2 \leq x \leq 2$ is rotated about the x-axis.}
+The formula to find surface area of a function over a defined boundary is:
+\begin{align*}
+	\text{SA} = \int_a^b {2\pi f(x) \sqrt{1 + \bigg( \frac{dy}{dx} \bigg)^2}dx}
+\end{align*}
+\begin{align*}
+	f'(x) = \frac{1}{2} (9 - x^2)^{1/2} (-2x) = \frac{-x}{\sqrt{9 - x^2}}
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = \frac{x^2}{9 - x^2}
+\end{align*}
+\begin{align*}
+	1 + \bigg( f'(x) \bigg)^2 = 1 + \frac{x^2}{9 - x^2} = \frac{9 - x^2}{9 - x^2} + \frac{x^2}{9 - x^2} = \frac{9}{9 - x^2}
+\end{align*}
+\begin{align*}
+	\text{SA} = \int_{-2}^2{2\pi \sqrt{9 - x^2} \sqrt{\frac{9}{9 - x^2}}dx} = 2\pi \int_{-2}^2 {3dx} = 6\pi x \bigg|_{-2}^2 = 24\pi
+\end{align*}
+Answer: $24\pi$
+
+%10.7
+\subsection{Find the surface area if $y = x^3$ for $1 \leq x \leq 2$ is rotated about the x-axis.}
+\begin{align*}
+	f'(x) = 3x^2
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = 9x^4
+\end{align*}
+\begin{align*}
+	1 + \bigg( f'(x) \bigg)^2 = 1 + 9x^4
+\end{align*}
+\begin{align*}
+	\text{SA} = \int_1^2 {2\pi (x^3) \sqrt{9x^4 + 1}dx}
+\end{align*}
+Let $u = 9x^4 + 1, du = 36x^3dx$, and $dx = \frac{du}{36x^3}$. 
+\begin{align*}
+	= 2\pi \int{x^3 \sqrt{u} \frac{du}{36x^3}} = \frac{\pi}{18} \frac{2}{3} \bigg( 9x^4 + 1 \bigg)^{3/2} \bigg|_1^2 = \frac{\pi}{27} \bigg( 145^{3/2} - 10^{3/2} \bigg)
+\end{align*}
+Answer: $\frac{\pi}{27} (145^{3/2} - 10^{3/2})$
+
+%10.8
+\subsection{Find the surface area if $y = \sqrt{x}$ for $1 \leq x \leq 4$ is rotated about the x-axis.}
+\begin{align*}
+	f'(x) = \frac{1}{2\sqrt{x}}
+\end{align*}
+\begin{align*}
+	\bigg( f'(x) \bigg)^2 = \frac{1}{4x}
+\end{align*}
+\begin{align*}
+	1 + \bigg( f'(x) \bigg)^2 = \frac{1}{4x}  + 1 = \frac{1 + 4x}{4}
+\end{align*}
+\begin{align*}
+	\text{SA} = \int_1^4 {2\pi \sqrt{x} \sqrt{\frac{1 + 4x}{4}}dx} = \pi \int_1^4{\sqrt{1 + 4x}dx}
+\end{align*}
+Let $u = 1 + 4x, du = 4dx$, and $dx = \frac{du}{4}$.  
+\begin{align*}
+	= \pi \int {\sqrt{u} \frac{du}{4}} = \frac{\pi}{4} \frac{2}{3} \bigg( 1 + 4x \bigg)^{3/2} \bigg|_1^4 = \frac{\pi}{6} \bigg( 17^{3/2} - 5^{3/2} \bigg)
+\end{align*}
+Answer: $\frac{\pi}{6} (17^{3/2} - 5^{3/2})$
+
+\section{Fluid Force}
+%11.1
+\subsection{Find the force on a $44$ foot wide by $9$ foot deep wall of a swimming pool filled with water. $\rho g =62.4$ lb/ft$^3$.}
+The fluid force equation is:
+\begin{align*}
+	\text{FF} = \int_a^b {\rho g h(x) w(x) dx}
+\end{align*}
+We gather the following information from Figure 6:
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/11.1.jpg}
+	\caption{Graph of function for 11.1}
+\end{figure}
+\begin{align*}
+	a = 0 \quad b = 9 \quad h(x) = x \quad w(x) = 44
+\end{align*}
+\begin{align*}
+	\text{FF} = \int_0^9 {\rho g (x)(44) dx} = 44 \rho g \frac{x^2}{2} \bigg|_0^9 = 111,196.8
+\end{align*}
+Answer: $111,196.8$
+
+%11.2
+\subsection{A triangle with sides $5,5$ and $6$ feet is submerged vertically in water ($\rho g =62.4$ lb/ft$^3$) with the $6$ foot side at the surface. Find the force on the plate.}
+To find $w(x)$, we use the similar triangles relationship:
+\begin{align*}
+	\frac{w(x)}{x} = \frac{6}{4} \implies w(x) = \frac{3x}{2}
+\end{align*}
+We gather the following information from Figure 7:
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/11.2.jpg}
+	\caption{Graph of function for 11.2}
+\end{figure}
+\begin{align*}
+	a = 0 \quad b = 4 \quad h(x) = 4 - x \quad w(x) = \frac{3x}{2}
+\end{align*}
+\begin{align*}
+	\text{FF} = \int_0^4 {\rho g \bigg( 4 - x \bigg) \bigg( \frac{3x}{2} \bigg) dx}
+ = \frac{3 \rho g}{2} \int_0^4{4x - x^2 dx}
+ \end{align*}
+ \begin{align*}
+	= \frac{3\rho g}{2} \bigg( 4\frac{x^2}{2} - \frac{x^3}{3} \bigg) \bigg|_0^4 = 998.4
+ \end{align*}
+Answer: $998.4$
+
+%11.3
+\subsection{A flat plate in the form of a semicircle $10$ m in diameter is submerged in water ($\rho g =9810$ N/m$^3$). Find the force on the plate.}
+To find $w(x)$, we use Pythagorean's Theorem:
+\begin{align*}
+	x^2 + \bigg( \frac{w(x)}{2} \bigg)^2 = 5^2 \implies w(x) = 2\sqrt{25 - x^2}
+\end{align*}
+We gather the following information from Figure 8:
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/11.3.jpg}
+	\caption{Graph of function for 11.3}
+\end{figure}
+\begin{align*}
+	a = 0 \quad b = 5 \quad h(x) = x \quad w(x) = 2\sqrt{25 - x^2}
+\end{align*}
+\begin{align*}
+	\text{FF} = \int_0^5 {\rho g (x) (2\sqrt{25 - x^2}) dx} = 2\rho g = \int_0^5 {x\sqrt{25 - x^2}dx}
+\end{align*}
+\begin{align*}
+	= -\frac{2}{3} \rho g (25 - x^2)^{3/2} \bigg|_0^5 = 817,500
+\end{align*}
+Answer: $817,500$
+
+%11.4
+\subsection{A triangle with sides $13, 13$, and $24$ feet is submerged vertically in water ($\rho g =62.4$ lb/ft$^3$) with the point up and the long side is parallel to the surface. If the vertex is $4$ feet below the surface, find the force on the plate.}
+We gather the following information from Figure 9:
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/11.4.jpg}
+	\caption{Graph of function for 11.4}
+\end{figure}
+\begin{align*}
+	a = 0 \quad b = 5 \quad h(x) = 4 + x \quad w(x) = \frac{24x}{5}
+\end{align*}
+\begin{align*}
+	\text{FF} = \int_0^5 {\rho g \bigg( 4 + x \bigg) \bigg( \frac{24x}{5} \bigg) dx} = \frac{24 \rho g}{5} \int_0^5 {4x + x^2 dx}
+\end{align*}
+\begin{align*}
+	= \frac{24\rho g}{5} \bigg( \frac{24x^2}{2} + \frac{x^3}{3} \bigg) \bigg|_0^5 = 27,456
+\end{align*}
+Answer: $27,456$
+
+\section{Center of Mass}
+%12.1
+\subsection{Find the center of mass of the triangle with vertices $(0,0)$, $(6,0)$ and $(0,3)$.}
+Equations necessary to find the center of mass $(\bar{x}, \bar{y})$ for a function $f(x)$ are:
+\begin{align*}
+	\bar{x} = \frac{m_y}{m} \quad \bar{y} = \frac{m_x}{m}
+\end{align*}
+\begin{align*}
+	m = \int_a^b {f(x) dx} \quad m_y = \int_a^b {xf(x) dx} \quad m_x = \int_a^b {\frac{(f(x))^2}{2} dx}
+\end{align*}
+The slope of the line obtained from the triangle with the specified vertices is $f(x) = -\frac{1}{2}x + 3$, as shown in Figure 10. We can obtain the center of mass using the equations above. Work for the components is shown below:
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/12.1.png}
+	\caption{Graph of function for 12.1}
+\end{figure}
+\begin{align*}
+	m = \int_0^6 {-\frac{1}{2}x + 3 dx} = -\frac{1}{2}\frac{x^2}{2} + 3x \bigg|_0^6 = -\frac{1}{4}(36) + 18 = -9 + 18 = 9
+\end{align*}
+\begin{align*}
+	m_y = \int_0^6 {x \bigg( -\frac{1}{2}x + 3 \bigg)dx} = \int_0^6 {-\frac{1}{2}x^2 + 3x dx} = -\frac{1}{2}\frac{x^3}{3} + 3\frac{x^2}{2} \bigg|_0^6
+\end{align*}
+\begin{align*}
+	= -\frac{1}{6} (216) + \frac{3}{2} (36) = -36 + 54 = 18
+\end{align*}
+\begin{align*}
+	m_x = \int_0^6 {\frac{(-\frac{1}{2}x + 3)^2}{2}dx} = \frac{1}{2} \int_0^6 {\bigg( \frac{1}{4}x^2 - 3x + 9 \bigg) dx} = \frac{1}{2} \bigg( \frac{1}{4} \frac{x^3}{3} - 3\frac{x^2}{2} + 9x \bigg) \bigg|_0^6
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \bigg( \frac{1}{12} (216) - \frac{3}{2} (36) + 9(6) \bigg)= \frac{1}{2} (18 - 54 + 54) = 9
+\end{align*}
+\begin{align*}
+	\bar{x} = \frac{18}{9} = 2 \quad \bar{y} = \frac{9}{9} = 1 \implies (2,1)
+\end{align*}
+Answer: $(2,1)$
+
+%12.2
+\subsection{Find the center of mass of the region bounded by $y = x + 2$ and $y = x^2 - 4$.}
+Equations necessary to find the center of mass $(\bar{x}, \bar{y})$ for two functions $f(x), g(x)$ are:
+\begin{align*}
+	m = \int_a^b {f(x) - g(x) dx}
+\end{align*}
+\begin{align*}
+	m_y = \int_a^b {x(f(x) - g(x))dx}
+\end{align*}
+\begin{align*}
+	m_x = \int_a^b {\frac{f(x)^2 - g(x)^2}{2}dx}
+\end{align*}
+where $f(x)$ is the top function and $g(x)$ is the bottom function. \\[10pt]
+Figure 11 shows that $y= x + 2 = f(x)$ and $y = x^2 - 4 = g(x)$. 
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/12.2.png}
+	\caption{Graph of function for 12.2}
+\end{figure}
+Bounds for the calculations are determined by the intersection of the two curves:
+\begin{align*}
+	x + 2 = x^2 - 4 \implies x^2 - x - 6 = 0 \implies (x - 3)(x + 2) = 0 \implies x = -2, 3
+\end{align*}
+\begin{align*}
+	m = \int_{-2}^3 {x + 2 - (x^2 - 4)dx} = \int_{-2}^3 {-x^2 + x + 6 dx}
+\end{align*}
+\begin{align*}
+	= -\frac{x^3}{3} + \frac{x^2}{2} + 6x \bigg|_{-2}^3 = \frac{125}{6}
+\end{align*}
+\begin{align*}
+	m_y = \int_{-2}^3 {x(-x^2 + x + 6)dx} = \int_{-2}^3 {-x^3 + x^2 + 6x dx}
+\end{align*}
+\begin{align*}
+	= - \frac{x^4}{4} + \frac{x^3}{3} + \frac{6x^2}{2} \bigg|_{-2}^3 = \frac{125}{12}
+\end{align*}
+\begin{align*}
+	m_x = \int_{-2}^3 {\frac{(x + 2)^2 - (x^2 - 4)^2}{2}dx} = \frac{1}{2} \int_{-2}^3 {(x^2 + 4x + 4) - (x^4 - 8x^2 + 16)dx}
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \int_{-2}^3 {-x^4 + 9x^2 + 4x - 12 dx} = \frac{1}{2} \bigg( -\frac{x^5}{5} + \frac{9x^3}{3} + \frac{4x^2}{2} - 12x \bigg) \bigg|_{-2}^3 = 0
+\end{align*}
+\begin{align*}
+	\bar{x} = \frac{\frac{125}{12}}{\frac{125}{6}} = \frac{1}{2} \quad \bar{y} = \frac{0}{\frac{125}{6}} = 0 \implies \bigg( \frac{1}{2}, 0 \bigg)
+\end{align*}
+Answer: $(\frac{1}{2}, 0)$
+
+%12.3
+\subsection{Find the center of mass of the region bounded by $y = 8 - x^2$ and $y = \sqrt{x}$ from $0 \leq x \leq 1$.}
+Figure 12 shows that $y = 8 - x^2 = f(x)$ and $y = \sqrt{x} = g(x)$. 
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/12.3.png}
+	\caption{Graph of function for 12.3}
+\end{figure}
+\begin{align*}
+	m = \int_0^1 {8 - x^2 - \sqrt{x}dx} = 8x - \frac{x^3}{3} - \frac{2}{3}x^{3/2} \bigg|_0^1 = 7
+\end{align*}
+\begin{align*}
+	m_y = \int_0^1 {x(8 - x^2 - \sqrt{x})dx} = \int_0^1 {8x - x^3 - x^{3/2}dx}a
+\end{align*}
+\begin{align*}
+	= \frac{8x^2}{2} - \frac{x^4}{4} - \frac{2}{5}x^{5/2} \bigg|_0^1 = \frac{67}{20}
+\end{align*}
+\begin{align*}
+	m_x = \int_0^1 {\frac{(8 - x^2)^2 - (\sqrt{x})^2}{2}dx} = \frac{1}{2}\int_0^1 {x^4 - 16x^2 - x + 64 dx}
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \bigg( \frac{x^5}{5} - \frac{16x^3}{3} - \frac{x^2}{2} + 64x \bigg) \bigg|_0^1 = \frac{1751}{60}
+\end{align*}
+\begin{align*}
+	\bar{x} = \frac{\frac{67}{20}}{7} = 0.478571 \quad \bar{y} = \frac{\frac{1751}{60}}{7} = 4.169048 \implies (0.478571, 4.169048)
+\end{align*}
+Answer: $(0.478571, 4.169048)$
+
+%12.4
+\subsection{Find the center of mass of the region bounded by $y = \sqrt{4 - x^2}$ and $y = 0$.}
+\begin{align*}
+	\sqrt{4 - x^2} = 0 \implies x = \pm 2
+\end{align*}
+\begin{align*}
+	m = \int_{-2}^2 {\sqrt{4 - x^2}dx} = 2\pi
+\end{align*}
+\begin{align*}
+	m_y = \int_{-2}^2 {x\sqrt{4 - x^2}dx} = -\frac{1}{3} (4 - x^2)^{3/2} \bigg|_{-2}^2 = 0
+\end{align*}
+\begin{align*}
+	m_x = \int_{-2}^2 {\frac{\sqrt{4 - x^2}^2}{2}dx} = \frac{1}{2} \bigg( 4x - \frac{x^3}{3} \bigg|_{-2}^2 \bigg) = \frac{32}{6}
+\end{align*}
+\begin{align*}
+	\bar{x} = \frac{0}{2\pi} = 0 \quad \bar{y} = \frac{\frac{32}{6}}{2\pi} = \frac{8}{3\pi} \implies \bigg( 0, \frac{8}{3\pi} \bigg)
+\end{align*}
+Answer: $(0, \frac{8}{3\pi})$
+
+\section{Separation of Variables}
+Solve the following differential equations:
+%13.1
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} = \frac{2y}{x}
+	\end{align*}
+}
+\begin{align*}
+	\int {\frac{dy}{y}} = \int{ \frac{2}{x} dx}
+\end{align*}
+\begin{align*}
+	\ln{|y|} = 2\ln{|x|} + C = \ln{x^2} + C
+\end{align*}
+\begin{align*}
+	e^{\ln{|y|}} = e^{\ln{x^2} + C} \implies y = Cx^2
+\end{align*}
+Answer: $y = Cx^2$
+
+%13.2
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} = x^2 y^3
+	\end{align*}
+}
+\begin{align*}
+	\int{\frac{1}{y^3}dy} = \int{x^2 dx}
+\end{align*}
+\begin{align*}
+	\frac{-1}{2y^2} = \frac{x^3}{3} + C
+\end{align*}
+\begin{align*}
+	-\frac{1}{y^2} = \frac{2x^3}{3} + C
+\end{align*}
+\begin{align*}
+	y^2 = \frac{-3}{2x^3 + C}
+\end{align*}
+\begin{align*}
+	y = \pm \sqrt{\frac{-3}{2x^3 + C}}
+\end{align*}
+Answer: $y = \pm \sqrt{\frac{-3}{2x^3 + C}}$
+
+%13.3
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} = \frac{2x(y - 1)}{x^2 + 1}
+	\end{align*}
+}
+\begin{align*}
+	\int{\frac{1}{y - 1} dy} = \int{\frac{2x}{x^2 + 1}dx}
+\end{align*}
+\begin{align*}
+	\ln{|y - 1|} = \ln{|x^2 + 1|} + C
+\end{align*}
+\begin{align*}
+	y - 1 = C(x^2 + 1)
+\end{align*}
+\begin{align*}
+	y = 1 + C(x^2 + 1)
+\end{align*}
+Answer: $y = C(x^2 + 1) + 1$
+
+%13.4
+\subsection{
+	\begin{align*}
+		2x(y + 1) - y y' = 0
+	\end{align*}
+}
+\begin{align*}
+	2x(y + 1) = y \frac{dy}{dx}
+\end{align*}
+\begin{align*}
+	\int{2xdx} = \frac{y}{y + 1}dy
+\end{align*}
+Let $u = y + 1, du = dy$, and $y = u - 1$.
+\begin{align*}
+	x^2 = \int{\frac{u - 1}{u}du} = \int{1 - \frac{1}{u}du} = u - \ln{u}
+\end{align*}
+\begin{align*}
+	x^2 = y + 1 - \ln{|y + 1|} + C
+\end{align*}
+\begin{align*}
+	-y + \ln{|y + 1|} + x^2 = C
+\end{align*}
+Answer: $\ln{|y + 1|} + x^2 - y = C$
+
+%13.5
+\subsection{
+	\begin{align*}
+		y' = y^2(1 + x^2), \quad y(0) = 5
+	\end{align*}
+}
+\begin{align*}
+	\int{\frac{dy}{y^2}} = \int{1 + x^3 dx}
+\end{align*}
+\begin{align*}
+	-\frac{1}{y} = x + \frac{x^4}{4} + C
+\end{align*}
+Plugging in the initial conditions:
+\begin{align*}
+	-\frac{1}{5} = 0 + 0 + C \implies C = -\frac{1}{5}
+\end{align*}
+\begin{align*}
+	-\frac{1}{y} = x + \frac{x^4}{4} - \frac{1}{5}
+\end{align*}
+\begin{align*}
+	-\frac{20}{y} = 20x + 5x^4 - 4
+\end{align*}
+\begin{align*}
+	y = \frac{-20}{20x + 5x^4 - 4}
+\end{align*}
+Answer: $y = \frac{-20 }{20x + 5x^4 - 4}$
+
+%13.6
+\subsection{
+	\begin{align*}
+		e^{x^2} y' = x e^y, \quad y(0) = 0
+	\end{align*}
+}
+\begin{align*}
+	\int{e^{-y}dy} = \int{xe^{-x^2}dx}
+\end{align*}
+Let $u = -y$ and $du = -dy$. Let $v = -x^2, dv = -2xdx,$ and $dx = \frac{dv}{-2x}$. 
+\begin{align*}
+	-\int{e^u du} = -\frac{1}{2} \int{e^v dv}
+\end{align*}
+\begin{align*}
+	-e^{-y} = -\frac{1}{2}e^{-x^2} + C
+\end{align*}
+Plugging in the intiial conditions
+\begin{align*}
+	-e^0 = -\frac{1}{2}e^0 + C \implies C = -\frac{1}{2}
+\end{align*}
+\begin{align*}
+	-e^{-y} = -\frac{1}{2}e^{-x^2} - \frac{1}{2}
+\end{align*}
+\begin{align*}
+	e^{-y} = \frac{1}{2} \bigg( e^{-x^2} + 1 \bigg)
+\end{align*}
+\begin{align*}
+	y = -\ln{\frac{e^{-x^2} + 1}{2}}
+\end{align*}
+Answer: $y = - \ln{|\frac{e^{-x^2} + 1}{2}|}$
+
+\section{Newton's Law of Cooling}
+%14.1
+\subsection{Find the general solution of $y' = -3(y - 2)$ and graph the two solutions satisfying $y(0) = 0$ and $y(0) = 4$.}
+\begin{align*}
+	\frac{dy}{dt} = -3(y - 2)
+\end{align*}
+\begin{align*}
+	\frac{dy}{y - 2} = -3dt
+\end{align*}
+\begin{align*}
+	\ln{|y - 2|} = -3t + C
+\end{align*}
+\begin{align*}
+	y - 2 = Ce^{-3t}
+\end{align*}
+\begin{align*}
+	y = Ce^{-3t} + 2
+\end{align*}
+% Insert first graph
+% Insert second graph
+Answer: $y = 2 + ce^{-3t}$
+
+%14.2
+\subsection{Solve $y' + 6y = 12$ and $y(2)=10$.}
+\begin{align*}
+	\frac{dy}{dx} = 12 - 6y = 6 (2 - y)
+\end{align*}
+\begin{align*}
+	\frac{dy}{2 - y} = 6dt
+\end{align*}
+\begin{align*}
+	-\ln{|2 - y|} = 6t + C
+\end{align*}
+\begin{align*}
+	2 - y = Ce^{-6t}
+\end{align*}
+\begin{align*}
+	y = 2 + Ce^{-6t}
+\end{align*}
+\begin{align*}
+	10 = 2 + Ce^{-6(2)}
+\end{align*}
+\begin{align*}
+	8 = Ce^{-12}
+\end{align*}
+\begin{align*}
+	8e^{12} = C
+\end{align*}
+\begin{align*}
+	y = 2 + 8e^{12 - 6t}
+\end{align*}
+Answer: $y = 8e^{12 - 6t} + 2$
+
+%14.3
+\subsection{A $5$-lb roast initially at $50$F is put into a $375$F oven when $t = 0$. The temperature $T(t)$ of the roast is $125$F when $t = 75$ min. When will the roast be $150$F?}
+We gather the following information:
+\begin{align*}
+	y(0) = 50 \quad t_0 = 375 \quad y(75) = 125 \quad y(t) = 150
+\end{align*}
+We begin with:
+\begin{align*}
+	y(t) = 375 + Ce^{-kt}
+\end{align*}
+\begin{align*}
+	y(0) = 375 + Ce^0 = 50 \implies C = -325
+\end{align*}
+\begin{align*}
+	y(75) = 375 - 325e^{-75k} = 125 \implies k = \frac{\ln{(10/13)}}{-75}
+\end{align*}
+\begin{align*}
+	y(t) = 150 = 375 = 325e^{-kt} \implies t = \frac{-\ln{(9/13)}}{k} = 105.11
+\end{align*}
+Answer: $105$
+
+%14.4
+\subsection{A room has a constant temperature of $60$F. If a body in the room cools from $100$F to $90$F in $10$ minutes, how much longer will it take for its temperature to decrease to $80$F?}
+We gather the following information:
+\begin{align*}
+	t_0 = 60 \quad y(0) = 100 \quad y(10) = 90 \quad y(t) = 80
+\end{align*}
+We begin with:
+\begin{align*}
+	y(t) = 60 + Ce^{-kt}
+\end{align*}
+\begin{align*}
+	y(0) = 60 + Ce^0 = 100 \implies C = 40
+\end{align*}
+\begin{align*}
+	y(10) = 60 + 40e^{-10k} = 90 \implies k = \frac{-\ln{(3/4)}}{10}
+\end{align*}
+\begin{align*}
+	y(t) = 80 = 60 + 40e^{-kt} \implies t = \frac{-\ln{(2/4)}}{k} = 14.09
+\end{align*}
+Answer: $14.09$
+
+%14.5
+\subsection{A glass of lemonade with temperature of $40$F is left to sit in a room with constant temperature of $70$F. If the temperature is $52$F after $1$ hour, what will the temperature be after $5$ hours?}
+We gather the following information:
+\begin{align*}
+	y(0) = 40 \quad t_0 = 70 \quad y(1) = 52 \quad y(5) = ?
+\end{align*}
+We begin with:
+\begin{align*}
+	y(t) = 70 + Ce^{-kt}
+\end{align*}
+\begin{align*}
+	y(0) = 70 + Ce^0 = 40 \implies C = -30
+\end{align*}
+\begin{align*}
+	y(1) = 70 - 30e^{-k} = 52 \implies k = -\ln{(9/15)}
+\end{align*}
+\begin{align*}
+	y(5) = 70 - 30e^{-5k} = 67.67
+\end{align*}
+Answer: $67$
+
+%14.6
+\subsection{A frozen turkey ($0$F) is placed in a hot oven. After $1$ hour the turkey is $43.775$F. After $3$ hours, the temperature is $119.24$F. What is the temperature of the oven?}
+We are given the following equations:
+\begin{align*}
+	y(0) = t_0 + Ce^0 = 0 \\
+	y(1) = t_0 + Ce^{-k} = 43.775 \\
+	y(3) = t_0 + Ce^{-3k} = 119.24
+\end{align*}
+We can take the ratio between the first and second equations, as well as the second and third equations, to eliminate our parameter $C$:
+\begin{align*}
+	\frac{t_0 + C = 0}{t_0 + Ce^{-k} = 43.775} \implies e^k = \frac{-t_0}{43.775 - t_0} \\
+	\frac{t_0 + Ce^{-k} = 43.775}{t_0 + Ce^{-3k} = 119.24} \implies e^{2k} = \frac{43.775 - t_0}{119.24 - t_0}
+\end{align*}
+Because both equations are related through their exponentials, we can eliminate the parameter $k$ by setting both equations equal to each other:
+\begin{align*}
+	e^{2k} = \frac{t_0^2}{(43.755 - t_0)} = \frac{43.775 - t_0}{119.24 - t_0}
+\end{align*}
+\begin{align*}
+	t_0^2(119.24 - t_0) = (43.775 - t_0)^3
+\end{align*}
+\begin{align*}
+	119.24 t_0^2 - t_0^3 = 43.775^3 - 3(43.775)^2 t_0 + 3(43.775)t_0^2 - t_0^3
+\end{align*}
+\begin{align*}
+	0 = t_0^2 (3(43.775)-119.24) - t_0 (3(43.775)^2) + 43.775^3
+\end{align*}
+\begin{align*}
+	0 = 12.085 t_0^2 - 5748.751 t_0 + 83883.871
+\end{align*}
+\begin{align*}
+	t_0 = 15.078, 460.228 \implies t_0 = 460
+\end{align*}
+Answer: $460$
+
+\section{Slope Fields and Euler's Method}
+
+Sketch the slope fields and some likely solution curves for the following differential equations:
+%15.1
+\subsection{
+	\begin{align*}
+		y' = 1 - y^2
+	\end{align*}
+}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/15.1.png}
+	\caption{Graph of function for 15.1}
+\end{figure}
+Answer: See Figure 13.
+
+%15.2
+\subsection{
+	\begin{align*}
+		y' = x^2 + y^2
+	\end{align*}
+}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/15.2.png}
+	\caption{Graph of function for 15.2}
+\end{figure}
+Answer: See Figure 14.
+
+%15.3
+\subsection{
+	\begin{align*}
+		y' = x - y^2
+	\end{align*}
+}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/15.3.png}
+	\caption{Graph of function for 15.3}
+\end{figure}
+Answer: See Figure 15.
+
+%15.4
+\subsection{
+	\begin{align*}
+		y' = \frac{1}{x^2 + 1}
+	\end{align*}
+}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/15.4.png}
+	\caption{Graph of function for 15.4}
+\end{figure}
+Answer: See Figure 16.
+\\[10pt]
+Use Euler's method to find $y(1)$ with $h = 0.1$ and 
+%15.5
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} = 1 - y, \quad y(0) = 0
+	\end{align*}
+}
+See Table 1. \\[10pt]
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & $y$ & $\frac{dy}{dx}$ & $h\frac{dy}{dx}$ & $h\frac{dy}{dx} + y$ \\ \hline
+0 	& 0		 	& 1			& 0.1			& 0.1			\\ \hline
+0.1 	& 0.1	 		& 0.9			& 0.09		& 0.19		\\ \hline
+0.2 	& 0.19	 	& 0.81		& 0.081		& 0.271		\\ \hline
+0.3 	& 0.271 		& 0.729		& 0.0729		& 0.3439		\\ \hline
+0.4 	& 0.3439		& 0.6561		& 0.06561		& 0.40951		\\ \hline
+0.5 	& 0.40951		& 0.59049		& 0.059049	& 0.468559	\\ \hline
+0.6 	& 0.468559	& 0.531441	& 0.0531441	& 0.5217031	\\ \hline
+0.7 	& 0.5217031	& 0.4782969	& 0.04782969	& 0.56953279	\\ \hline
+0.8 	& 0.56953279	& 0.43046721	& 0.043046721	& 0.612579511	\\ \hline
+0.9 	& 0.612579511	& 0.388742048	& 0.038874204	& 0.651453715	\\ \hline
+1 	& 0.651453715
+\end{tabular}
+\caption{Table for 15.5}
+\end{table}
+Answer: $y(1) = 0.651$
+
+%15.6
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} = x^2 + y^2, \quad y(0) = 0
+	\end{align*}
+}
+Answer: $y(1)  = 0.293$
+
+%15.7
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} = x - y, \quad y(0) = 0
+	\end{align*}
+}
+Answer: $y(1) = 0.3486$
+
+%15.8
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} = x^3, \quad y(0) = 0
+	\end{align*}
+}
+Answer: $y(1) = 0.2025$
+
+\section{Logistic Growth}
+\subsection{Find the solution of $y' = \frac{1}{2}y(1 - \frac{y}{4})$}
+%16.1.1
+\subsubsection{with initial condition $y(0) = 1$}
+The solution for a differential equation of this form is the following:
+\begin{align*}
+	\frac{dy}{dt} = ky \bigg( 1 - \frac{y}{A} \bigg) \implies y = \frac{A}{1 - \frac{e^{-kt}}{B}}, \quad B = \frac{y_0}{y_0 - A}
+\end{align*}
+We gather the following information:
+\begin{align*}
+	k = \frac{1}{2}, \quad A = 4, \quad y_0 = 1
+\end{align*}
+First we obtain the value for $B$:
+\begin{align*}
+	B = \frac{1}{1 - 4} = -\frac{1}{3}
+\end{align*}
+Then we obtain the solution:
+\begin{align*}
+	y = \frac{4}{1 - \frac{e^{-\frac{1}{2}t}}{-\frac{1}{3}}} = \frac{4}{1 + 3e^{-t/2}}
+\end{align*}
+Answer: $y = \frac{4}{1 + 3e^{-t/2}}$
+%16.1.2
+\subsubsection{with initial condition $y(0) = 6$}
+First we obtain the value for $B$:
+\begin{align*}
+	B = \frac{6}{6 - 4} = \frac{6}{2} = 3
+\end{align*}
+Then we obtain the solution:
+\begin{align*}
+	y = \frac{4}{1 - \frac{e^{-\frac{1}{2}t}}{3}} = \frac{4}{1 - \frac{1}{3}e^{-t/2}}
+\end{align*}
+Answer: $y = \frac{4}{1 - \frac{1}{3}e^{-t/2}}$
+%16.1.3
+\subsubsection{with initial condition $y(0) = -1$}
+First we obtain the value for $B$:
+\begin{align*}
+	B = \frac{-1}{-1 - 4} = \frac{1}{5}
+\end{align*}
+Then we obtain the solution:
+\begin{align*}
+	y = \frac{4}{1 - \frac{e^{-\frac{1}{2}t}}{\frac{1}{5}}} = \frac{4}{1 - 5e^{-t/2}}
+\end{align*}
+Answer: $y = \frac{4}{1 - 5e^{-t/2}}$
+
+\subsection{Find the solution of $y' = - \frac{1}{3}y(3 - y)$}
+We can rearrange our differential equation:
+\begin{align*}
+	y' = -\frac{1}{3}(3) \times (3 - y)\frac{1}{3} = -y(1 - \frac{y}{3})
+\end{align*}
+We gather the following information:
+\begin{align*}
+	k = -1, \quad A = 3
+\end{align*}
+%16.2.1
+\subsubsection{with initial condition $y(0) = 2$}
+First we obtain the value for $B$:
+\begin{align*}
+	B = \frac{2}{2 - 3} = -2
+\end{align*}
+Then we obtain the solution:
+\begin{align*}
+	y = \frac{3}{1 - \frac{e^{(1)t}}{-2}} = \frac{3}{1 + \frac{e^{t}}{2}}
+\end{align*}
+Answer: $y = \frac{6}{2 + e^t}$
+%16.2.2
+\subsubsection{with initial condition $y(0) = -2$}
+First we obtain the value for $B$:
+\begin{align*}
+	B = \frac{-2}{-2 - 3} = \frac{2}{5}
+\end{align*}
+Then we obtain the solution:
+\begin{align*}
+	y = \frac{3}{1 - \frac{e^{(1)t}}{\frac{2}{5}}} = \frac{3}{1 - \frac{5}{2}e^{t}}
+\end{align*}
+Answer: $y = \frac{6}{2 - 5e^t}$
+%16.2.3
+\subsubsection{with initial condition $y(0) = 3.5$}
+First we obtain the value for $B$:
+\begin{align*}
+	B = \frac{3.5}{3.5 - 3} = 7
+\end{align*}
+Then we obtain the solution:
+\begin{align*}
+	y = \frac{3}{1 - \frac{e^{(1)t}}{7}} = \frac{3}{1 - \frac{e^{t}}{7}}
+\end{align*}
+Answer: $y = \frac{21}{7 - e^t}$
+
+%16.3
+\subsection{$40$ bears are released into a game refuge. After $5$ years, the bear population is $104$. The environment can support no more than $4000$ bears. The growth rate of the population $p$ is
+	\begin{align*}
+		p' = kp(1 - \frac{p}{4000})
+	\end{align*}
+How many bears are there after $15$ years?}
+We gather the following information:
+\begin{align*}
+	y_0 = 40, \quad y(5) = 104, \quad A = 4000, \quad y(15) = ?
+\end{align*}
+\begin{align*}
+	B = \frac{40}{40 - 4000} = -\frac{1}{99}
+\end{align*}
+\begin{align*}
+	\implies y = \frac{4000}{1 - \frac{e^{-kt}}{-\frac{1}{99}}} = \frac{4000}{1 + 99e^{-kt}}
+\end{align*}
+\begin{align*}
+	y(5) = \frac{4000}{1 + 99e^{-5k}} = 104 \implies \frac{4000}{104} = 1 + 99e^{-5k} \implies \frac{38.46 - 1}{99} = e^{-5k}
+\end{align*}
+\begin{align*}
+	\implies -5k = \ln{(0.378)} = -0.971 \implies k = \frac{-0.971}{-5} = 0.194
+\end{align*}
+\begin{align*}
+	y(15) = \frac{4000}{1 + 99e^{-(0.194)(15)}} = 628.54 = 628
+\end{align*}
+Answer: $626$
+
+%16.4
+\subsection{In a class of $100$ students, $10$ students have heard the rumor that the next exam will be very hard. After $1$ week, the number of student that have heard the rumor has increased to $20$ students. Assuming the number of students that have heard the rumor follows the logistic differential equation, when will $80$\% of the class have heard the rumor.}
+We gather the following information:
+\begin{align*}
+	A = 100, \quad y_0 = 10, \quad y(1) = 20, \quad y(t) = 80
+\end{align*}
+\begin{align*}
+	B = \frac{10}{10 - 100} = -\frac{1}{9}
+\end{align*}
+\begin{align*}
+	\implies y = \frac{100}{1 - \frac{e^{-kt}}{-\frac{1}{9}}} = \frac{100}{1 + 9e^{-kt}}
+\end{align*}
+\begin{align*}
+	y(1) = \frac{100}{1 + 9e^{-k}} = 20 \implies \frac{100}{20} = 1 + 9e^{-k} \implies \frac{5 - 1}{9} = e^{-k}
+\end{align*}
+\begin{align*}
+	\implies -k = \ln{(4/9)} \implies k = -\ln{(4/9)} = 0.811
+\end{align*}
+\begin{align*}
+	y(t) = \frac{100}{1 + 9e^{-(0.811)t}} = 80 \implies \frac{100}{80} = 1 + 9e^{-0.811t}
+\end{align*}
+\begin{align*}
+	\implies \frac{\frac{5}{4} - 1}{9} = e^{-0.811t} \implies \ln{(1/36)} = -0.811t \implies t = \frac{\ln{(1/36)}}{-0.811} = 4.42
+\end{align*}
+Answer: $4.42$
+
+\section{First Order Linear Differential Equations}
+Solve the following differential equations:
+%17.1
+\subsection{
+	\begin{align*}
+		2y' + 3y = e^{-x}
+	\end{align*}
+}
+Transform the differential equation into its standard form:
+\begin{align*}
+	y' + P(x)y = Q(x)
+\end{align*}
+\begin{align*}
+	y' + \frac{3}{2}y = \frac{1}{2}e^{-x}
+\end{align*}
+The solution to a differential equation of this form is:
+\begin{align*}
+	y = \frac{1}{\alpha(x)} \bigg[ \int{\alpha(x) Q(x) dx} + C \bigg]
+\end{align*}
+where $\alpha(x) = e^{\int{P(x)dx}}$. \\[10pt]
+We gather the following information:
+\begin{align*}
+	P(x) = \frac{3}{2}, \quad Q(x) = \frac{1}{2}e^{-x}, \quad \alpha(x) = e^{\int{\frac{3}{2}dx}} = e^{\frac{3}{2}x}
+\end{align*}
+We find the solution now:
+\begin{align*}
+	y = \frac{1}{e^{\frac{3}{2}x}} \bigg[ \int{e^{\frac{3}{2}x}} \frac{1}{2}e^{-x}dx + C \bigg] = e^{-\frac{3}{2}x} \bigg[ \frac{1}{2} \int{e^{(\frac{3}{2} - 1)x}} + C \bigg]
+\end{align*}
+\begin{align*}
+	= e^{-\frac{3}{2}x} \bigg[ \frac{1}{2} \int{e^{\frac{1}{2}x}} + C \bigg] = e^{-\frac{3}{2}x} \bigg[ e^{\frac{1}{2}x} + C \bigg] = e^{-x} + Ce^{-\frac{3}{2}x}
+\end{align*}
+Answer: $y = e^x + Ce^{-3x/2}$
+
+%17.2
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} - \frac{2x}{x^2 + 1}y = x
+	\end{align*}
+}
+We gather the following information:
+\begin{align*}
+	P(x) = \frac{-2x}{x^2 + 1}, \quad Q(x) = x, \quad \alpha(x) = e^{\int{\frac{-2x}{x^2 + 1}dx}} = \frac{1}{x^2 + 1}
+\end{align*}
+We find the solution now:
+\begin{align*}
+	y = \frac{1}{\frac{1}{x^2 + 1}} \bigg[ \int{\frac{1}{x^2 + 1}x dx} + C \bigg] = (x^2 + 1) \bigg[ \int{\frac{x}{x^2 + 1}dx} + C \bigg]
+\end{align*}
+\begin{align*}
+	= (x^2 + 1) \bigg[ \frac{1}{2}\ln{(x^2 + 1)} + C \bigg]
+\end{align*}
+Answer: $y = (x^2 + 1) ( \frac{1}{2} \ln{(x^2 + 1)} + C ) $
+
+%17.3
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} + y\cot{x} = 1
+	\end{align*}
+}
+We gather the following information:
+\begin{align*}
+	P(x) = \cot{x}, \quad Q(x) = 1, \quad \alpha(x) = e^{\int{\cot{x}dx}} = \sin{x}
+\end{align*}
+We find the solution now:
+\begin{align*}
+	y = \frac{1}{\sin{x}} \bigg[ \int{\sin{x}(1)dx} + C \bigg] = \frac{1}{\sin{x}} \bigg[ -\cos{x} + C \bigg] = -\cot{x} + \frac{C}{\sin{x}}
+\end{align*}
+Answer: $y = - \cot{x} + \frac{C}{\sin{x}}$
+
+%17.4
+\subsection{
+	\begin{align*}
+		\cos{x} \frac{dy}{dx} + y\sin{x} = 0
+	\end{align*}
+}
+Transform the differential equation into its standard form:
+\begin{align*}
+	y' + \frac{\sin{x}}{\cos{x}}y = 0
+\end{align*}
+We gather the following information:
+\begin{align*}
+	P(x) = \frac{\sin{x}}{\cos{x}}, \quad Q(x) = 0, \quad \alpha(x) = e^{\frac{\sin{x}}{\cos{x}}dx} = \frac{1}{\cos{x}}
+\end{align*}
+We find the solution now:
+\begin{align*}
+	y = \frac{1}{\frac{1}{\cos{x}}} \bigg[ \int{\frac{1}{\cos{x}}(0)dx} + C \bigg] = C\cos{x}
+\end{align*}
+Answer: $y = C \cos{x}$
+
+%17.5
+\subsection{
+	\begin{align*}
+		\frac{dy}{dx} -3y = e^{3x}\sin{x}
+	\end{align*}
+}
+We gather the following information:
+\begin{align*}
+	P(x) = -3, \quad Q(x) = e^{3x}\sin{x}, \quad \alpha(x) = e^{\int{-3dx}} = e^{-3x}
+\end{align*}
+We find the solution now:
+\begin{align*}
+	y = \frac{1}{e^{-3x}} \bigg[ \int{e^{-3x}e^{3x}\sin{x}dx} + C \bigg] = e^{3x} \bigg[ -\cos{x} + C \bigg]
+\end{align*}
+Answer: $y = -e^{3x} (\cos{x} + C)$
+
+\section{Mixing Problems}
+%18.1
+\subsection{A tank initially contains $100$ gallons of water containing $40$ pounds of salt. A salt solution containing $2$ pound of salt per gallon is added to the tank at the rate of $3$ gallons per minute, and the solution in the tank is drained off at the rate of $2$ gallons per minute. How much salt is in the tank after $30$ minutes?}
+See Figure 17 for an image of the problem. \\[10pt]
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/18.1.jpg}
+	\caption{Graph of function for 18.1}
+\end{figure}
+We will model this problem using a first order linear differential equation:
+\begin{align*}
+	\frac{dy}{dt} = \text{rate in} - \text{rate out}
+\end{align*}
+From the image, we can see that there is a net addition of 1 unit of volume into the tank. Therefore, our differential equation is:
+\begin{align*}
+	\frac{dy}{dt} = 2 \frac{lb}{gal} \times 3 \frac{gal}{min} - 2 \frac{gal}{min} \times \frac{y}{100 + t} \frac{lb}{gal}
+\end{align*}
+\begin{align*}
+	\implies y' + \frac{2}{100 + t}y = 6
+\end{align*}
+We gather the following information:
+\begin{align*}
+	P(x) = \frac{2}{100 + t}, \quad Q(x) = 6, \quad \alpha(x) = e^{\int{\frac{2}{100 + t} dx}} = (100 + t)^2
+\end{align*}
+We solve for the general solution:
+\begin{align*}
+	y = \frac{1}{(100 + t)^2} \bigg[ \int{(100 + t)^2 6 dt} + C \bigg] = \frac{1}{(100 + t)^2} \bigg[ 2(100 + t)^3 + C \bigg]
+\end{align*}
+\begin{align*}
+	= 2(100 + t) + \frac{C}{(100 + t)^3}
+\end{align*}
+Plugging in our initial condition:
+\begin{align*}
+	y(0) = 40 = 2(100) + \frac{C}{100^2} \implies C = -1,600,000
+\end{align*}
+Finding our answer:
+\begin{align*}
+	y(30) = 2(130) - \frac{1,600,000}{130^2} = 165.32
+\end{align*}
+Answer: $165.32$
+
+\section{Sequences}
+Find the limit of the following sequences:
+%19.1
+\subsection{
+	\begin{align*}
+		\biggl\{ \left(1 + \frac{1}{n} \right)^n \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+Define the function and take it's natural log.
+\begin{align*}
+	a_n = \bigg( 1 + \frac{1}{n} \bigg)^n
+\end{align*}
+\begin{align*}
+	\ln{a_n} = n \ln{\bigg( 1 + \frac{1}{n} \bigg)}
+\end{align*}
+Take the limit as $n$ approaches infinity.
+\begin{align*}
+	\lim_{n \to \infty} \bigg( \ln{a_n} \bigg) = \ln \bigg( \lim_{n \to \infty} a_n \bigg) = \ln \bigg[ \lim_{n \to \infty} \bigg( n \ln{\bigg(1 + \frac{1}{n} \bigg)} \bigg) \bigg] = \infty \times 0
+\end{align*}
+Rearrange.
+\begin{align*}
+	\ln{\bigg( \lim_{n \to \infty} a_n \bigg)} = \ln{\bigg[ \lim_{n \to \infty} \frac{\ln{\bigg( 1 + \frac{1}{n} \bigg)}}{\frac{1}{n}} \bigg]} = \frac{0}{0}
+\end{align*}
+Use L'Hopital's Rule on the limit portion.
+\begin{align*}
+	\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{\frac{1}{1 + \frac{1}{n}}\bigg( \frac{-1}{n^2} \bigg)}{\bigg( \frac{-1}{n^2} \bigg)} = \lim_{n \to \infty} \frac{1}{1 + \frac{1}{n}} = \frac{1}{1 + 0} = 1
+\end{align*}
+Exponentiate to remove the natural log.
+\begin{align*}
+	e^{\ln{( \lim_{n \to \infty} a_n )}} = e^1 \implies \lim_{n \to \infty} a_n = e
+\end{align*}
+Answer: $e$
+
+%19.2
+\subsection{
+	\begin{align*}
+		\bigl\{ 3 + (-1)^n \bigl\}_{n=1}^\infty
+	\end{align*}
+}
+We observe that as the limit of this sequence approaches infinity, the terms oscillate back and forth between 2 and 4:
+\begin{align*}
+	n = 1: \quad 3 + (-1)^1 = 3 - 1 = 2 \\
+	n = 2: \quad 3 + (-1)^2 = 3 + 1 = 4 \\
+	n = 3: \quad 3 + (-1)^3 = 3 - 1 = 2
+\end{align*}
+Because the sequence oscillates, the limit as $n$ approaches infinity does not exist. \\[10pt]
+Answer: D.N.E.
+
+%19.3
+\subsection{
+	\begin{align*}
+		\biggl\{ \frac{3n^2 - n + 4}{2n^2 + 1} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+\begin{align*}
+	\lim_{n \to \infty} \bigg( \frac{3n^2 - n + 4}{2n^2 + 1} \bigg) = \frac{3}{2}
+\end{align*}
+The power of the most significant term of $n$ in the numerator and denominator are the same, so we look at the ratio of the coefficients. \\[10pt]
+Answer: $\frac{3}{2}$
+
+%19.4
+\subsection{
+	\begin{align*}
+		\biggl\{ \frac{3^n}{4^n} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+\begin{align*}
+	\lim_{n \to \infty} \bigg( \frac{3^n}{4^n} \bigg) = \lim_{n \to \infty} \bigg( \frac{3}{4} \bigg)^n = 0
+\end{align*}
+When a fraction $r$ is bounded between 0 and 1 ($0 < r < 1$) and is raised to a large power, then the result gets closer and closer to 0. \\[10pt]
+Answer: $0$
+
+%19.5
+\subsection{
+	\begin{align*}
+		\biggl\{ n\sin{\frac{1}{n}} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+\begin{align*}
+	\lim_{n \to \infty} \bigg( n \sin{\frac{1}{n}} \bigg) = \infty \times 0
+\end{align*}
+Rearrange.
+\begin{align*}
+	\lim_{n \to \infty} \bigg( \frac{\sin{\frac{1}{n}}}{\frac{1}{n}} \bigg) = \frac{0}{•0}
+\end{align*}
+Use L'Hopital's Rule.
+\begin{align*}
+	\lim_{n \to \infty} \Bigg( \frac{\cos{\frac{1}{n}} \bigg( \frac{-1}{n^2} \bigg)}{\bigg( \frac{-1}{n^2} \bigg)} \Bigg) = \lim_{n \to \infty} \cos{\frac{1}{n}} = \cos{0} = 1
+\end{align*}
+Answer: $1$
+
+%19.6
+\subsection{
+	\begin{align*}
+		\biggl\{ \frac{1+(-1)^n}{n} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+\begin{align*}
+	\frac{0}{n} \leq \frac{1+(-1)^n}{n} \leq \frac{2}{n}
+\end{align*}
+We use the Squeeze Theorem. First find the bounds for the numerator. Then divide the equality by the denominator and look at the limits individually. If the bounds both approach the same limit, then the function approaches that limit as well. 
+\begin{align*}
+	\lim_{n \to \infty} \frac{0}{n} = 0 \quad \text{and} \quad \lim_{n \to \infty} \frac{2}{n} = 0 \implies \lim_{n \to \infty} \frac{1+(-1)^n}{n} = 0
+\end{align*}
+Answer: $0$
+
+%19.7
+\subsection{
+	\begin{align*}
+		\biggl\{ \frac{\sqrt{n}}{1 + \sqrt{n}} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+Same reasoning as 19.3.
+\begin{align*}
+	\lim_{n \to \infty} \frac{\sqrt{n}}{1 + \sqrt{n}} = 1
+\end{align*}
+Answer: $1$
+
+%19.8
+\subsection{
+	\begin{align*}
+		\biggl\{ \frac{n - 1}{n} - \frac{n}{n - 1} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+\begin{align*}
+	\lim_{n \to \infty} \bigg( \frac{n - 1}{n} - \frac{n}{n - 1} \bigg) = \lim_{n \to \infty} \bigg( \frac{n - 1}{n} \bigg) - \lim_{n \to \infty} \bigg( \frac{n}{n - 1} \bigg) = 1 - 1 = 0
+\end{align*}
+Answer: $0$
+\\[10pt]
+For questions 19.9 to 19.11, determine if the following sequences are increasing, decreasing or neither. Discuss the boundedness of the sequence.
+
+%19.9
+\subsection{
+	\begin{align*}
+		\biggl\{ 4 - \frac{1}{n} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+Let
+\begin{align*}
+	a_n = 4 - \frac{1}{n}
+\end{align*}
+Then,
+\begin{align*}
+	a_1 = 4 - \frac{1}{1} = 4 - 1 = 3 \quad \text{and} \quad \lim_{n \to \infty} \bigg( 4 - \frac{1}{n} \bigg) = 4 - 0 = 4
+\end{align*}
+Answer: Increasing, bounded between 3 and 4
+
+%19.10
+\subsection{
+	\begin{align*}
+		\biggl\{ \frac{4n}{n + 1} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+Let
+\begin{align*}
+	a_n = \frac{4n}{n + 1}
+\end{align*}
+Then,
+\begin{align*}
+	a_1 = \frac{4(1)}{1 + 1} = \frac{4}{2} = 2 \quad \text{and} \quad \lim_{n \to \infty} a_n = \lim_{n \to \infty} \bigg( \frac{4n}{n + 1} \bigg) = 4
+\end{align*}
+Answer: Increasing, bounded between 2 and 4
+
+%19.11
+\subsection{
+	\begin{align*}
+		\biggl\{ \frac{\cos{n}}{n} \biggl\}_{n=1}^\infty
+	\end{align*}
+}
+Let
+\begin{align*}
+	a_n = \frac{\cos{n}}{n}
+\end{align*}
+Then
+\begin{align*}
+	\lim_{n \to \infty} a_n = \lim{n \to \infty} \bigg( \frac{\cos{n}}{n} \bigg) = 0
+\end{align*}
+according to the Squeeze Theorem. However, due to the properties of the cosine function, it oscillates between -1 and 1, inclusive. \\[10pt]
+Answer: Neither, bounded between -1 and 1
+
+\section{Geometric Series, Telescoping Series, Harmonic Series, and Divergence Test}
+
+Determine if the series converge or diverge, and if it converges, find the sum:
+%20.1
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \left( \frac{1}{2} \right)^n
+	\end{align*}
+}
+The geometric series is defined as:
+\begin{align*}
+	\sum_{n = 0}^\infty ar^n = 
+	\begin{cases}
+		\left| r \right| < 1 & : \text{ converges} \quad \frac{a}{1 - r} \\
+		\left| r \right| \ge 1 & : \text{ diverges}
+	\end{cases}
+\end{align*}
+We gather the following information:
+\begin{align*}
+	a = 1, \quad r = \frac{1}{2}
+\end{align*}
+We determine whether the series converges or diverges:
+\begin{align*}
+	|r| = \bigg| \frac{1}{2} \bigg| = \frac{1}{2} < 1 \implies \text{converges}
+\end{align*}
+Because the series converges, we can find the sum:
+\begin{align*}
+	= \frac{1}{1 - \frac{1}{2}} = \frac{1}{
+	\frac{1}{2}} = 2
+\end{align*}
+Answer: $2$
+
+%20.2
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty 2 \left( \frac{2}{3} \right)^n
+	\end{align*}
+}
+We gather the following information:
+\begin{align*}
+	a = 2, \quad r = \frac{2}{3}
+\end{align*}
+We determine whether the series converges or diverges:
+\begin{align*}
+	|r| = \bigg| \frac{2}{3} \bigg| = \frac{2}{3} < 1 \implies \text{converges}
+\end{align*}
+Because the series converges, we can find the sum:
+\begin{align*}
+	= \frac{2}{1 - \frac{2}{3}} = \frac{2}{\frac{1}{3}} = 6
+\end{align*}
+Answer: $6$
+
+%20.3
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty 3 \left( \frac{4}{3} \right)^n
+	\end{align*}
+}
+We gather the following information:
+\begin{align*}
+	a = 3, \quad r = \frac{4}{3}
+\end{align*}
+We determine whether the series converges or diverges:
+\begin{align*}
+	|r| = \bigg| \frac{4}{3} \bigg| = \frac{4}{3} \geq 1 \implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%20.4
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty 2 \left( \frac{-1}{3} \right)^n
+	\end{align*}
+}
+We gather the following information:
+\begin{align*}
+	a = 2, \quad r = \frac{-1}{3}
+\end{align*}
+We determine whether the series converges or diverges:
+\begin{align*}
+	|r| = \bigg| \frac{-1}{3} \bigg| = \frac{1}{3} < 1 \implies \text{converges}
+\end{align*}
+Because the series converges, we can find the sum:
+\begin{align*}
+	= \frac{2}{1 - \frac{-1}{3}} = \frac{2}{\frac{4}{3}} = \frac{6}{4} = \frac{3}{2}
+\end{align*}
+Answer: $\frac{3}{2}$
+
+%20.5
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \left( \frac{1}{2} \right)^n
+	\end{align*}
+}
+We gather the following information:
+\begin{align*}
+	a = 1, \quad r = \frac{1}{2}
+\end{align*}
+We determine whether the series converges or diverges:
+\begin{align*}
+	|r| = \bigg| \frac{1}{2} \bigg| = \frac{1}{2} < 1 \implies \text{converges}
+\end{align*}
+Because the series converges, we can find the sum:
+\begin{align*}
+	= \frac{1}{1 - \frac{1}{2}} - \bigg( \frac{1}{2} \bigg)^0= \frac{1}{\frac{1}{2}} - 1= 2 - 1 = 1
+\end{align*}
+This is not our final answer, however, because the geometric series is defined when our first term begins at $n = 0$. To obtain the sum for the series when it begins at $n = 1$, we would need to subtract the zeroth term from the sum. The derivation is shown below. \\[10pt]
+Let $a_n = (\frac{1}{2})^n$. Then,
+\begin{align*}
+	\sum_{n = 0}^\infty a_n = a_0 + a_1 + \dots + a_\infty = a_0 + \sum_{n = 1}^\infty a_n
+\end{align*}
+\begin{align*}
+	\sum_{n = 1}^\infty a_n = \sum_{n = 0}^\infty a_n - a_0
+\end{align*}
+Answer: $1$
+
+%20.6
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{n(n + 1)}
+	\end{align*}
+}
+Use partial fractions to decompose the series:
+\begin{align*}
+	\sum_{n = 1}^\infty \frac{1}{n(n + 1)} = \sum_{n = 1}^\infty \frac{1}{n} + \frac{-1}{n + 1}
+\end{align*}
+We write out the first few terms of this series. After eliminating the repeated terms, we obtain the sum.
+\begin{align*}
+	= \bigg( \frac{1}{1} + \frac{-1}{2} \bigg) + \bigg( \frac{1}{2} + \frac{-1}{3} \bigg) + \bigg( \frac{1}{3} + \frac{-1}{4} \bigg) + \dots = 1
+\end{align*}
+Answer: $1$
+\\[10pt]
+In the following problems, use the Divergence test to determine if the following series diverge. Your answer for each problem should be either the series diverges or you cannot tell by the Divergence test.
+
+%20.7
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \frac{n^3 + 3n^2 + 4n + 5}{2n^3 + n^2 + 7n + 3}
+	\end{align*}
+}
+The Divergence Test is defined as follows:
+\begin{align*}
+	\sum_{n = 1}^\infty a_n = \lim_{n \to \infty} a_n = L = 
+	\begin{cases}
+		L = 0 \quad : \quad \text{inconclusive} \\
+		L \neq 0 \quad : \quad \text{diverges}
+	\end{cases}
+\end{align*}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \frac{n^3 + 3n^2 + 4n + 5}{2n^3 + n^2 + 7n + 3} = \frac{1}{2} \neq 0 \implies \text{diverges}
+\end{align*}
+Answer: Diverge
+
+%20.8
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \frac{n}{n^2 + 9}
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \frac{n}{n^2 + 9} = 0 \implies \text{inconclusive}
+\end{align*}
+Answer: Inconclusive
+
+%20.9
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \frac{n^3 + n}{n^2 + 2n + 3}
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \frac{n^3 + n}{n^2 + 2n + 3} = \infty \neq 0 \implies \text{diverges}
+\end{align*}
+Answer: Diverge
+
+%20.10
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \frac{\ln{n}}{n}
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \frac{\ln{n}}{n} = \frac{\infty}{\infty}
+\end{align*}
+Use L'Hopital's Rule,
+\begin{align*}
+	\lim_{n \to \infty} \bigg( \frac{\frac{1}{n}}{1} \bigg) = \lim_{n \to \infty} \frac{1}{n} = 0 \implies \text{inconclusive}
+\end{align*}
+Answer: Inconclusive
+
+%20.11
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \left( 1 + \frac{1}{n^2} \right)
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \bigg( 1 + \frac{1}{n^2} \bigg) = 1 + 0 = 1 \neq 0 \implies \text{diverges}
+\end{align*}
+Answer: Diverge
+
+%20.12
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \left( 1 + \frac{1}{n} \right)^n
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n = \lim_{n \to \infty} e = e \neq 0 \implies \text{diverges}
+\end{align*}
+Answer: Diverge
+
+%20.13
+\subsection{
+	\begin{align*}
+		\sum_{n = 10}^\infty \frac{4}{n - 4}
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \frac{4}{n - 4} = 0 \implies \text{inconclusive}
+\end{align*}
+Answer: Inconclusive
+
+%20.14
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \frac{n^4}{4^n}
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \frac{n^4}{4^n} = 0 \implies \text{inconclusive}
+\end{align*}
+Answer: Inconclusive
+
+%20.15
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \frac{1}{1 + e^{-n}}
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \frac{1}{1 + e^{-n}} = \frac{1}{1} = 1 \neq 0 \implies \text{diverges}
+\end{align*}
+Answer: Diverge
+
+%20.16
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \left( \frac{3}{4} \right)^n
+	\end{align*}
+}
+Use the Divergence Test,
+\begin{align*}
+	\lim_{n \to \infty} \left( \frac{3}{4} \right)^n = 0 \implies \text{inconclusive}
+\end{align*}
+Answer: Inconclusive
+
+\section{Integral Test}
+In the following problems, use the Integral test to determine if the series converges or diverges. Be sure to check that the function $f(x)$ is decreasing. \\[10pt]
+For the Integral Test, we define a function $f(x)$ that represents the series. Then, we check that the function is positive, continuous, and decreasing. If that is satisfied, if $\int_1^\infty {f(x)dx}$ converges, then the series converges, otherwise, if $\int_1^\infty {f(x)dx}$ diverges, then the series diverges.
+%21.1
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{2n + 1}
+	\end{align*}
+}
+Let
+\begin{align*}
+	f(x) = \frac{1}{2x + 1}
+\end{align*}
+The function is positive, continuous, and decreasing. Now we use the Integral Test:
+\begin{align*}
+	\int_1^\infty {\frac{1}{2x + 1} dx}
+\end{align*}
+Let $u = 2x + 1, du = 2dx$, and $dx = \frac{du}{2}$. 
+\begin{align*}
+	= \int{\frac{1}{u} \frac{du}{2}} = = \frac{1}{2} \ln{|2x + 1|} \bigg|_1^\infty \implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%21.2
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{n^2 + 4}
+	\end{align*}
+}
+Let
+\begin{align*}
+	f(x) = \frac{1}{x^2 + 4}
+\end{align*}
+The function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_1^\infty {\frac{1}{x^2 + 4}}
+\end{align*}
+Let $u = \frac{x}{2}, du = \frac{1}{2}dx$, and $dx = 2du$. 
+\begin{align*}
+	= \int{\frac{2du}{4u^2 + 4}} = \frac{1}{2} \int{\frac{1}{u^2 + 1} du} = \frac{1}{2} \arctan{\frac{x}{2}} \bigg|_1^\infty \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%21.3
+\subsection{
+	\begin{align*}
+		\sum_{n = 2}^\infty \frac{(\ln{n})^2}{n}
+	\end{align*}
+}
+Let
+\begin{align*}
+	f(x) = \frac{(\ln{x})^2}{x}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_2^\infty{\frac{(\ln{x})^2}{x}}
+\end{align*}
+Let $u = \ln{x}, du = \frac{1}{x} dx$, and $dx = xdu$. 
+\begin{align*}
+	= \int{\frac{u^2}{x} xdu} = \int{u^2 du} = \frac{(\ln{x})^3}{3} \bigg|_2^\infty \implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%21.4
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n}{e^{n^2}}
+	\end{align*}
+}
+Let
+\begin{align*}
+	f(x) = \frac{x}{e^{x^2}}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_1^\infty {\frac{x}{e^{x^2}}}
+\end{align*}
+Let $u = x^2, du = 2xdx,$ and $dx = \frac{du}{2x}$. 
+\begin{align*}
+	= \int{\frac{x}{e^u}\frac{du}{2x}} = \frac{1}{2} \int{e^{-u} du} = -\frac{1}{2} e^{-x^2} \bigg|_1^\infty \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%21.5
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n + 1}{n^2 + 2n + 5}
+	\end{align*}
+}
+Let
+\begin{align*}
+	f(x) = \frac{x + 1}{x^2 + 2x + 5}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_1^\infty {\frac{x + 1}{x^2 + 2x + 5} dx}
+\end{align*}
+Let $u = x^2 + 2x + 5, du = 2x + 2 dx$, and $dx = \frac{du}{2x + 2}$. 
+\begin{align*}
+	= \int{\frac{x + 1}{u} \frac{du}{2(x + 1)}} = \frac{1}{2} \int{\frac{du}{u}} = \frac{1}{2} \ln{(x^2 + 2x + 5)} \bigg|_1^\infty \implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%21.6
+\subsection{
+	\begin{align*}
+		\sum_{n = 2}^\infty \frac{1}{n(\ln{n})^3}
+	\end{align*}
+}
+Let 
+\begin{align*}
+	f(x) = \frac{1}{x(\ln{x})^3}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_2^\infty {\frac{1}{x(\ln{x})^3}}
+\end{align*}
+Let $u = \ln{x}, du = \frac{1}{x} dx$, and $dx = x du$. 
+\begin{align*}
+	= \int{\frac{1}{x u^3}x du} = \int{u^{-3}du} = \frac{-1}{2(\ln{x})^2} \bigg|_2^\infty \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%21.7
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{n^2} \cos{\left( \frac{1}{n} \right)}
+	\end{align*}
+}
+Let
+\begin{align*}
+	f(x) = \frac{1}{x^2} \cos{\frac{1}{x}}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_1^\infty {\frac{1}{x^2} \cos{\frac{1}{x}}} dx
+\end{align*}
+Let $u = \frac{1}{x}, du = \frac{-1}{x^2} dx$, and $dx = -x^2 du$. 
+\begin{align*}
+	= \int{\frac{1}{x^2} \cos{u} (-x^2) du} = -\int{\cos{u} du} = -\sin{\frac{1}{x}} \bigg|_1^\infty \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%21.8
+\subsection{
+	\begin{align*}
+		\sum_{n = 2}^\infty \frac{1}{n \sqrt{n^2 - 1}}
+	\end{align*}
+}
+Let
+\begin{align*}
+	f(x) = \frac{1}{x \sqrt{x^2 - 1}}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_2^\infty {\frac{1}{x \sqrt{x^2 - 1}}}
+\end{align*}
+Let $u = x^2 - 1, du = 2x dx$, and $dx = \frac{du}{2x}$. 
+\begin{align*}
+	= \int{\frac{1}{x \sqrt{u}} \frac{du}{2x}} = \frac{1}{2} \int{\frac{du}{x^2 \sqrt{u}}} = \frac{1}{2} \int{\frac{du}{(u + 1) \sqrt{u}}}
+\end{align*}
+Let $v = \sqrt{u}, dv = \frac{1}{2\sqrt{u}} du$, and $du = 2\sqrt{u} dv$. 
+\begin{align*}
+	= \frac{1}{2} \int{\frac{2 \sqrt{u} dv}{(v^2 + 1) \sqrt{u}}} = \int{ \frac{dv}{v^2 + 1} } = \arctan{\sqrt{x^2 - 1}} \bigg|_1^\infty \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%21.9
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{\ln{n}}{n^2}
+	\end{align*}
+}
+Let 
+\begin{align*}
+	f(x) = \frac{\ln{x}}{x^2}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we use the Integral Test:
+\begin{align*}
+	\int_1^\infty{\frac{\ln{x}}{x^2}} = \int_1^\infty {\ln{x} \frac{1}{x^2} dx}
+\end{align*}
+Let $u = \ln{x}$ and $dv = \frac{1}{x^2} dx$. Then, $du = \frac{1}{x}
+ dx$ and $v = \frac{-1}{x}$. 
+ \begin{align*}
+ 	= \ln{x} \bigg( \frac{-1}{x} \bigg) - \int{\frac{-1}{x} \frac{1}{x} dx} = \frac{-\ln{x}}{x} + \int{\frac{1}{x^2} dx}
+ \end{align*}
+ \begin{align*}
+ 	= \frac{-\ln{x}}{x} - \frac{1}{x} \bigg|_1^\infty \implies \text{converges}
+ \end{align*}
+ Answer: Converges
+%21.10
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1 + \ln{n}}{n^n}
+	\end{align*}
+}
+Let 
+\begin{align*}
+	f(x) = \frac{1 + \ln{x}}{x^x}
+\end{align*}
+This function is positive, continuous, and decreasing. Now we can use the Integral Test:
+\begin{align*}
+	\int_1^\infty {\frac{1 + \ln{x}}{x^x} dx}
+\end{align*}
+We go through a series of steps to do u-substitution.
+\begin{align*}
+	u = \frac{1}{x^x} = x^{-x} \implies \ln{u} = -x\ln{x}
+\end{align*}
+\begin{align*}
+	\frac{d}{du} \ln{u} = \frac{d}{dx} (-x \ln{x})
+\end{align*}
+\begin{align*}
+	\frac{1}{u} du = (-\ln{x} - 1 )dx
+\end{align*}
+\begin{align*}
+	du = \frac{1}{x^x} (-\ln{x} - 1) dx = \frac{-\ln{x} - 1}{x^x} dx
+\end{align*}
+\begin{align*}
+	dx = \frac{x^x du}{-\ln{x} - 1} = \frac{x^x du}{-(\ln{x} + 1)}
+\end{align*}
+We can evaluate the integral now:
+\begin{align*}
+	= \int{\frac{1 + \ln{x}}{u} \frac{u du}{-(\ln{x} + 1)}}
+\end{align*}
+\begin{align*}
+	= -\int{du} = -u = -\frac{1}{x^x} \bigg|_1^\infty \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+\section{Direct Comparison Test and Limit Comparison Test}
+In the following problems, use the Comparison test or the Limit Comparison Test to determine if the series converges or diverges. \\[10pt]
+For the Direct Comparison Test and Limit Comparison Test, if $\sum a_n$ exists, then we can create $\sum b_n$ such that $a_n < b_n$. An approach in finding $b_n$ is to look at the most significant term of $n$ in $a_n$. \\[10pt]
+For the Direct Comparison Test, if $\sum b_n$ converges, then $\sum a_n$ converges too. If $\sum a_n$ diverges, then $\sum b_n$ diverges too. \\[10pt]
+For the Limit Comparison Test, if we take the limit of the ratio of the two functions
+\begin{align*}
+	\lim_{n \to \infty} {\frac{a_n}{b_n}} = \lim_{n \to \infty} \frac{b_n}{a_n} = L
+\end{align*}
+and if $L > 0$ but $L \neq \infty$, then both series either converge or diverge.
+%22.1
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{n(n + 1)}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{n^2}$:
+\begin{align*}
+	\frac{1}{n(n + 1)} < \frac{1}{n^2}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{1}{n(n + 1)}}{\frac{1}{n^2}}} = 1 > 0
+\end{align*}
+Let's look at $\sum \frac{1}{n^2}$ more closely. We can use the p-test: 
+\begin{align*}
+	\sum_{n = 1}^\infty \frac{1}{n_p} \quad
+	\begin{cases}
+		p > 1 \quad : \quad \text{converges} \\
+		p \leq 1 \quad : \quad \text{diverges}
+	\end{cases}
+\end{align*}
+Since $p = 2 > 1$, then $\sum \frac{1}{n^2}$ converges, and $\sum \frac{1}{n(n + 1)}$ converges too. \\[10pt]
+Answer: Converges
+
+%22.2
+\subsection{
+	\begin{align*}
+		\sum_{n = 2}^\infty \frac{\sqrt{n}}{n - 1}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{\sqrt{n}}$:
+\begin{align*}
+	\frac{1}{\sqrt{n}} < \frac{\sqrt{n}}{n - 1}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{\sqrt{n}}{n - 1}}{\frac{1}{\sqrt{n}}}} = 1 > 0
+\end{align*}
+Let's look at $\frac{1}{\sqrt{n}}$ more closely. We can use the p-test. Since $p = \frac{1}{2} \leq 1$, then $\sum \frac{1}{\sqrt{n}}$ diverges, and $\sum \frac{\sqrt{n}}{n - 1}$ diverges too. \\[10pt] 
+Answer: Diverges
+
+%22.3
+\subsection{
+	\begin{align*}
+		\sum_{n = 2}^\infty \frac{1}{\sqrt{n(n - 1)}}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{n}$:
+\begin{align*}
+	\frac{1}{n} < \frac{1}{\sqrt{n(n - 1)}}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{1}{n}}{\frac{1}{\sqrt{n(n - 1)}}}} = 1 > 0
+\end{align*}
+Let's look at $\sum \frac{1}{n}$ more closely. We can use the p-test. Since $p = 1 \leq 1$, then $\sum \frac{1}{n}$ diverges, and $\sum \frac{1}{\sqrt{n(n - 1)}}$ diverges too. \\[10pt]
+Answer: Diverges
+
+%22.4
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{n(n + 1)(n + 2)}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{n^3}$:
+\begin{align*}
+	\frac{1}{n(n + 1)(n + 2)} < \frac{1}{n^3}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{1}{n(n + 1)(n + 2)}}{\frac{1}{n^3}}} = 1 > 0
+\end{align*}
+Let's look at $\sum \frac{1}{n^3}$ more closely. We can use the p-test. Since $p = 3 > 1$, then $\sum \frac{1}{n^3}$ converges, and $\sum \frac{1}{n(n + 1)(n + 2)}$ converges too. \\[10pt]
+Answer: Converges
+
+%22.5
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{2}
+	\end{align*}
+}
+We will use the Direct Comparison Test with $\sum \frac{1}{n}$:
+\begin{align*}
+	\frac{1}{n} < \frac{1}{2}
+\end{align*}
+We know that $\sum \frac{1}{n}$ diverges (because it is the harmonic series). Since the harmonic series is our smaller series and that it diverges, then our larger series $\sum \frac{1}{2}$ diverges as well. \\[10pt]
+Answer: Diverges
+
+%22.6
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{3 \sqrt{n} + 2}{2n + 3}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{\sqrt{n}}$:
+\begin{align*}
+	\frac{1}{\sqrt{n}} < \frac{3 \sqrt{n} + 2}{2n + 3}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{3 \sqrt{n} + 2}{2n + 3}}{\frac{1}{\sqrt{n}}}} = \frac{3}{2} > 0
+\end{align*}
+Let's look at $\frac{1}{\sqrt{n}}$ more closely. We can use the p-test. Since $p = \frac{1}{2} \leq 1$, then $ \sum \frac{1}{\sqrt{n}}$ diverges, and $\sum \frac{3 \sqrt{n} + 2}{2n + 3}$ diverges too. \\[10pt]
+Answer: Diverges
+
+%22.7
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n + 6}{n(n + 5)}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{n}$:
+\begin{align*}
+	\frac{1}{n} < \frac{n + 6}{n(n + 5)}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{1}{n}}{\frac{n + 6}{n(n + 5)}}} = 1 > 0
+\end{align*}
+Let's look at $\sum \frac{1}{n}$ more closely. We can use the p-test. Since $p = 1 \leq 1$, then $\sum \frac{1}{n}$ diverges, and $\sum \frac{n + 6}{n(n + 5)}$ diverges too. \\[10pt]
+Answer: Diverges
+
+%22.8
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{9n^2 + 4}{n^3 - n}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{n}$:
+\begin{align*}
+	\frac{1}{x} < \frac{9n^2 + 4}{n^3 - n}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{9n^2 + 4}{n^3 - n}}{\frac{1}{x}}} = 9 > 0
+\end{align*}
+Let's look at $\sum \frac{1}{n}$ more closely. We can use the p-test. Since $p = 1 \leq 1$, then $\sum \frac{1}{n}$ diverges, and $\sum \frac{9n^2 + 4}{n^3 - n}$ diverges too. \\[10pt]
+Answer: Diverges
+
+%22.9
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n}{8n^3 + 6n^2 - 7}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{n^2}$:
+\begin{align*}
+	\frac{n}{8n^3 + 6n^2 - 7} < \frac{1}{n^2}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} \frac{\frac{n}{8n^3 + 6n^2 - 7}}{\frac{1}{n^2}} = \frac{1}{8} > 0
+\end{align*}
+Let's look at $\sum \frac{1}{n^2}$ more closely. We can use the p-test. Since $p = 2 > 1$, then $\sum \frac{1}{n^2}$ converges, and $\sum \frac{n}{8n^3 + 6n^2 - 7}$ converges too. \\[10pt]
+Answer: Converges
+
+%22.10
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n}{\sqrt{n^3 + 2n}}
+	\end{align*}
+}
+We will use the Limit Comparison Test with $\sum \frac{1}{\sqrt{n}}$:
+\begin{align*}
+	\frac{n}{\sqrt{n^3 + 2n}} < \frac{1}{\sqrt{n}}
+\end{align*}
+\begin{align*}
+	\lim_{n \to \infty} \frac{\frac{n}{\sqrt{n^3 + 2n}}}{\sqrt{n}} = 1 > 0
+\end{align*}
+Let's look at $\sum \frac{1}{\sqrt{n}}$ more closely. We can use the p-test. Since $p = \frac{1}{2} \leq 1$, then $\sum \frac{1}{\sqrt{n}}$ diverges, and $\sum \frac{n}{\sqrt{n^3 + 2n}}$ diverges too. \\[10pt]
+Answer: Diverges
+
+%22.11
+\subsection{
+	\begin{align*}
+		\sum_{n = 2}^\infty \frac{1}{\ln{n}}
+	\end{align*}
+}
+We will use the Direct Comparison Test with $\sum \frac{1}{n}$:
+\begin{align*}
+	\frac{1}{n} < \frac{1}{\ln{n}}
+\end{align*}
+We know that $\sum \frac{1}{n}$ diverges (because it is the harmonic series). Since the harmonic series is our smaller series and that it diverges, then our larger series $\sum \frac{1}{\ln{x}}$ diverges as well. \\[10pt]
+Answer: Diverges
+
+\section{Ratio Test and Root Test}
+In the following problems, use the Ratio or Root test to determine if the series converges or diverges.\\[10pt]
+For the Ratio Test, if $\sum a_n$ exists, then 
+\begin{align*}
+	\lim_{n \to \infty} \frac{a_{n + 1}}{a_n} = R \quad 
+	\begin{cases}
+		R > 1 \quad : \quad \text{diverges} \\
+		R = 1 \quad : \quad \text{inconclusive} \\
+		R < 1 \quad : \quad \text{converges} \\
+	\end{cases}
+\end{align*}
+For the Ratio Test, if $\sum a_n$ exists, then 
+\begin{align*}
+	\lim_{n \to \infty} \sqrt[n]{a_n} = R \quad 
+	\begin{cases}
+		R > 1 \quad : \quad \text{diverges} \\
+		R = 1 \quad : \quad \text{inconclusive} \\
+		R < 1 \quad : \quad \text{converges} \\
+	\end{cases}
+\end{align*}
+%23.1
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n^2}{e^n}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(n + 1)^2}{e^{n + 1}} \frac{e^n}{n^2} = \lim_{n \to \infty} \frac{(n + 1)^2}{e n^2} = \frac{1}{e} = 0.367 < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%23.2
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n^3}{\left( \ln{2} \right)^n}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(n + 1)^3}{(\ln{2})^{n + 1}} \frac{(\ln{2})^n}{n^3} = \lim_{n \to \infty} \frac{(n + 1)^3}{\ln{2} n^3} = \frac{1}{\ln{2}} = 1.442 > 1 \implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%23.3
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{2^n}{(n + 6)!}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{2^{n + 1}}{(n + 7)!} \frac{(n + 6)!}{2^n} = \lim_{n \to \infty} \frac{2}{n + 7} = 0 < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%23.4
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{e^n}{n!}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{e^{n + 1}}{(n + 1)!} \frac{n!}{e^n} = \lim_{n \to \infty} \frac{e}{n + 1} = 0 < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%23.5
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(n!)^2}{(2n)!}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{((n + 1)!)^2}{(2(n + 1))!} \frac{(2n)!}{(n!)^2} = \lim_{n \to \infty} \frac{(n + 1)! (n + 1)! (2n)!}{(2n + 2)! n! n!}
+\end{align*}
+\begin{align*}
+	= \lim_{n \to \infty} \frac{(n + 1)^2}{(2n + 2)(2n + 1)} = \frac{1}{4} < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%23.6
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{e^n}{n^3}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{e^{n + 1}}{(n + 1)^3} \frac{n^3}{e^n} = e = 2.718 > 1 \implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%23.7
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n!}{3n! - 1}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(n + 1)!}{(3(n + 1)! - 1)} \frac{(3n! - 1)}{n!} = \lim_{n \to \infty} \frac{9n + 1)(3n! - 1)}{(3n + 3)! - 1} = \infty > 1
+\end{align*}
+\begin{align*}
+	\implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%23.8
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n^8}{8^n}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(n + 1)^8}{8^{n + 1}} \frac{8^n}{n^8} = \frac{1}{8} < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%23.9
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n!}{n^n}
+	\end{align*}
+}
+We will use the Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(n + 1)!}{(n + 1)^{n + 1}} \frac{n^n}{n!} = \lim_{n \to \infty} \frac{(n + 1) n^n}{(n + 1)^n (n + 1)} = \lim_{n \to \infty} \frac{n^n}{(n + 1)^n}
+\end{align*}
+\begin{align*}
+	= \lim_{n \to \infty} \bigg( \frac{n}{n + 1} \bigg)^n = \lim_{n \to \infty} \bigg( \frac{n + 1 - 1}{n + 1} \bigg)^n = \lim_{n \to \infty} \bigg( 1 - \frac{1}{n + 1} \bigg)^n 
+\end{align*}
+\begin{align*}
+	= \frac{1}{e} = 0.367 < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges \\[10pt]
+Recall:
+\begin{align*}
+	e = \lim_{n \to \infty} \bigg( 1 + \frac{1}{n} \bigg)^n
+\end{align*}
+\begin{align*}
+	\frac{1}{e} = \lim_{n \to \infty} \bigg( 1 + \frac{1}{n} \bigg)^{-n} = \lim_{n \to \infty} \bigg( \frac{1}{1 + \frac{1}{n}} \bigg)^n = \lim_{n \to \infty} \bigg( \frac{1}{\frac{n + 1}{n}} \bigg)^n
+\end{align*}
+\begin{align*}
+	= \lim_{n \to \infty} \bigg( \frac{n}{n + 1} \bigg)^n = \lim_{n \to \infty} \bigg( 1 - \frac{1}{n + 1} \bigg)^n
+\end{align*}
+
+%23.10
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \left( \frac{2n}{5n - 1} \right)^n
+	\end{align*}
+}
+We will use the Root Test:
+\begin{align*}
+	\lim_{n \to \infty}  \sqrt[n]{\bigg( \frac{2n}{5n - 1} \bigg)^n} = \lim_{n \to \infty} \frac{2n}{5n - 1} = \frac{2}{5} < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+%23.11
+\subsection{
+	\begin{align*}
+		\sum_{n = 2}^\infty \frac{1}{(\ln{n})^n}
+	\end{align*}
+}
+\begin{align*}
+	\lim_{n \to \infty}  \sqrt[n]{\frac{1}{(\ln{n})^n}} = \lim_{n \to \infty} \sqrt[n]{\bigg( \frac{1}{\ln{n}} \bigg)^n} = \lim_{n \to \infty} \frac{1}{\ln{n}} = 0 < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges
+
+\section{Alternating Series Test}
+Determine if the following series converge absolutely, converge conditionally, or diverge. \\[10pt]
+There are three possible answers for a series $\sum a_n$ that possesses a term $(-1)^n$ within it: diverges, converges absolutely, and converges conditionally. Here are the steps to follow: \\[10pt]
+Step 1: perform the Divergence Test. If the answer is not equal to 0, we say the series diverges and we stop. If the answer is 0, we move to Step 2. \\[10pt]
+Step 2: look at $\sum |a_n|$ and perform any other test (Integral, Direct Comparison, Limit Comparison, p-test, Ratio, Root, \dots) If $\sum |a_n|$ converges, we say the series converges absolutely and we stop. If $\sum |a_n|$ diverges, we move to Step 3. \\[10pt]
+Step 3: We perform the Alternating Series Test and we stop:
+\begin{align*}
+	|a_{n + 1}| < |a_n| \implies \text{converges conditionally}
+\end{align*}
+\begin{align*}
+	|a_{n + 1}| < |a_n| \implies \text{diverges}
+\end{align*}
+%24.1
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n}{n}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(-1)^n}{n} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$:
+\begin{align*}
+	\bigg| \sum \frac{(-1)^n}{n} \bigg| = \sum \frac{1}{n}
+\end{align*}
+P-test:
+\begin{align*}
+	p = 1 \leq 1 \implies \text{diverges}
+\end{align*}
+Alternating Series Test:
+\begin{align*}
+	\frac{1}{n + 1} < \frac{1}{n} \implies \text{converges}
+\end{align*}
+Answer: Converges Conditionally
+
+%24.2
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n n}{2n - 1}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} {\frac{(-1)^n n}{2n - 1}} = \frac{1}{2} \neq 0 \implies \text{diverges}
+\end{align*}
+Answer: Diverges
+
+%24.3
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n}{\ln{n}}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(-1)^n}{\ln{n}} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$:
+\begin{align*}
+	\bigg| \sum \frac{(-1)^n}{\ln{n}} \bigg| = \sum \frac{1}{\ln{n}}
+\end{align*}
+Direct Comparison Test with $\sum \frac{1}{n}$:
+\begin{align*}
+	\frac{1}{n} < \frac{1}{\ln{n}} \implies \text{diverges}
+\end{align*}
+Alternating Series Test:
+\begin{align*}
+	\frac{1}{\ln{(n + 1)}} < \frac{1}{\ln{n}} \implies \text{converges}
+\end{align*}
+Answer: Converges Conditionally
+
+%24.4
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n}{(n + 1)^2}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(-1)^n}{(n + 1)^2} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$:
+\begin{align*}
+	\bigg| \sum \frac{(-1)^n}{(n + 1)^2} \bigg| = \sum \frac{1}{(n + 1)^2}
+\end{align*}
+Limit Comparison Test with $\sum \frac{1}{n^2}$:
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{1}{n^2}}{\frac{1}{(n + 1)^2}}} = 1 > 0
+\end{align*}
+P-test:
+\begin{align*}
+	p = 2 > 1 \implies \text{converges}
+\end{align*}
+Answer: Converges Absolutely
+
+%24.5
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty (-1)^n e^{-n}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} {(-1)^n e^{-n}} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$
+\begin{align*}
+	\bigg| \sum (-1)^n e^{-n} \bigg| = \sum e^{-n}
+\end{align*}
+Integral Test with $f(x) = e^{-x}$:
+\begin{align*}
+	\int_1^\infty {e^{-x}dx} = -e^{-x} \bigg|_1^\infty \implies \text{converges}
+\end{align*}
+Answer: Converges Absolutely
+
+%24.6
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n}{n \sqrt{n}}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} {\frac{(-1)^n}{n \sqrt{n}}} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$
+\begin{align*}
+	\bigg| \sum \frac{(-1)^n}{n \sqrt{n}} \bigg| = \sum \frac{1}{n \sqrt{n}}
+\end{align*}
+P-test:
+\begin{align*}
+	p = \frac{3}{2} > 1 \implies \text{converges}
+\end{align*}
+Answer: Converges Absolutely
+
+%24.7
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n n}{n^2 + 5}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} {\frac{(-1)^n n}{n^2 + 5}} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$
+\begin{align*}
+	\bigg| \sum \frac{(-1)^n n}{n^2 + 5} \bigg| = \sum \frac{n}{n^2 + 5}
+\end{align*}
+Limit Comparison Test with $\sum \frac{1}{n}$:
+\begin{align*}
+	\lim_{n \to \infty} {\frac{\frac{n}{n^2 + 5}}{\frac{1}{n}}} = 1 > 0
+\end{align*}
+P-test:
+\begin{align*}
+	p = 1 \leq 1 \implies \text{diverges}
+\end{align*}
+Alternating Series Test:
+\begin{align*}
+	\frac{n+1}{(n + 1)^2 + 5} < \frac{n}{n^2 + 5} \implies \text{converges}
+\end{align*}
+Answer: Converges Conditionally
+
+%24.8
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n}{n 2^n}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} {\frac{(-1)^n}{n 2^n}} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$
+\begin{align*}
+	\bigg| \sum \frac{(-1)^n}{n 2^n} \bigg| = \sum \frac{1}{n 2^n}
+\end{align*}
+Ratio Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{1}{(n + 1)2^{n + 1}} n 2^n = \lim_{n \to \infty} \frac{n}{2(n + 1)} = \frac{1}{2} < 1 \implies \text{converges}
+\end{align*}
+Answer: Converges Absolutely
+
+%24.9
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n}{n \ln{n}}
+	\end{align*}
+}
+Divergence Test:
+\begin{align*}
+	\lim_{n \to \infty} \frac{(-1)^n}{n \ln{n}} = 0 \implies \text{inconclusive}
+\end{align*}
+Let's look at $\sum |a_n|$:
+\begin{align*}
+	\bigg| \sum \frac{(-1)^n}{n \ln{n}} \bigg| = \sum \frac{1}{n \ln{n}}
+\end{align*}
+Direct Comparison Test with $\sum \frac{1}{n^2}$:
+\begin{align*}
+	\frac{1}{n^2} < \frac{1}{n \ln{n}} \implies \text{diverges}
+\end{align*}
+Alternating Series Test:
+\begin{align*}
+	\frac{1}{(n + 1) \ln{(n + 1)}} < \frac{1}{n \ln{n}} \implies \text{converges}
+\end{align*}
+Answer: Converges Conditionally
+
+\section{Power Series}
+Find the radius and interval of convergence for the following power series. \\[10pt]
+You can identify a power series quickly by checking if it contains the variable $x$ in it. The general form of a power series is:
+\begin{align*}
+	\sum a_n (x - c)^n
+\end{align*}
+where $c$ is the center. There are three possible answers: converges for all $x$, converges for some $x$, and converges at $x = c$ only. Here are the steps to follow: \\[10pt]
+Step 1: Identify the value of $c$. \\[10pt]
+Step 2: Perform the Ratio or Root test on the absolute value of the series. \\[10pt]
+Step 3: Identify the value of $r$. Check the conditions for which $r$ converges using the Ratio or Root Test. \\[10pt]
+Step 4: If the series converges for some values of $x$, determine the boundaries at $c \pm r$. Plug in $c \pm r$ for $x$ and evaluate the series. Recall: converges implies brackets and diverges implies parentheses. Return the interval of convergence. 
+%25.1
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \left( \frac{x}{2} \right)^n
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	\sum \left( \frac{x}{2} \right)^n = \sum \frac{x^n}{2^n} \implies c = 0
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{x^{n + 1}}{2^{n + 1}} \frac{2^n}{x^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{x}{2} \bigg| < 1 \implies | x | < 2 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = 0 \pm 2 = -2, 2
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = 2: \sum \bigg( \frac{2}{2} \bigg)^n = \sum 1^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	x = -2: \sum \bigg( \frac{-2}{2} \bigg)^n = \sum (-1)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } (-2, 2)
+\end{align*}
+Answer: $c = 0, \quad r = 2, \quad (-2, 2)$
+
+%25.2
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n x^n}{\sqrt{n}}
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = 0
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(-1)^{n + 1}x^{n + 1}}{\sqrt{n + 1}} \frac{\sqrt{n}}{(-1)^n x^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{x \sqrt{n}}{\sqrt{n + 1}} \bigg| = |x| < 1 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = 0 \pm 1 = -1, 1
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = 1: \sum \frac{(-1)^n 1^n}{\sqrt{n}} = \sum \frac{(-1)^n}{n} \implies \text{converges}
+\end{align*}
+\begin{align*}
+	x = -1: \sum \frac{(-1)^n (-1)^n}{\sqrt{n}} = \sum \frac{1}{n} \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } (-1, 1]
+\end{align*}
+Answer: $c = 0, \quad r = 1, \quad $($-1, 1$]
+
+%25.3
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{(-1)^n x^n}{(n + 1)(n + 2)}
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = 0
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(-1)^{n + 1} x^{n + 1}}{(n + 2)(n + 3)} \frac{(n + 1)(n + 2)}{(-1)^nx^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{x(n + 1)(n + 2)}{(n + 2)(n + 3)} = |x| < 1 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = 0 \pm 1 = -1, 1
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = 1: \sum \frac{(-1)^n 1^n}{(n + 1)(n + 2)} = \sum \frac{(-1)^n}{(n + 1)(n + 2)} \implies \text{converges}
+\end{align*}
+\begin{align*}
+	x = -1: \sum \frac{(-1)^n (-1)^n}{(n + 1)(n + 2)} = \sum \frac{1}{(n + 1)(n + 2)} \implies \text{converges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } [-1, 1]
+\end{align*}
+Answer: $c = 0, \quad r = 1, \quad $ [$-1, 1$]
+
+%25.4
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n! x^n}{n^2 + 5}
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = 0
+\end{align*}
+Ratio Test to find the value of $r$: 
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(n + 1)! x^{n + 1}}{(n + 1)^2 + 5} \frac{n^2 + 5}{n! x^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{(n + 1)x (n^2 + 5)}{(n + 1)^2 + 5} \bigg| = 
+	\begin{cases}
+		= 0 \text{ if } x = 0 \\
+		= \infty \text{ if } x \neq 0
+	\end{cases}
+\end{align*}
+We want our series to converge, so we will choose the first option. Let $r = 0$. Our series converges at $x = c = 0$ only. \\[10pt]
+Answer: $c = 0, \quad r = 0, \quad x = 0$ only
+
+%25.5
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \left( \frac{1}{5} \right)^n (x - 3)^n
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = 3
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(x - 3)^{n + 1}}{5^{n + 1}} \frac{5^n}{(x - 3)^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{(x - 3)}{5} \bigg|
+\end{align*}
+\begin{align*}
+	= \bigg| \frac{x - 3}{5} \bigg| < 1 \implies |x - 3| < 5 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = 3 \pm 5 = -2, 8
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = 8: \sum \bigg( \frac{1}{5} \bigg)^n (8 - 3)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	x = -2: \sum \bigg( \frac{1}{5} \bigg)^n (-2 - 3)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } (-2, 8)
+\end{align*}
+Answer: $c = 3, \quad r = 5, \quad (-2, 8)$
+
+%25.6
+\subsection{
+	\begin{align*}
+		\sum_{n = 0}^\infty \left( \frac{4}{3} \right)^n (x + 1)^n
+	\end{align*}
+}
+Finding the value of $c$: 
+\begin{align*}
+	c = -1
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{4^{n + 1}(x + 1)^{n + 1}}{3^{n + 1}} \frac{3^n}{4^n (x + 1)^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{4(x + 1)}{3} \bigg|
+\end{align*}
+\begin{align*}
+	= \bigg| \frac{4(x + 1)}{3} \bigg| < 1 \implies |x + 1\ < \frac{3}{4} = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = -1 \pm \frac{3}{4} = \frac{-7}{4}, \frac{-1}{4}
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = \frac{-1}{4}: \sum \bigg( \frac{4}{3} \bigg)^n \bigg( \frac{-1}{4} + 1 \bigg)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	x = \frac{-7}{4}: \sum \bigg( \frac{4}{3} \bigg)^n \bigg( \frac{-7}{4} + 1 \bigg)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } (-\frac{7}{4}, -\frac{1}{4})
+\end{align*}
+Answer: $c = -1, \quad r = \frac{3}{4}, \quad \bigg( -\frac{7}{4}, -\frac{1}{4} \bigg)$
+
+%25.7
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n!}{10^n} (x - 5)^n
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = 5
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(n + 1)! (x - 5)^{n + 1}}{10^{n + 1}} \frac{10^n}{n!(x - 5)^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{(n + 1) (x - 5)}{10} \bigg|
+\end{align*}
+\begin{align*}
+	=
+	\begin{cases}
+		= 0 \text{ if } x = 5 \\
+		= \infty \text{ if } x \neq 5
+	\end{cases}
+\end{align*}
+We want our series to converge, so we will choose the first option. Let $r = 0$. Our series converges at $x = c = 5$ only. \\[10pt]
+Answer: $c = 5, \quad r = 0, \quad x = 5$ only
+
+%25.8
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{2n + 1} (x + 3)^n
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = -3
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(x + 3)^{n + 1}}{2(n + 1) + 1} \frac{2n + 1}{(x + 3)^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{(x + 3)(2n + 1)}{(2n + 3)} \bigg| = | x + 3 | < 1 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = -3 \pm 1 = -4, -2
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = -2: \sum \frac{1}{2n + 1} (-2 + 3)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	x = -4: \sum \frac{1}{2n + 1} (-4 + 3)^n \implies \text{converges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } [-4, -2)
+\end{align*}
+Answer: $c = -3, \quad r = 1, \quad $ [$-4, -2$)
+
+%25.9
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{n}{3^{2n - 1}} (x - 6)^n
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = 6
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(n + 1)(x - 6)^{n + 1}}{3^{2(n + 1) - 1}} \frac{3^{2n - 1}}{n(x - 6)^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{(n + 1)(x - 6)^n 3^{2n - 1}}{3^{2n + 1}n} \bigg|
+\end{align*}
+\begin{align*}
+	= \lim_{n \to \infty} \bigg| \frac{(n + 1)(x - 6) 3^{2n}}{3^{2n}9n} \bigg| = \bigg| \frac{x - 6}{9} \bigg| < 1 \implies |x - 6| < 9 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = 6 \pm 9 = -3, 15
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = 15: \sum \frac{n}{3^{2n - 1}} (15 - 6)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	x = -3: \sum \frac{n}{3^{2n - 1}} (-3 - 6)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } (-3, 15)
+\end{align*}
+Answer: $c = 6, \quad r = 9, \quad (-3, 15)$
+
+%25.10
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{n 5^n} (x - 5)^n
+	\end{align*}
+}
+Finding the value of $c$:
+\begin{align*}
+	c = 5
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(x - 5)^{n + 1}}{(n + 1) 5^{n + 1}} \frac{n 5^n}{(x - 5)^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{(x - 5)n}{(n + 1)5} \bigg|
+\end{align*}
+\begin{align*}
+	= \bigg| \frac{x - 5}{5} \bigg| < 1 \implies |x - 5| < 5 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = 5 \pm 5 = 0, 10
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = 0: \sum \frac{1}{n 5^n} (0 - 5)^n \implies \text{converges}
+\end{align*}
+\begin{align*}
+	x = 10: \sum \frac{1}{n 5^n} (10 - 5)^n \implies \text{diverges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } [0, 10)
+\end{align*}
+Answer: $c = 5, \quad r = 5, \quad $ [$0, 10$)
+
+%25.11
+\subsection{
+	\begin{align*}
+		\sum_{n = 1}^\infty \frac{1}{n(n + 1)} (x - 2)^n
+	\end{align*}
+}
+Finding the value of $c$: 
+\begin{align*}
+	c = 2
+\end{align*}
+Ratio Test to find the value of $r$:
+\begin{align*}
+	\lim_{n \to \infty} \bigg| \frac{(x - 2)^{n + 1}}{(n + 1)(n + 2)} \frac{n(n + 1)}{(x - 2)^n} \bigg| = \lim_{n \to \infty} \bigg| \frac{(x - 2)n(n + 1)}{(n + 1)(n + 2)} \bigg| = | x - 2 | < 1 = r
+\end{align*}
+Series converges for some $x$. Finding boundary values:
+\begin{align*}
+	c \pm r = 2 \pm 1 = 1, 3
+\end{align*}
+Determining boundaries:
+\begin{align*}
+	x = 3: \sum \frac{1}{n(n + 1)} (3 - 2)^n \implies \text{converges}
+\end{align*}
+\begin{align*}
+	x = 1: \sum \frac{1}{n(n + 1)} (1 - 2)^n \implies \text{converges}
+\end{align*}
+\begin{align*}
+	\text{Interval of Convergence: } [1, 3]
+\end{align*}
+Answer: $c = 2, \quad r = 1, \quad $[$1,3$]
+
+\section{Taylor and Maclaurin Polynomials}
+The general formula for a $n$-th order Taylor Polynomial is:
+\begin{align*}
+	T_n(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2} (x - a)^2 + \dots + \frac{f^n(a)}{n!} (x - a)^n
+\end{align*}
+Find the $n$-th order Taylor Polynomial for:
+%26.1
+\subsection{$f(x) = e^x$ centered at $a = 0, n = 4$}
+\begin{align*}
+	f(x) = e^x \quad f(a) = 1
+\end{align*}
+\begin{align*}
+	f'(x) = e^x \quad f'(a) = 1
+\end{align*}
+\begin{align*}
+	f''(x) = e^x \quad f''(a) = 1
+\end{align*}
+\begin{align*}
+	f'''(x) = e^x \quad f'''(a) = 1
+\end{align*}
+\begin{align*}
+	f''''(x) = e^x \quad f''''(a) = 1
+\end{align*}
+\begin{align*}
+	T_4(x) = 1 + 1(x - 0) + \frac{1}{2} (x - 0)^2 + \frac{1}{3!} (x - 0)^3 + \frac{1}{4!} (x - 0)^4
+\end{align*}
+\begin{align*}
+	T_4 (x) = 1 + x + \frac{1}{2}x^2 + \frac{1}{3!}x^3 + \frac{1}{4!}x^4
+\end{align*}
+Answer: $T_4 (x) = 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \frac{x^4}{4!}$
+
+%26.2
+\subsection{$f(x) = \sin{x}$ centered at $a = \pi, n = 5$}
+\begin{align*}
+	f(x) = \sin{x} \quad f(a) = 0
+\end{align*}
+\begin{align*}
+	f'(x) = \cos{x} \quad f'(a) = -1
+\end{align*}
+\begin{align*}
+	f''(x) = -\sin{x} \quad f''(a) = 0
+\end{align*}
+\begin{align*}
+	f'''(x) = -\cos{x} \quad f'''(a) = 1
+\end{align*}
+\begin{align*}
+	f''''(x) = \sin{x} \quad f''''(a) = 0
+\end{align*}
+\begin{align*}
+	f'''''(x) = \cos{x} \quad f'''''(a) = -1
+\end{align*}
+\begin{align*}
+	T_5(x) = 0 + (-1)(x - \pi) + \frac{0}{2} (x - \pi)^2 + \frac{1}{3!} (x - \pi)^3 + \frac{0}{4!} (x - \pi)^4 + \frac{-1}{5!} (x - \pi)^5
+\end{align*}
+\begin{align*}
+	T_5(x) = -(x - \pi) + \frac{1}{3!} (x - \pi)^3 + \frac{-1}{5!} (x - \pi)^5
+\end{align*}
+Answer: $T_5 (x) = -(x- \pi) + \frac{1}{6} (x - \pi)^3 - \frac{1}{120} (x - \pi)^5$
+
+%26.3
+\subsection{$f(x) = \cos{2x}$ centered at $a = 0, n = 3$}
+\begin{align*}
+	f(x) = \cos{2x} \quad f(a) = 1
+\end{align*}
+\begin{align*}
+	f'(x) = -2\sin{2x} \quad f'(a) = 0
+\end{align*}
+\begin{align*}
+	f''(x) = -4\cos{2x} \quad f''(a) = -4
+\end{align*}
+\begin{align*}
+	f'''(x) = 8\sin{2x} \quad f'''(a) = 0
+\end{align*}
+\begin{align*}
+	T_4(x) = 1 + 0(x - 0) + \frac{-4}{2}(x - 0)^2 + \frac{0}{3!} (x - 0)^3
+\end{align*}
+\begin{align*}
+	T_4(x) = 1 - 2x^2
+\end{align*}
+Answer: $T_3 (x) = 1 - 2x^2$
+
+%26.4
+\subsection{$f(x) = \sqrt{x}$ centered at $a = 1, n = 4$}
+\begin{align*}
+	f(x) = \sqrt{x} \quad f(a) = 1
+\end{align*}
+\begin{align*}
+	f'(x) = \frac{1}{2\sqrt{x}} \quad f'(a) = \frac{1}{2}
+\end{align*}
+\begin{align*}
+	f''(x) = -\frac{1}{4x^{3/2}} \quad f''(a) = \frac{-1}{4}
+\end{align*}
+\begin{align*}
+	f'''(x) = \frac{3}{8x^{5/2}} \quad f'''(a) = \frac{3}{8}
+\end{align*}
+\begin{align*}
+	f''''(x) = -\frac{15}{16x^{7/2}} \quad f''''(a) = \frac{-15}{16}
+\end{align*}
+\begin{align*}
+	T_4(x) = 1 + \frac{1}{2}(x - 1) + \frac{\frac{-1}{4}}{2}(x - 1)^2 + \frac{\frac{3}{8}}{3!}(x - 1)^3 + \frac{\frac{-15}{16}}{4!} (x - 1)^4
+\end{align*}
+\begin{align*}
+	T_4(x) = 1 + \frac{1}{2}(x - 1) - \frac{1}{8} (x - 1)^2 + \frac{3}{48} (x - 1)^3 - \frac{15}{384} (x - 1)^4
+\end{align*}
+Answer: $T_4 (x) = 1 + \frac{(x - 1)}{2} - \frac{(x - 1)^2}{8} + \frac{(x - 1)^3}{16} - \frac{5(x - 1)^4}{128}$
+
+%26.5
+\subsection{$f(x) = \ln{x}$ centered at $a = 1, n = 5$}
+\begin{align*}
+	f(x) = \ln{x} \quad f(a) = 0
+\end{align*}
+\begin{align*}
+	f'(x) = \frac{1}{x} \quad f'(a) = 1
+\end{align*}
+\begin{align*}
+	f''(x) = \frac{-1}{x^2} \quad f''(a) = -1
+\end{align*}
+\begin{align*}
+	f'''(x) = \frac{2}{x^3} \quad f'''(a) = 2
+\end{align*}
+\begin{align*}
+	f''''(x) = \frac{-6}{x^4} \quad f''''(a) = -6
+\end{align*}
+\begin{align*}
+	f'''''(x) = \frac{24}{x^5} \quad f'''''(a) = 24
+\end{align*}
+\begin{align*}
+	T_5(x) = 0 + 1(x - 1) + \frac{-1}{2}(x - 1)^2 + \frac{2}{3!}(x - 1)^3 + \frac{-6}{4!}(x - 1)^4 + \frac{24}{5!}(x - 1)^5
+\end{align*}
+\begin{align*}
+	T_5 (x) = (x - 1) - \frac{1}{2} (x - 1)^2 + \frac{2}{6} (x - 1)^3 - \frac{-6}{24} (x - 1)^4 + \frac{24}{120} (x - 1)^5
+\end{align*}
+Answer: $T_5 (x) = (x - 1) - \frac{1}{2} (x - 1)^2 + \frac{1}{3} (x - 1)^3 - \frac{1}{4} (x - 1)^4 + \frac{1}{5} (x - 1)^5$
+
+%26.6
+\subsection{$f(x) = e^{3x}$ centered at $a = 1, n = 3$}
+\begin{align*}
+	f(x) = e^{3x} \quad f(a) = e^3
+\end{align*}
+\begin{align*}
+	f'(x) = 3e^{3x} \quad f'(a) = 3e^3
+\end{align*}
+\begin{align*}
+	f''(x) = 9e^{3x} \quad f''(a) = 9e^3
+\end{align*}
+\begin{align*}
+	f'''(x) = 27e^{3x} \quad f'''(a) = 27e^3
+\end{align*}
+\begin{align*}
+	T_3(x) = e^3 + 3e^3(x - 1) + \frac{9e^3}{2}(x - 1)^2 + \frac{27e^3}{3!}(x - 1)^3
+\end{align*}
+\begin{align*}
+	T_3 (x) = e^3 + 3e^3 (x - 1) + \frac{9e^3}{2} (x - 1)^2 + \frac{27e^3}{6} (x - 1)^3
+\end{align*}
+Answer: $T_3 (x) = e^3 + 3e^3 (x - 1) + \frac{9e^3}{2} (x - 1)^2 + \frac{9e^3}{2} (x - 1)^3$
+
+%26.7
+\subsection{$f(x) = \arctan{x}$ centered at $a = 0, n = 3$}
+\begin{align*}
+	f(x) = \arctan{x} \quad f(a) = 0
+\end{align*}
+\begin{align*}
+	f'(x) = \frac{1}{1 + x^2} \quad f'(a) = 1
+\end{align*}
+\begin{align*}
+	f''(x) = \frac{-2x}{(1 + x^2)^2} \quad f''(a) = 0
+\end{align*}
+\begin{align*}
+	f'''(x) = \frac{2(3x^2 - 1)}{(x^2 + 1)^3} \quad f'''(a) = -2
+\end{align*}
+\begin{align*}
+	T_3(x) = 0 + 1(x - 0) + \frac{0}{2}(x - 0)^2 + \frac{-2}{3!}(x - 0)^3
+\end{align*}
+\begin{align*}
+	T_3(x) = x - \frac{1}{3}x^3
+\end{align*}
+Answer: $T_3 (x) = x - \frac{x^3}{3}$
+
+%26.8
+\subsection{$f(x) = \ln{(x^2 + 4)}$ centered at $a = 0, n = 2$}
+\begin{align*}
+	f(x) = \ln{(x^2 + 4)} \quad f(a) = \ln{4}
+\end{align*}
+\begin{align*}
+	f'(x) = \frac{2x}{x^2 + 4} \quad f'(a) = 0
+\end{align*}
+\begin{align*}
+	f''(x) = \frac{-2(x^2-4)}{(x^2+4)^2} \quad f''(a) = \frac{1}{2}
+\end{align*}
+\begin{align*}
+	T_2(x) = \ln{4} + 0(x - 0) + \frac{\frac{1}{2}}{2} (x - 0)^2
+\end{align*}
+\begin{align*}
+	T_2 (x) = \ln{4} + \frac{x^2}{4}
+\end{align*}
+Answer: $T_2 (x) = \ln{4} + \frac{x^2}{4}$
+
+%26.9
+\subsection{$f(x) = \ln{(1 - x)}$ centered at $a = 0, n = 3$}
+\begin{align*}
+	f(x) = \ln{(1 - x)} \quad f(a) = 0
+\end{align*}
+\begin{align*}
+	f'(x) = \frac{-1}{1 - x} \quad f'(a) = -1
+\end{align*}
+\begin{align*}
+	f''(x) = \frac{-1}{(1 - x)^2} \quad f''(a) = -1
+\end{align*}
+\begin{align*}
+	f'''(x) = \frac{-2}{(1 - x)^3} \quad f'''(a) = -2
+\end{align*}
+\begin{align*}
+	T_3(x) = 0 + (-1)(x - 0) + \frac{-1}{2}(x - 0)^2 + \frac{-2}{3!}(x - 0)^3
+\end{align*}
+\begin{align*}
+	T_3(x) = -x -\frac{1}{2}x^2 -\frac{1}{3}x^3
+\end{align*}
+Answer: $T_3 (x) = -x - \frac{x^2}{2} - \frac{x^3}{3}$
+
+\section{Taylor and Maclaurin Series}
+The following Taylor expansions will be given:
+\begin{align*}
+	e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots
+\end{align*}
+\begin{align*}
+	\sin{x} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots
+\end{align*}
+\begin{align*}
+	\cos{x} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots
+\end{align*}
+\begin{align*}
+	\frac{1}{1 - x} = 1 + x + x^2 + x^3 + \dots
+\end{align*}
+Find the Taylor or Maclaurin Series for the following (write out the first 4 non-zero terms):
+%27.1
+\subsection{$f(x) = e^{2x}$ at $c = 1$}
+\begin{align*}
+	f(x) = e^{2x} \quad f(c) = e^2
+\end{align*}
+\begin{align*}
+	f'(x) = 2e^{2x} \quad f'(c) = 2e^2
+\end{align*}
+\begin{align*}
+	f''(x) = 4e^{2x} \quad f''(c) = 4e^2
+\end{align*}
+\begin{align*}
+	f'''(x) = 8e^{2x} \quad f'''(c) = 8e^2
+\end{align*}
+\begin{align*}
+	f''''(x) = 16e^{2x} \quad f''''(c) = 16e^2
+\end{align*}
+\begin{align*}
+	T_4(x) = e^2 + 2e^2 (x - 1) + \frac{4e^2}{2} (x - 1)^2 + \frac{8e^2}{3!} (x - 1)^3 + \frac{16e^2}{4!} (x - 1)^4
+\end{align*}
+Answer: $e^{2x} = e^2 + 2e^2 (x - 1) + 2e^2 (x - 1)^2 + \frac{4}{3}e^2 (x - 1)^3 + \frac{2}{3} e^2 (x - 1)^4 + \dots$
+
+%27.2
+\subsection{$f(x) = \cos{x}$ at $c = \frac{\pi}{2}$}
+\begin{align*}
+	f(x) = \cos{x} \quad f(c) = 0
+\end{align*}
+\begin{align*}
+	f'(x) = -\sin{x} \quad f'(c) = -1
+\end{align*}
+\begin{align*}
+	f''(x) = -\cos{x} \quad f''(c) = 0
+\end{align*}
+\begin{align*}
+	f'''(x) = \sin{x} \quad f'''(c) = 1
+\end{align*}
+\begin{align*}
+	f''''(x) = \cos{x} \quad f''''(c) = 0
+\end{align*}
+\begin{align*}
+	f'''''(x) = -\sin{x} \quad f'''''(c) = -1
+\end{align*}
+\begin{align*}
+	f''''''(x) = -\cos{x} \quad f''''''(c) = 0
+\end{align*}
+\begin{align*}
+	f'''''''(x) = \sin{x} \quad f'''''''(c) = 1
+\end{align*}
+\begin{align*}
+	T_7(x) = -(x - \frac{\pi}{2}) + \frac{1}{3!} (x - \frac{\pi}{2})^3 + \frac{-1}{5!} (x - \frac{\pi}{2})^5 + \frac{1}{7!} (x - \frac{\pi}{2})^7
+\end{align*}
+Answer: $\cos{x} = - \left( x - \frac{\pi}{2} \right) + \frac{1}{6} \left( x - \frac{\pi}{2} \right)^3 - \frac{1}{120} \left( x - \frac{\pi}{2} \right)^5 + \frac{\left( x - \frac{\pi}{2} \right)^7}{5040} + \dots$
+
+%27.3
+\subsection{$f(x) = e^{x^2}$ at $c = 0$}
+\begin{align*}
+	e^{x^2} = 1 + (x^2) + \frac{(x^2)^2}{2!} + \frac{(x^2)^3}{3!}
+\end{align*}
+\begin{align*}
+	e^{x^2} = 1 + x^2 + \frac{x^4}{2} + \frac{x^6}{3!}
+\end{align*}
+Answer: $e^{x^2} = 1 + x^2 + \frac{x^4}{2} + \frac{x^6}{3!} + \dots$
+
+%27.4
+\subsection{$f(x) = x \sin{2x}$ at $c = 0$}
+\begin{align*}
+	\sin{2x} = (2x) - \frac{(2x)^3}{3!} + \frac{(2x)^5}{5!} - \frac{(2x)^7}{7!}
+\end{align*}
+\begin{align*}
+	\sin{2x} = 2x - \frac{8x^3}{3!} + \frac{32x^5}{5!} - \frac{128x^7}{7!}
+\end{align*}
+\begin{align*}
+	x\sin{2x} = x\bigg( 2x - \frac{8x^3}{3!} + \frac{32x^5}{5!} - \frac{128x^7}{7!} \bigg)
+\end{align*}
+\begin{align*}
+	x \sin{2x} = 2x^2 - \frac{8x^4}{3!} + \frac{32x^6}{5!} - \frac{128x^8}{7!}
+\end{align*}
+Answer: $x \sin{2x} = 2x^2 - \frac{8x^4}{3!} + \frac{32x^6}{5!} - \frac{128x^8}{7!} + \dots$
+
+%27.5
+\subsection{$f(x) = e^{x} \sin{x}$ at $c = 0$}
+\begin{align*}
+	e^x \sin{x} = \bigg( 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots \bigg) \bigg( x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots \bigg)
+\end{align*}
+\begin{align*}
+	= x - \frac{x^3}{3!} + \frac{x^5}{5!} + x^2 - \frac{x^4}{3!} + \frac{x^6}{5!} + \frac{x^3}{2!} - \frac{x^5}{3!2!} + \frac{x^4}{3!} -\frac{x^6}{3!3!} + \frac{x^5}{4!}
+\end{align*}
+\begin{align*}
+	= x + x^2 + x^3 \bigg( -\frac{1}{6} + \frac{1}{2} \bigg) + x^5 \bigg( \frac{1}{120} - \frac{1}{12} + \frac{1}{24}\bigg) + \dots
+\end{align*}
+\begin{align*}
+	= x + x^2 + \frac{1}{3}x^3 - \frac{1}{30}x^5
+\end{align*}
+Answer: $e^x \sin{x} = x + x^2 + \frac{x^3}{3} - \frac{x^5}{30} + \dots$
+
+%27.6
+\subsection{$f(x) = \ln{\left( \frac{1 + x}{1 - x} \right)} $ at $c = 0$}
+\begin{align*}
+	\ln{\bigg(\frac{1 + x}{1 - x}\bigg)} = \ln{(1 + x)} - \ln{(1 - x)}
+\end{align*}
+\begin{align*}
+	\frac{1}{1 - x} = 1 + x + x^2 + x^3
+\end{align*}
+\begin{align*}
+	\int{\frac{1}{1 - x}dx} = -\ln{(1 - x)} = x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4}
+\end{align*}
+\begin{align*}
+	\frac{1}{1 + x} = 1 - x + x^2 - x^3
+\end{align*}
+\begin{align*}
+	\int{\frac{1}{1 + x}} = \ln{(1 + x)} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4}
+\end{align*}
+\begin{align*}
+	\ln{(1 + x)} - \ln{(1 - x)} = x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4}
+\end{align*}
+\begin{align*}
+	\ln{(1 + x)} - \ln{(1 - x)} = 2x + \frac{2x^3}{3} + \frac{2x^5}{5} + \frac{2x^7}{7}
+\end{align*}
+Answer: $\ln{\left( \frac{1 + x}{1 - x} \right)} = 2x + \frac{2x^3}{3} + \frac{2x^5}{5} + \frac{2x^7}{7} + \dots$
+
+%27.7
+\subsection{$f(x) = x \arctan{x}$ at $c = 0$}
+\begin{align*}
+	\frac{1}{1 + x} = 1 + x + x^2 + x^3
+\end{align*}
+\begin{align*}
+	\frac{1}{1 + x^2} = 1 + (x^2) + (x^2)^2 + (x^2)^3 = 1 + x^2 + x^4 + x^6
+\end{align*}
+\begin{align*}
+	\int{\frac{1}{1 + x^2}dx} = \arctan{x} = x + \frac{x^3}{3} + \frac{x^5}{5} + \frac{x^7}{7}
+\end{align*}
+\begin{align*}
+	x \arctan{x} = x \bigg( x + \frac{x^3}{3} + \frac{x^5}{5} + \frac{x^7}{7} \bigg) = x^2 - \frac{x^4}{3} + \frac{x^6}{5} - \frac{x^8}{7}
+\end{align*}
+Answer: $x \arctan{x} = x^2 - \frac{x^4}{3} + \frac{x^6}{5} - \frac{x^8}{7} + \dots$
+
+\section{Parametric Equations}
+%28.1
+\subsection{Estimate the parameter and find the corresponding rectangular equation: $x = 3t^2$ and $y = 2t + 1$.}
+Let $t = \frac{y - 1}{2}$ and plug $t$ into the equation for $x$
+\begin{align*}
+	x = 3 \left( \frac{y - 1}{2} \right)^2
+\end{align*}
+\begin{align*}
+	x = 3 \left( \frac{y^2 -2y + 1}{4} \right)
+\end{align*}
+\begin{align*}
+	4x = 3y^2 - 6y + 3
+\end{align*}
+\begin{align*}
+	0 = 3y^2 - 4x - 6y + 3
+\end{align*}
+Answer: $3y^2 - 4x - 6y + 3 = 0$
+
+%28.2
+\subsection{Estimate the parameter and find the corresponding rectangular equation: $x = 1 + \sec{\theta}$ and $y = 2 + \tan{\theta}$.}
+Answer: $x^2 - y^2 - 2x + 4y - 4 = 0$
+\\[10pt]
+Sketch the curve represented by the parametric equations (indicate the direction of the curve). Find $\frac{dy}{dx}$ and $\frac{d^2 y}{dx^2}$.
+%28.3
+\subsection{$x = 3t - 1, \quad y = 2t + 1$}
+\begin{align*}
+	\frac{dy}{dx} = \frac{\frac{d}{dt}(3t - 1)}{\frac{d}{dt}(2t + 1)} = \frac{2}{3}
+\end{align*}
+\begin{align*}
+	\frac{d^2 y}{dx^2} = \frac{\frac{d}{dt} \frac{2}{3}}{\frac{d}{dt}(2t + 1)} = \frac{0}{3} = 0
+\end{align*}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/28.3.png}
+	\caption{Graph of function for 28.3}
+\end{figure}
+See Figure 18. \\[10pt]
+Answer: $\frac{dy}{dx} = \frac{2}{3}, \quad \frac{d^2 y}{dx^2} = 0$
+
+%28.4
+\subsection{$x = \sqrt[3]{t}, \quad y = 1 - t$}
+\begin{align*}
+	\frac{dy}{dx} = \frac{\frac{d}{dt}(1 - t)}{\frac{d}{dt}\sqrt[3]{t}} = \frac{-1}{\frac{1}{3}t^{-2/3}} = -3t^{2/3}
+\end{align*}
+\begin{align*}
+	\frac{d^2 y}{dx^2} = \frac{\frac{d}{dt} \left( -3t^{2/3} \right)}{\frac{d}{dt}\sqrt[3]{t}} = \frac{-2t^{-1/3}}{\frac{1}{3}t^{-2/3}} = -6t^{1/3}
+\end{align*}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/28.4.png}
+	\caption{Graph of function for 28.4}
+\end{figure}
+See Figure 19. \\[10pt]
+Answer: $\frac{dy}{dx} = -3t^{2/3}, \quad \frac{d^2 y}{dx^2} = -6t^{1/3}$
+
+%28.5
+\subsection{$x = \cos{t}, \quad y = 3\sin{t}$}
+\begin{align*}
+	\frac{dy}{dx} = \frac{\frac{d}{dt}3\sin{t}}{\frac{d}{dt}\cos{t}} = \frac{3\cos{t}}{-\sin{t}} = -3\cot{t}
+\end{align*}
+\begin{align*}
+	\frac{d^2 y}{dx^2} = \frac{\frac{d}{dt} (-3\cot{t})}{\frac{d}{dt} \cos{t}} = \frac{-3(-\csc^2{t})}{-\sin{t}} = -3 \csc^2{t} \bigg( \frac{1}{\sin{t}} \bigg) = -3 \csc^3{t}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/28.5.png}
+	\caption{Graph of function for 28.5}
+\end{figure}
+See Figure 20. \\[10pt]
+Answer: $\frac{dy}{dx} = -3\cot{t}, \quad \frac{d^2 y}{dx^2} = -3\csc^3{t}$
+
+%28.6
+\subsection{$x = \sec{t}, \quad y = \cos{t}$}
+\begin{align*}
+	\frac{dy}{dx} = \frac{\frac{d}{dt}\cos{t}}{\frac{d}{dt}\sec{t}} = \frac{-\sin{t}}{\sec{t} \tan{t}} = -\sin{t} \cos{t} \frac{\cos{t}}{\sin{t}} = -\cos^2{t}
+\end{align*}
+\begin{align*}
+	\frac{d^2 y}{dx^2} = \frac{\frac{d}{dt} (-\cos^2{t})}{\frac{d}{dt} \sec{t}} = \frac{-2 \cos{t} (-\sin{t})}{\sec{t} \tan{t}} = 2\cos{t} \sin{t} \cos{t} \frac{\cos{t}}{\sin{t}} = 2 \cos^3{t}
+\end{align*}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/28.6.png}
+	\caption{Graph of function for 28.6}
+\end{figure}
+See Figure 21. \\[10pt]
+Answer: $\frac{dy}{dx} = -\cos^2{t}, \quad \frac{d^2 y}{dx^2} = 2\cos^3{t}$
+\\[10pt]
+Find the arc length of the given curve on the indicated interval:
+
+%28.7
+\subsection{$x = t^2, \quad y = 2t^2 - 1, \quad 1 \leq t \leq 4$}
+For parametric equations, the formula to find arc length is:
+\begin{align*}
+	AL = \int_a^b {\sqrt{(\frac{dy}{dt})^2 + (\frac{dx}{dt})^2} dt}
+\end{align*}
+\begin{align*}
+	\frac{dy}{dt} = 4t \quad \bigg( \frac{dy}{dt} \bigg)^2 = 16t^2
+\end{align*}
+\begin{align*}
+	\frac{dx}{dt} = 2t \quad \bigg( \frac{dx}{dt} \bigg)^2 = 4t^2
+\end{align*}
+\begin{align*}
+	AL = \int_1^4 {\sqrt{16t^2 + 4t^2}dt} = \int_1^4 {\sqrt{20t^2}dt} = 2\sqrt{t} \int_1^4 {t dt} = 2\sqrt{5} \frac{t^2}{2} \bigg|_1^4 = 15\sqrt{5}
+\end{align*}
+Answer: $15\sqrt{5}$
+
+%28.8
+\subsection{$x = e^{-t} \cos{t}, \quad y = e^{-t} \sin{t}, \quad 0 \leq t \leq \pi /2$}
+\begin{align*}
+	\frac{dx}{dt} = e^{-t}(-\sin{t}) + (-e^{-t}) \cos{t}
+\end{align*}
+\begin{align*}
+	\bigg( \frac{dx}{dt} \bigg)^2 = e^{-2t}\sin^2{t} + e^{-2t} \cos^2{t} + 2e^{-2t}\sin{t}\cos{t}
+\end{align*}
+\begin{align*}
+	\frac{dy}{dt} = e^{-t}\cos{t} + (-e^{-t})\sin{t}
+\end{align*}
+\begin{align*}
+	\bigg( \frac{dy}{dt} \bigg)^2 = e^{-2t} \cos^2{t} + e^{-2t} \sin^2{t} - 2e^{-2t} \sin{t} \cos{t}
+\end{align*}
+\begin{align*}
+	AL = \int_0^{\pi/2} {\sqrt{2e^{-2t}\sin^2{t} + 2e^{-2t} \cos^2{t} + 2e^{-2t}\sin{t}\cos{t} - 2e^{-2t} \sin{t} \cos{t}}dx}
+\end{align*}
+\begin{align*}
+	= \int_0^{\pi/2} {\sqrt{2e^{-2t} (\sin^2{t} + \cos^2{t})}dt} = \sqrt{2} \int_0^{\pi/2} {e^{-t}dt} = -\sqrt{2} e^{-t} \bigg|_0^{\pi/2}
+\end{align*}
+\begin{align*}
+	= -\sqrt{2} (e^{-\pi/2} - 1) = \sqrt{2} (1 - e^{-\pi/2})
+\end{align*}
+Answer: $\sqrt{2}(1 - e^{-\pi/2})$
+
+%28.9
+\subsection{$x = t^2, \quad y = 4t^3 - 1, \quad -1 \leq t \leq 1$}
+\begin{align*}
+	\frac{dx}{dt} = 2t \quad \bigg( \frac{dx}{dt} \bigg)^2 = 4t^2
+\end{align*}
+\begin{align*}
+	\frac{dy}{dt} = 12t^2 \quad \bigg( \frac{dy}{dt} \bigg)^2 = 144t^4
+\end{align*}
+\begin{align*}
+	AL = \int_{-1}^1 {\sqrt{4t^2 + 144t^4}dt} = \int_{-1}^1 {\sqrt{4t^2(1 + 36t^2)}dt} = 2\int_{-1}^1 {t\sqrt{1 + 36t^2}dt}
+\end{align*}
+Let $u = 1 + 36t^2, du = 72tdt$, and $dt = \frac{du}{72t}$. 
+\begin{align*}
+	= 2\int_{-1}^1 {t \sqrt{u} \frac{du}{72t}} = \frac{2}{72} \int_{-1}^1 {\sqrt{u}du} = \frac{2}{72} \frac{2}{3} (1 + 36t^2)^{3/2} \bigg|_{-1}^1 = \frac{1}{27}(37^{3/2} - 1)
+\end{align*}
+Answer: $\frac{1}{27}(37\sqrt{37} - 1)$
+\\[10pt]
+Find the speed $s$ at time $t$ for:
+
+%28.10
+\subsection{$c(t) = (3 \cos{5t}, 8 \cos{5t})$ at $t = \pi /4$}
+For parametric equations, the formula to find speed is:
+\begin{align*}
+	s = \sqrt{(\frac{dx}{dt})^2 + (\frac{dy}{dt})^2}
+\end{align*}
+\begin{align*}
+	\frac{dx}{dt} = -15\sin{5t} \quad \bigg( \frac{dx}{dt} \bigg)^2 = 225 \sin^2{5t}
+\end{align*}
+\begin{align*}
+	\frac{dy}{dt} = -40 \sin{5t} \quad \bigg( \frac{dy}{dt} \bigg)^2 = 1600 \sin^2{5t}
+\end{align*}
+\begin{align*}
+	s = \sqrt{225\sin^2{5t} + 1600 \sin^2{5t}} \bigg|_{t = \pi/4} = \sqrt{1825 \sin^2{\frac{5\pi}{4}}}
+\end{align*}
+\begin{align*}
+	= \sqrt{1825 \bigg( \frac{-\sqrt{2}}{2} \bigg)^2} = \sqrt{912.5} = 30.21
+\end{align*}
+Answer: $30.21$
+
+%28.11
+\subsection{$c(t) = (\ln(t^2 + 1), t^3)$ at $t = 1$}
+\begin{align*}
+	\frac{dx}{dt} = \frac{2t}{t^2 +1} \quad \bigg( \frac{dx}{dt} \bigg)^2 = \frac{4t^2}{t^4 + 2t^2 + 1}
+\end{align*}
+\begin{align*}
+	\frac{dy}{dt} = 3t^2 \quad \bigg( \frac{dy}{dt} \bigg)^2 = 9t^4
+\end{align*}
+\begin{align*}
+	s = \sqrt{\frac{4t^2}{t^4 + 2t^2 + 1} + 9t^4} \bigg|_{t = 1} = \sqrt{\frac{4}{1 + 2 + 1} + 9} = \sqrt{10} = 3.16
+\end{align*}
+Answer: $3.16$
+
+\section{Polar Equations}
+
+Find the polar equation for the given rectangular equation.
+%29.1
+\subsection{$x^2 + y^2 = 9$}
+\begin{align*}
+	r^2 = 9
+\end{align*}
+\begin{align*}
+	r = 3
+\end{align*}
+Answer: $r = 3$
+
+%29.2
+\subsection{$(x + 6)^2 + y^2 = 36$}
+\begin{align*}
+	(r\cos{\theta} + 6)^2 + (r\sin{\theta})^2 = 36
+\end{align*}
+\begin{align*}
+	r^2 \cos^2{\theta} + 12r\cos{\theta} + 36 + r^2 \sin^2{\theta} = 36
+\end{align*}
+\begin{align*}
+	r^2 (\cos^2{\theta} + \sin^2{\theta}) + 12r\cos{\theta} = 0
+\end{align*}
+\begin{align*}
+	r^2 = -12r\cos{\theta}
+\end{align*}
+\begin{align*}
+	r = -12\cos{\theta}
+\end{align*}
+Answer: $r = -12\cos{\theta}$
+\\[10pt]
+Find the rectangular equation for the given polar equation.
+
+%29.3
+\subsection{$r = 3 \csc{\theta}$}
+\begin{align*}
+	r = 3 \frac{1}{\sin{\theta}}
+\end{align*}
+\begin{align*}
+	r\sin{\theta} = 3
+\end{align*}
+\begin{align*}
+	y = 3
+\end{align*}
+Answer: $y = 3$
+
+%29.4
+\subsection{$r^2 - 16 = 0$}
+\begin{align*}
+	r^2 = 16
+\end{align*}
+\begin{align*}
+	x^2 + y^2 = 16
+\end{align*}
+Answer: $x^2 + y^2 = 16$
+
+%29.5
+\subsection{$r + 4 \cos{\theta} = 0$}
+\begin{align*}
+	r = -4\cos{\theta}
+\end{align*}
+\begin{align*}
+	r^2 = -4r\cos{\theta}
+\end{align*}
+\begin{align*}
+	x^2 + y^2 = -4x
+\end{align*}
+\begin{align*}
+	x^2 + 4x + 4 + y^2 = 4
+\end{align*}
+\begin{align*}
+	(x + 2)^2 + y^2 = 4
+\end{align*}
+Answer: $(x + 2)^2 + y^2 = 4$
+
+%29.6
+\subsection{$r = \frac{1}{2 \sin{\theta} + 5 \cos{\theta}}$}
+\begin{align*}
+	r(2\sin{\theta} + 5\cos{\theta}) = 1
+\end{align*}
+\begin{align*}
+	2r\sin{\theta} + 5r\cos{\theta} = 1
+\end{align*}
+\begin{align*}
+	2y + 5x = 1
+\end{align*}
+Answer: $2y + 5x = 1$
+\\[10pt]
+Graph the following polar equations.
+
+%29.7
+\subsection{$r = 2 + 4\sin{\theta}$}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/29.7.png}
+	\caption{Graph of function for 29.7}
+\end{figure}
+Answer: See Figure 22. 
+
+%29.8
+\subsection{$r = 4 \sin{2 \theta}$}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/29.8.png}
+	\caption{Graph of function for 29.8}
+\end{figure}
+Answer: See Figure 23. 
+
+%29.9
+\subsection{$r = 3 \sin{5 \theta}$}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/29.9.png}
+	\caption{Graph of function for 29.9}
+\end{figure}
+Answer: See Figure 24. 
+
+%29.10
+\subsection{$r = 2 \cos{\theta}$}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/29.10.png}
+	\caption{Graph of function for 29.10}
+\end{figure}
+Answer: See Figure 25. 
+
+%29.11
+\subsection{$r = 4 \sin{\theta} + 3 \cos{\theta}$}
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/29.11.png}
+	\caption{Graph of function for 29.11}
+\end{figure}
+Answer: See Figure 26. 
+
+\section{Polar Area}
+Find the area of the region:
+The equation to find the area of the region in polar coordinates is:
+\begin{align*}
+	A = \bigg[ \int_a^b \frac{(r_{outer})^2}{2} d\theta - \int_a^b \frac{(r_{inner})^2}{2} d\theta \bigg]
+\end{align*}
+%30.1
+\subsection{Inside $r = 2 \sin{\theta}$ and outside $r = 1$}
+Figure 27 shows an overlap of the two functions. \\[10pt]
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/30.1.png}
+	\caption{Graph of function for 30.1}
+\end{figure}
+Finding bounds:
+\begin{align*}
+	r = 2\sin{\theta} = 1 \implies \sin{\theta} = \frac{1}{2} \implies \theta = \frac{\pi}{6}, \frac{5\pi}{6}
+\end{align*}
+Finding area:
+\begin{align*}
+	A = \frac{1}{2}\int_{\frac{\pi}{6}}^{\frac{5\pi}{6}} \bigg[ (2\sin{\theta})^2 - 1  \bigg] d\theta = \frac{1}{2} \int_{\frac{\pi}{6}}^{\frac{5\pi}{6}} \bigg[ 4\sin^2{\theta} - 1 \bigg] d\theta
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \int_{\frac{\pi}{6}}^{\frac{5\pi}{6}} \bigg[ 4\frac{1 - \cos{(2\theta)}}{2} - 1 \bigg] d\theta = \frac{1}{2} \int_{\frac{\pi}{6}}^{\frac{5\pi}{6}} \bigg[ 1 - 2\cos{(2\theta)} \bigg]
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \bigg[ \bigg( \frac{5\pi}{6} - \frac{\pi}{6} \bigg) - \bigg( \frac{-\sqrt{3}}{2} - \frac{\sqrt{3}}{2} \bigg) \bigg] = \frac{1}{2} \bigg[ \frac{2\pi}{3} + \sqrt{3} \bigg] = \frac{\pi}{3} + \frac{\sqrt{3}}{2}
+\end{align*}
+Answer: $\frac{\pi}{3} + \frac{\sqrt{3}}{2}$
+
+%30.2
+\subsection{Inside both $r = 4 \cos{\theta}$ and $r = 2$}
+Figure 28 shows an overlap of the two functions. \\[10pt]
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/30.2.png}
+	\caption{Graph of function for 30.2}
+\end{figure}
+Finding bounds:
+\begin{align*}
+	r = 4\cos{\theta} = 2 \implies \cos{\theta} = \frac{1}{2} \implies \theta = \frac{\pi}{3}
+\end{align*}
+Finding area: 
+\begin{align*}
+	A = 2 \bigg[ \frac{1}{2} \bigg[ \int_0^{\frac{\pi}{3}} (2)^2 d\theta + \int_{\frac{\pi}{3}}^{\frac{\pi}{2}} (4\cos{\theta})^2 d\theta \bigg] \bigg] = \int_0^{\frac{\pi}{3}} 4d\theta + \int_{\frac{\pi}{3}}^{\frac{\pi}{2}} 16\cos^2{\theta}d\theta
+\end{align*}
+\begin{align*}
+	= \int_0^{\frac{\pi}{3}} 4d\theta + \int_{\frac{\pi}{3}}^{\frac{\pi}{2}} 16 \frac{1 + \cos{2\theta}}{2} d\theta = \int_0^{\frac{\pi}{3}} 4d\theta + \int_{\frac{\pi}{3}}^{\frac{\pi}{2}} 8 + 8\cos{2\theta} d\theta
+\end{align*}
+\begin{align*}
+	= 4\theta \bigg|_0^{\frac{\pi}{3}} + 8\theta \bigg|_{\frac{\pi}{3}}^{\frac{\pi}{2}} + 4\sin{2\theta} \bigg|_{\frac{\pi}{3}}^{\frac{\pi}{2}} = \frac{4\pi}{3} + \frac{8\pi}{2} - \frac{8\pi}{3} + 4\sin{\pi} - 4\sin{\frac{2\pi}{3}}
+\end{align*}
+\begin{align*}
+	= \frac{8\pi}{3} - 2\sqrt{3}
+\end{align*}
+Answer: $\frac{8\pi}{3} - 2\sqrt{3}$
+
+%30.3
+\subsection{Inside both $r = \cos{\theta}$ and $r = \sqrt{3} \sin{\theta}$}
+Figure 29 shows an overlap of the two functions. \\[10pt]
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/30.3.png}
+	\caption{Graph of function for 30.3}
+\end{figure}
+Finding bounds:
+\begin{align*}
+	r = \cos{\theta} = \sqrt{3}\sin{\theta} \implies \cot{\theta} = \sqrt{3} \implies \theta = \frac{\pi}{6}
+\end{align*}
+Finding area:
+\begin{align*}
+	A = \frac{1}{2} \bigg[ \int_0^{\frac{\pi}{6}} (\sqrt{3}\sin{\theta})^2 d\theta + \int_{\frac{\pi}{6}}^{\frac{\pi}{2}} (\cos{\theta})^2 d\theta \bigg] = \frac{3}{2} \int_0^{\frac{\pi}{6}} \sin^2{\theta} d\theta + \frac{1}{2} \int_{\frac{\pi}{6}}^{\frac{\pi}{2}} \cos^2{\theta} d\theta
+\end{align*}
+\begin{align*}
+	= \frac{3}{2} \int_0^{\frac{\pi}{6}} \frac{1 - \cos{2\theta}}{2} d\theta + \frac{1}{2} \int_{\frac{\pi}{6}}^{\frac{\pi}{2}} \frac{1 + \cos{2\theta}}{2} d\theta 
+\end{align*} 
+\begin{align*}
+	= \frac{3}{4} \int_0^{\frac{\pi}{6}} 1 - \cos{2\theta} d\theta + \frac{1}{4} \int_{\frac{\pi}{6}}^{\frac{\pi}{2}} 1 + \cos{2\theta} d\theta
+\end{align*}
+\begin{align*}
+	= \frac{1}{4} \bigg[ \theta + \frac{\sin{2\theta}}{2} \bigg] \bigg|_{\frac{\pi}{6}}^{\frac{\pi}{2}} + \frac{3}{4} \bigg[ \theta - \frac{\sin{2\theta}}{2} \bigg] \bigg|_0^{\frac{\pi}{6}}
+\end{align*}
+\begin{align*}
+	=\frac{1}{4} \bigg[ \frac{\pi}{2} + 0 - \frac{\pi}{6} - \frac{\sqrt{3}}{4} \bigg] + \frac{3}{4} \bigg[ \frac{\pi}{6} - \frac{\sqrt{3}}{4} - 0 + 0 \bigg] = \frac{5\pi}{24} - \frac{\sqrt{3}}{4}
+\end{align*}
+Answer: $\frac{5\pi}{24} - \frac{\sqrt{3}}{4}$
+
+%30.4
+\subsection{Inside $r = 2 + \cos{\theta}$ and outside $r = 2$}
+Figure 30 shows an overlap of the two functions. \\[10pt]
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/30.4.png}
+	\caption{Graph of function for 30.4}
+\end{figure}
+Finding bounds:
+\begin{align*}
+	r = 2 + \cos{\theta} = 2 \implies \cos{\theta} = 0 \implies \theta = -\frac{\pi}{2}, \frac{\pi}{2}
+\end{align*}
+Finding area:
+\begin{align*}
+	A = \frac{1}{2} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \bigg[ (2 + \cos{\theta})^2 - (2)^2 \bigg] d\theta = \frac{1}{2} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \bigg[ 4 + 4\cos{\theta} + \cos^2{\theta} - 4 \bigg] d\theta
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \bigg[ 4\cos{\theta} + \frac{1 + \cos{2\theta}}{2} \bigg] d\theta
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \bigg( \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 4\cos{\theta} d\theta + \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{1}{2}d\theta + \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\cos{2\theta}}{2} d\theta \bigg)
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \bigg( 4(1 - -1) + \frac{1}{2} \bigg( \frac{\pi}{2} - -\frac{\pi}{2} \bigg) + \frac{1}{4} (0 - 0) \bigg) = 4 + \frac{\pi}{4}
+\end{align*}
+Answer: $4 + \frac{\pi}{4}$
+
+%30.5
+\subsection{Inside $r = 3 + 2 \cos{\theta}$ and outside $r = 4$}
+Figure 31 shows an overlap of the two functions. \\[10pt]
+\begin{figure}
+	\centering
+	\includegraphics[width = 1\textwidth]{/Users/matthewchang/Documents/Latex/math122/mpod-images/30.5.png}
+	\caption{Graph of function for 30.5}
+\end{figure}
+Finding bounds:
+\begin{align*}
+	r = 3 + 2\cos{\theta} = 4 \implies \cos{\theta} = \frac{1}{2} \implies \theta = -\frac{\pi}{3}, \frac{\pi}{3}
+\end{align*}
+Finding area:
+\begin{align*}
+	A = \frac{1}{2} \int_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \bigg[ (3 + 2\cos{\theta})^2 - (4)^2 \bigg] d\theta = \frac{1}{2} \int_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \bigg[ -7 + 12\cos{\theta} + 4\cos^2{\theta} \bigg] d\theta
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \int_{-\frac{\pi}{3}}^{\frac{\pi}{3}} \bigg[ -5 + 12\cos{\theta} + 2\cos{2\theta} \bigg] d\theta
+\end{align*}
+\begin{align*}
+	= \frac{1}{2} \bigg( -5 \bigg( \frac{\pi}{3} - -\frac{\pi}{3} \bigg) + 12 \bigg( \frac{\sqrt{3}}{2} - -\frac{\sqrt{3}}{2} \bigg) + 2*\frac{\sqrt{3}}{2} \bigg) = \frac{13\sqrt{3}}{2} - \frac{5\pi}{3}
+\end{align*}
+Answer: $\frac{13\sqrt{3}}{2} - \frac{5\pi}{3}$
+
+\section{3D Space and Vectors}
+%31.1
+\subsection{Find the distance between $P = (-1, 3, 3)$ and $Q = (-2, 3, 4)$}
+The equation to find the distance between two points is:
+\begin{align*}
+	d = \sqrt{(x_0 - x_1)^2 + (y_0 - y_1)^2 + (z_0 - z_1)^2}
+\end{align*}
+\begin{align*}
+	d = \sqrt{(-1 - (-2))^2 + (3 - 3)^2 + (3 - 4)^2} = \sqrt{(1)^2 + 0 + (-1)^2} = \sqrt{2}
+\end{align*}
+Answer: $d = \sqrt{2}$
+%31.2
+\subsection{Find the equation of the sphere of radius 3 centered at $P_0 = (1, 3, 4)$.}
+The general equation of a sphere for a point $(x_0, y_0, z_0)$ and radius $r$ is:
+\begin{align*}
+	(x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = r^2
+\end{align*}
+\begin{align*}
+	(x - 1)^2 + (y - 3)^2 + (z - 4)^2 = 3^2 = 9
+\end{align*}
+Answer: $(x - 1)^2 + (y - 3)^2 + (z - 4)^2 = 9$
+%31.3
+\subsection{Is the point $Q = (1, 1, 3)$ inside or outside the sphere in problem 2?}
+To determine if the point $Q$ is inside or outside the sphere, we need to check if the distance of the point $Q$ from the center is less than the radius of the sphere. \\[10pt]
+We first construct a vector $\vec{v}$ from the center of the sphere to the point $Q$:
+\begin{align*}
+	\vec{v} = <1 - 1, 3 - 1, 4 - 3> = <0, 2, 1>
+\end{align*}
+Now we compute the magnitude:
+\begin{align*}
+	|| \vec{v} || = \sqrt{0^2 + 2^2 + 1^2} = \sqrt{5} < \sqrt{9} = 3
+\end{align*}
+Because the magnitude, $\sqrt{5}$, is less than the radius of the sphere, $3$, the point $Q$ is inside the sphere.
+Answer: inside
+%31.4
+\subsection{Find the radius and center of the sphere
+	\begin{align*}
+		x^2 + y^2 + z^2 + 2x - 2y = 2
+	\end{align*}
+}
+We will use the method of completing the square:
+\begin{align*}
+	x^2 + 2x + 1 + y^2 - 2y + 1 + z^2 = 2 + 1 + 1
+\end{align*}
+\begin{align*}
+	(x + 1)^2 + (y - 1)^2 + z^2 = 4
+\end{align*}
+The center is $(-1, 1, 0)$ and the radius is $2$. \\[10pt]
+Answer: center: $(-1, 1, 0)$ and radius: $2$
+%31.5
+\subsection{Find the radius and center of the sphere
+	\begin{align*}
+		x^2 + y^2 + z^2 + 2x - 2z = -1
+	\end{align*}
+}
+We will use the method of completing the square:
+\begin{align*}
+	x^2 + 2x + 1 + y^2 + z^2 -2z + 1 = 2 + 1 + 1
+\end{align*}
+\begin{align*}
+	(x + 1)^2 + y^2 + (z - 1)^2 = 4
+\end{align*}
+The center is $(-1, 0, 1)$ and the radius is $2$. \\[10pt]
+Answer: center: $(-1, 0, 1)$ and radius: $1$
+%31.6
+\subsection{Find the standard equation for the sphere that has points $(4, -3, 5)$ and $(-6, 1, -1)$ as endpoints of a diameter.
+}
+We first define the center of the sphere, which is the midpoint of the two given points:
+\begin{align*}
+	m = \bigg( \frac{x_0 + x_1}{2}, \frac{y_0 + y_1}{2}, \frac{z_0 + z_1}{2}\bigg)
+\end{align*}
+\begin{align*}
+	m = \bigg( \frac{4 + -6}{2}, \frac{-3 + 1}{2}, \frac{5 + -1}{2}\bigg) = ( -1, -1, 2 )
+\end{align*}
+Now we construct a vector from the center to one of the points. We take the magnitude of the vector to obtain the radius of the sphere.
+\begin{align*}
+	\vec{v} = <-1 - 4, -1 - (-3), 2 - 5> = <-5, 2, -3>
+\end{align*}
+\begin{align*}
+	|| \vec{v} || = \sqrt{(-5)^2 + (2)^2 + (-3)^2} = \sqrt{38}
+\end{align*}
+Now we assemble the equation of the sphere:
+\begin{align*}
+	(x + 1)^2 + (y + 1)^2 + (z - 2)^2 = 38
+\end{align*}
+Answer: $(x + 1)^2 + (y + 1)^2 + (z - 2)^2 = 38$
+%31.7
+\subsection{Given $\vec{u} = 3\hat{i} + 2\hat{j}, \vec{w} = \hat{i} - \hat{j}$, and $\vec{v} = 3\vec{u} - 2\vec{w}$ find $\vec{v}$.}
+\begin{align*}
+	3\vec{u} = 3<3, 2> = <9, 6> \quad 2\vec{w} = 2<1, -1> = <2, -2>
+\end{align*}
+\begin{align*}
+	\vec{v} = <9, 6> - <2, -2> = <7, 8>
+\end{align*}
+Answer: $<7, 8>$
+%31.8
+\subsection{Gien $\vec{u} = 3\hat{i} - 2\hat{j}, \vec{w} = 9\hat{i} + 5\hat{j}$, and $\vec{v} = \frac{1}{2}\vec{u} + 4\vec{w}$ find $\vec{v}$.}
+\begin{align*}
+	\frac{1}{2}\vec{u} = \frac{1}{2}<3, -2> = <\frac{3}{2}, -1> \quad 4\vec{w} = 4<9, 5> = <36, 20>
+\end{align*}
+\begin{align*}
+	\vec{v} = <\frac{3}{2}, -1> + <36, 20> = <\frac{3 + 72}{2}, 19> = <\frac{75}{2}, 19>
+\end{align*}
+Answer: $<\frac{75}{2}, 19>$
+%31.9
+\subsection{Find a unit vector in the direction of $\vec{v} = <3,-2>$.}
+The equation to find a unit vector is:
+\begin{align*}
+	\vec{e}_{\vec{v}} = \frac{\vec{v}}{|| \vec{v} ||}
+\end{align*}
+\begin{align*}
+	|| \vec{v} || = \sqrt{(3)^2 + (-2)^2} = \sqrt{9 + 4} = \sqrt{13}
+\end{align*}
+\begin{align*}
+	\vec{e}_{\vec{v}} = \frac{<3, -2>}{\sqrt{13}}
+\end{align*}
+Answer: $<\frac{3\sqrt{13}}{13}, -\frac{2\sqrt{13}}{13}>$
+%31.10
+\subsection{Find a vector of length 3 in the direction of $\vec{v} = <1,2>$.}
+\begin{align*}
+	|| \vec{v} || = \sqrt{(1)^2 + (2)^2} = \sqrt{5}
+\end{align*}
+\begin{align*}
+	\vec{e}_{\vec{v}} = \frac{<1, 2>}{\sqrt{5}}
+\end{align*}
+\begin{align*}
+	3 \vec{e}_{\vec{v}} = \frac{3<1, 2>}{\sqrt{5}}
+\end{align*}
+Answer: $<\frac{3}{\sqrt{5}}, \frac{6}{\sqrt{5}}>$  \\[10pt]
+For $\vec{a} = <2, 5, -4>$ and $\vec{b} = <1, -2, -3>$ find:
+%31.11
+\subsection{$2\vec{a} + \vec{b}$}
+\begin{align*}
+	2\vec{a} = 2<2, 5, -4> = <4, 10, -8>
+\end{align*}
+\begin{align*}
+	<4, 10, -8> + <1, -2, -3> = <5, 8, -11>
+\end{align*}
+Answer: $<5, 8, -11>$
+%31.12
+\subsection{$3\vec{a} - 4\vec{b}$}
+\begin{align*}
+	3\vec{a} = 3<2, 5, -4> = <6, 15, -12> \quad 4\vec{b} = 4<1, -2, -3> = <4, -8, -12>
+\end{align*}
+\begin{align*}
+	<6, 15, -12> - <4, -8, -12> = <2, 23, 0>
+\end{align*}
+Answer: $<2, 23, 0>$
+%31.13
+\subsection{$||\vec{a} + \vec{b}||$}
+\begin{align*}
+	\vec{a} + \vec{b} = <2, 5, -4> + <1, -2, -3> = <3, 3, -7>
+\end{align*}
+\begin{align*}
+	||\vec{a} + \vec{b}|| = \sqrt{(3)^2 + (3)^2 + (-7)^2} = \sqrt{9 + 9 + 49} = \sqrt{67}
+\end{align*}
+Answer: $\sqrt{67}$
+%31.14
+\subsection{$\vec{e}_{\vec{a}}$}
+\begin{align*}
+	|| \vec{a} || = \sqrt{(2)^2 + (5)^2 + (-4)^2} = \sqrt{4 + 25 + 16} = \sqrt{45}
+\end{align*}
+\begin{align*}
+	\vec{e}_{\vec{a}} = \frac{<2, 5, -4>}{\sqrt{45}}
+\end{align*}
+Answer: $\frac{1}{\sqrt{45}}<2, 5, -4>$
+
+\section{Lines}
+%32.1
+\subsection{Find the parametric equations for the line through $(3, 2, 4)$ with direction vector $\vec{v} = <7, 8, -3>$.}
+The general solution for a line with a point $(x_0, y_0, z_0)$ and a direction vector $<a, b, c>$ is:
+\begin{align*}
+	(x, y, z) = (x_0, y_0, z_0) + t<a, b, c>
+\end{align*}
+\begin{align*}
+	(x, y, z) = (3, 2, 4) + t<7, 8, -3>
+\end{align*}
+The parametric equations are: $
+	\begin{cases}
+		x = 3 + 7t \\
+		y = 2 + 8t \\
+		z = 4 - 3t
+	\end{cases}$ \\[10pt]
+Answer: $x = 3 + 7t, y = 2 + 8t, z = 4 - 3t$
+
+%32.2
+\subsection{Find the intersection of 
+	\begin{align*}
+		x = 4 + 2t \quad y = 2 - t \quad z = 1 + t
+	\end{align*}
+	with the $xy$-plane, $yz$-plane, and $xz$-plane.
+}
+For the $xy$-plane, set the $z$-coordinate equal to 0.
+\begin{align*}
+	z = 0 = 1 + t \implies t = -1
+\end{align*}
+Plugging in -1 for $t$ will give us the intersection of the plane and the $xy$-plane at $(2,3,0)$. \\[10pt]
+For the $yz$-plane, set the $x$-coordinate equal to 0.
+\begin{align*}
+	x = 0 = 4 + 2t \implies t = -2
+\end{align*}
+Plugging in -1 for $t$ will give us the intersection of the plane and the $yz$-plane at $(0, 4, -1)$. \\[10pt]
+For the $xz$-plane, set the $y$-coordinate equal to 0.
+\begin{align*}
+	y = 0 = 2 - t \implies t = 2
+\end{align*}
+Plugging in -1 for $t$ will give us the intersection of the plane and the $xz$-plane at $(8,0, 3)$. \\[10pt]
+Answer: $xy$-plane at $(2,3,0)$, $yz$-plane at $(0,4,-1)$, and the $xz$-plane at $(8,0,3)$.
+
+%32.3
+\subsection{Determine if the two lines:
+	\begin{align*}
+		L_1: x = 4t - 1, \quad y = t + 3, \quad z = 1 \\
+		L_2: x = -13 + 12s, \quad y = 1 + 6s, \quad z = 2 + 3s
+	\end{align*}
+	are parallel, intersect, or are skew.
+}
+Let's compare the unit vectors of the two lines:
+\begin{align*}
+	\vec{v_1} = <4, 1, 0> \quad \vec{v_2} = <12, 6, 3>
+\end{align*}
+Because the unit vectors are not scalar multiples of each other, then the lines are not parallel. Let's attempt to identify if the lines intersect. We have three equations with two unknowns. We begin with manipulating $z$:
+\begin{align*}
+	z = 1 = 2 + 3s \implies s = \frac{-1}{3}
+\end{align*}
+Plugging in $s = -\frac{1}{3}$ into y, we obtain the value for $t$:
+\begin{align*}
+	y = 1 + 6\bigg( -\frac{1}{3} \bigg) = t + 3 \implies t = -4
+\end{align*}
+Now that we have the values for $s$ and $t$, we plug them into their respective equations to obtain the point of intersection. If the points in both of the lines are exactly the same, then the lines intersect at that point. Otherwise they are skew.
+\begin{align*}
+	L_1: x = 4(-4) - 1 = -17 \\
+		y = (-4) + 3 = -1 \\
+		z = 1 \\
+		\implies (-17, -1, 1)
+\end{align*}
+\begin{align*}
+	L_2: x = -13 + 12\bigg(-\frac{1}{3}\bigg) = -17 \\
+		y = 1 + 6\bigg(-\frac{1}{3}\bigg) = -1 \\
+		z = 2 + 3\bigg(-\frac{1}{3}\bigg) = 1\\
+		\implies (-17,-1,1)
+\end{align*}
+Because the point obtained in both lines are the same, then the lines intersect at $(-17, -1, 1)$. \\[10pt]
+Answer: intersect at the point $(-17, -1, 1)$.
+
+%32.4
+\subsection{Determine if the two lines:
+	\begin{align*}
+		L_1: x = 1 + 2t, \quad y = 2 - t, \quad z = 4 - 2t \\
+		L_2: x = 9 + s, \quad y = 5 + 3s, \quad z = -4 - s
+	\end{align*}
+	are parallel, intersect, or are skew.
+}
+Let’s compare the unit vectors of the two lines:
+\begin{align*}
+	\vec{v_1} = <2, -1, -2> \quad \vec{v_2} = <1, 3, -1>
+\end{align*}
+Because the unit vectors are not scalar multiples of each other, then the lines are not parallel. Let's attempt to identify if the lines intersect. Let's look at the $x$-component:
+\begin{align*}
+	x = 1 + 2t = 9 + s \implies s = 2t - 8
+\end{align*}
+We can plug this into the $y$-component to find $t$ and solve back for $s$:
+\begin{align*}
+	y = 2 - t = 5 + 3(2t - 8) \implies 2 - t = 5 + 6t -24 \implies t = 3
+\end{align*}
+\begin{align*}
+	s = 2(3) - 8 = -2
+\end{align*}
+Now that we have the values for $s$ and $t$, we plug them into their respective equations to obtain the point of intersection.
+\begin{align*}
+	L_1: x = 1 + 2(3) = 7 \\
+		y = 2 - (3) = -1 \\
+		z = 4 - 2(3) = -2 \\
+		\implies (7, -1, -2)
+\end{align*}
+\begin{align*}
+	L_2: x = 9 + (-2) = 7 \\
+		y = 5 + 3(-2) = -1 \\
+		z = -4 - (-2) = -2 \\
+		\implies (7, -1, -2)
+\end{align*}
+Because the point obtained in both lines are the same, then the lines intersect at $(7, -1, -2)$. \\[10pt]
+Answer: intersect at the point $(7, -1, -2)$.
+
+\section{Dot Product}
+For $\vec{a} = <2, 5, -4>$ and $\vec{b} = <1, -2, -3>$ find:
+%33.1
+\subsection{$\vec{a} \cdot \vec{b}$}
+The dot product of two vectors is:
+\begin{align*}
+	\vec{a} \cdot \vec{b} = a_0 * b_0 + a_1 * b_1 + a_2 * b_2
+\end{align*}
+\begin{align*}
+	\vec{a} \cdot \vec{b} = 2 * 1 + 5 * -2 + -4 * -3 = 2 -10 + 12 = 4
+\end{align*}
+Answer: 4
+%33.2
+\subsection{Find the cosine of the angle between $\vec{a}$ and $\vec{b}$.}
+The dot product of two vectors is also:
+\begin{align*}
+	\vec{a} \cdot \vec{b} = || \vec{a} || || \vec{b} || \cos{\theta}
+\end{align*}
+\begin{align*}
+	|| \vec{a} || = \sqrt{(2)^2 + (5)^2 + (-4)^2} = \sqrt{4 + 25 + 16} = \sqrt{45}
+\end{align*}
+\begin{align*}
+	|| \vec{b} || = \sqrt{(1)^2 + (-2)^2 + (-3)^2} = \sqrt{1 + 4 + 9} = \sqrt{14}
+\end{align*}
+\begin{align*}
+	\cos{\theta} = \frac{\vec{a} \cdot \vec{b}}{|| \vec{a} || || \vec{b} ||} = \frac{4}{\sqrt{45} \sqrt{14}}
+\end{align*}
+Answer: $\cos{\theta} = \frac{4}{\sqrt{45}\sqrt{14}}$
+%33.3
+\subsection{$\text{comp}_{\vec{b}} \vec{a}$ or $||\text{proj}_{\vec{b}} \vec{a} ||$}
+The equation of the $\text{comp}_{\vec{b}} \vec{a}$ is:
+\begin{align*}
+	\text{comp}_{\vec{b}} \vec{a} = \frac{| \vec{a} \cdot \vec{b} |}{|| \vec{b} ||} = \frac{4}{\sqrt{14}}
+\end{align*}
+Answer: $\frac{4}{\sqrt{14}}$
+%33.4
+\subsection{$\text{proj}_{\vec{b}} \vec{a}$}
+The equation of the $\text{proj}_{\vec{b}} \vec{a}$ is:
+\begin{align*}
+	\text{proj}_{\vec{b}} \vec{a} = \frac{\vec{a} \cdot \vec{b}}{|| \vec{b} ||} \frac{\vec{b}}{|| \vec{b} ||} = \frac{4}{\sqrt{14}} \frac{<1, -2, -3>}{\sqrt{14}} = \frac{2}{7} <1, -2, -3>
+\end{align*}
+Answer: $<\frac{2}{7}, \frac{-4}{7}, \frac{-6}{7}>$
+
+\section{Cross Product}
+The definition of the cross product of two vectors, $\vec{a} = <a_1, a_2, a_3>$ and $\vec{b} = <b_1, b_2, b_3>$, is
+\begin{align*}
+	\vec{a} \times \vec{b} = 
+	\begin{vmatrix}
+		\hat{i} & \hat{j} & \hat{k} \\
+		a_1 & a_2 & a_3 \\
+		b_1 & b_2 & b_3
+	\end{vmatrix}
+	= (a_2 b_3 - a_3 b_2)\hat{i} - (a_1 b_3 - a_3 b_1)\hat{j} + (a_1 b_2 - a_2 b_1)\hat{k}
+\end{align*}
+For $\vec{a} = <2,5,-4>$ and $\vec{b} = <1, -2, -3>$ find:
+%34.1
+\subsection{$\vec{a} \times \vec{b}$}
+\begin{align*}
+	\vec{a} \times \vec{b} = 
+	\begin{vmatrix}
+		\hat{i} & \hat{j} & \hat{k} \\
+		2 & 5 & -4 \\
+		1 & -2 & -3
+	\end{vmatrix}
+	= (-15 - 8)\hat{i} - (-6 + 4)\hat{j} + (-4 - 5)\hat{k}
+\end{align*}
+\begin{align*}
+	= <-23, 2, -9>
+\end{align*}
+Answer: $<-23, 2, -9>$
+
+%34.2
+\subsection{Find the sine of the angle between $\vec{a}$ and $\vec{b}$.}
+\begin{align*}
+	|| \vec{a} || = \sqrt{45} \quad || \vec{b} = \sqrt{14} || \quad || \vec{a} \times \vec{b} || = \sqrt{614}
+\end{align*}
+\begin{align*}
+	|| \vec{a} \times \vec{b} || = || \vec{a} || || \vec{b} || \sin{\theta} \implies \sin{\theta} = \frac{|| \vec{a} \times \vec{b} || }{|| \vec{a} || || \vec{b} ||} = \frac{\sqrt{614}}{\sqrt{45} \sqrt{14}}
+\end{align*}
+Answer: $\sin{\theta} = \frac{\sqrt{614}}{\sqrt{14}\sqrt{45}}$
+
+%34.3
+\subsection{Find the area of the parallelogram formed by $\vec{a}$ and $\vec{b}$.}
+\begin{align*}
+	A_{\text{parallelogram}} = || \vec{a} \times \vec{b} || = \sqrt{614}
+\end{align*}
+Answer: $A = \sqrt{614}$
+
+%34.4
+\subsection{Find a unit vector perpendicular to both $\vec{a}$ and $\vec{b}$.}
+\begin{align*}
+	\vec{e}_{\vec{a} \times \vec{b}} = \frac{\vec{a} \times \vec{b}}{|| \vec{a} \times \vec{b} ||} = \frac{<-23, 2, -9>}{\sqrt{614}}
+\end{align*}
+Answer: $u = \frac{1}{\sqrt{614}}<-23, 2, -9>$
+
+%34.5
+\subsection{Find the area of the triangle with vertices $(-2, 1, 5)$, $(4, 0, 6)$, $(3, -3, 2)$.}
+Let
+\begin{align*}
+	A = (-2, 1, 5) \quad B = (4, 0, 6) \quad C = (3, -3, 2)
+\end{align*}
+\begin{align*}
+	\vec{AB} = <6, -1, 1> \quad \vec{AC} = <5, -4, -3>
+\end{align*}
+\begin{align*}
+	\vec{AB} \times \vec{AC} = <7, 23, -19>
+\end{align*}
+\begin{align*}
+	A_{\text{triangle}} = \frac{|| \vec{AB} \times \vec{AC} ||}{2} = \frac{\sqrt{939}}{2}
+\end{align*}
+Answer: $A = \frac{\sqrt{939}}{2}$
+
+%34.6
+\subsection{Find the area of the parallelogram having vectors $\vec{u} = <1, -2, 6>$ and $\vec{v} = <-5, 2, 0>$ as adjacent sides.}
+\begin{align*}
+	\vec{u} \times \vec{v} = <-12, -30, 8>
+\end{align*}
+\begin{align*}
+	A_{\text{parallelogram}} = || \vec{u} \times \vec{v} || = \sqrt{1108} = 2\sqrt{277}
+\end{align*}
+Answer: $A = 2\sqrt{277}$
+
+%34.7
+\subsection{Find two unit vectors perpendicular to both $\vec{a} = <1, 2, 0>$ and $\vec{b} = <3, 0, -1>$.}
+\begin{align*}
+	\vec{a} \times \vec{b} = <-2, 1, -6> \quad || \vec{a} \times \vec{b} || = \sqrt{41}
+\end{align*}
+\begin{align*}
+	\vec{e}_{\vec{a} \times \vec{b}} = \pm \frac{<2, -1, 6>}{\sqrt{41}}
+\end{align*}
+Answer: $\vec{u} = \pm \frac{1}{\sqrt{41}}<2, -1, 6>$
+
+\section{Planes}
+
+%35.1
+\subsection{Find the equation of the plane through (3,-2,-1) and parallel to the plane:
+	\begin{align*}
+		2x + y + 6z = 8
+	\end{align*}
+}
+Plug in the point coordinates into the $x, y, z$ variables. 
+\begin{align*}
+	2(3) + (-2) + 6(-1) = 6 - 2 - 6 = -2
+\end{align*}
+\begin{align*}
+	2x + y + 6z = -2
+\end{align*}
+Answer: $2x + y + 6z = -2$
+
+%35.2
+\subsection{Find the equation of the plane through $P(2,1,3), Q(3,3,5),$ and $R(1,3,6)$.}
+A plane is defined by its normal vector. We define two vectors from these points and take their cross product to obtain the normal vector.
+\begin{align*}
+	\vec{PQ} = <3 - 2, 3 - 1, 5 - 3> = <1, 2, 2>
+\end{align*}
+\begin{align*}
+	\vec{PR} = <1 - 2, 3 - 1, 6 - 3> = <-1, 2, 3>
+\end{align*}
+\begin{align*}
+	\vec{PQ} \times \vec{PR} = \vec{N} = <2, -5, 4>
+\end{align*}
+Then we plug in a point into the normal vector to obtain the coefficient. 
+\begin{align*}
+	2(2) + -5(1) + 4(3) = 4 - 5 + 12 = 11
+\end{align*}
+\begin{align*}
+	2x - 5y + 4z = 11
+\end{align*}
+Answer: $2x - 5y + 4z = 11$
+
+%35.3
+\subsection{Find the equation of the plane through $(1, 2, -3)$ and perpendicular to
+	\begin{align*}
+		x = 1 + 2t, \quad y = 2 + t, \quad z = -3 - 5t
+	\end{align*}
+}
+The plane that is perpendicular to a line has its normal vector the same as the direction vector of the line.
+\begin{align*}
+	\vec{N} = <2, 1, -5>
+\end{align*}
+\begin{align*}
+	2(1) + 1(2) + (-5)(-3) = 2 + 2 + 15 = 19
+\end{align*}
+\begin{align*}
+	2x + y - 5z = 19
+\end{align*}
+Answer: $2x + y - 5z = 19$
+
+%35.4
+\subsection{Find the distance from the point $(1,-2,3)$ to the plane $x+2y-4z=1$.}
+The formula to find the distance from a point to the plane is:
+\begin{align*}
+	d = \frac{| \vec{N} \cdot \vec{V} | }{|| \vec{N} ||}
+\end{align*}
+We find the following:
+\begin{align*}
+	\vec{N} = <1, 2, -4> \quad || \vec{N} || = \sqrt{21}
+\end{align*}
+We identify the point $(1, 0, 0)$ is on the plane.
+\begin{align*}
+	\vec{V} = <1 -1, -2 - 0, 3 - 0> = <0, -2, 3>
+\end{align*}
+\begin{align*}
+	| \vec{N} \cdot \vec{V} | = | (1)(0) + (-2)(2) + (-4)(3) |= 16
+\end{align*}
+\begin{align*}
+	d = \frac{16}{\sqrt{21}}
+\end{align*}
+Answer: $\frac{16}{\sqrt{21}}$
+
+%35.5
+\subsection{Find the point of intersection of the line:
+	\begin{align*}
+		x = -1 + t, \quad y = 1 - 2t, \quad z = 3 + 3t
+	\end{align*}
+and the plane $2x - y + z = 7$.}
+To find the point of intersection, we need to find a value of $t$ such that the point is on the line and on the plane. Therefore, substitute the parameter values of the plane with the parametric equations of the line.
+\begin{align*}
+	2(-1 + t) - (1 - 2t) + (3 + 3t) = 7 \implies t = 1
+\end{align*}
+Now, input that value of $t$ into the parametric equations of the line to obtain the point of intersection.
+\begin{align*}
+	x = -1 + 1 = 0
+\end{align*}
+\begin{align*}
+	y = 1 - 2(1) = -1
+\end{align*}
+\begin{align*}
+	z = 3 + 3(1) = 6
+\end{align*}
+Hence, our point of intersection is $(0, -1, 6)$. \\[10pt]
+Answer: $(0, -1, 6)$
+
+%35.6
+\subsection{Find the equation of the line of intersection of the two planes:
+	\begin{align*}
+		3x - 2y + z = 1 \quad -2x + y + 3z = 2
+	\end{align*}
+}
+We first identify the direction vector of the line, which is the cross product of the two normal vectors from the planes:
+\begin{align*}
+	\vec{N_1} = <3, -2, 1> \quad \vec{N_2} = <-2, 1, 3>
+\end{align*}
+\begin{align*}
+	\vec{d} = \vec{N_1} \times \vec{N_2} = <7, 11, 1>
+\end{align*}
+Now we need to find a point on the line of intersection. We simplify our system of equations by letting $z = 0$. 
+\begin{align*}
+	3x - 2y = 1 \quad -2x + y = 2
+\end{align*}
+After solving this system of equations, we obtain:
+\begin{align*}
+	x = -5 \quad y = -8
+\end{align*}
+We can now assemble our equation of the line that passes through both planes:
+\begin{align*}
+	x = 7t - 5, y = 11t - 8, z = t
+\end{align*}
+Answer: $x = 7t - 5, y = 11t - 8, z = t$
+
+\end{document}
