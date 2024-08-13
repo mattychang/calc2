@@ -4,3 +4,4 @@ I am a supplemental instructor for MATH 122: Calculus for Science and Engineerin
 
 In this repository are the solutions for the MPODs (updated 08.12.2024) and Quiz Reviews (updated: 08.12.2024).
 
+Any questions or errors should be directed to Matthew (matthew.chang.hawaii@gmail.com)
